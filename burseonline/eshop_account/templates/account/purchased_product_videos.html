@@ -1,0 +1,75 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+        <style>
+        #rcorners1 {
+          border-radius: 20px;
+          background: whitesmoke;
+          padding: 20px;
+        }
+        div.polaroid {
+          {#width: 1000px;#}
+          padding-right: 30px;
+            padding-left: 30px;
+            padding-top: 10px;
+            padding-bottom: 30px;
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+    <section>
+
+    <div class="container">
+			<div class="row">
+                <div class="col-sm-9">
+                <div class="polaroid">
+						<h2 style="color: #FE980F">
+                            {{ videos.title }}
+                        </h2>
+                        <br>
+                            <center>
+                            <video width="750" controls style="max-width: 100%">
+                                      <source src="{{ videos.video.url }}">
+                            </video>
+                            </center>
+                        <br>
+                <h2 style="color: #FE980F">
+                            توضیحات
+                        </h2>
+                <p>{{videos.description|linebreaks}}</p> <br>
+                 <h2 class="title text-center">جلسات</h2>
+                    {% for video in videos.product_set.all.0.videos.all %}
+                                {% if video.pk is not videos.pk %}
+                                    <p id="rcorners1">
+                                        <a href="{% url 'show-product-video' video.pk %}">
+                                             {{ video.title }}
+                                        </a>
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+
+				</div>
+                <br>
+                </div>
+
+                 <div class="col-sm-3">
+                     <div class="polaroid" >
+					<div class="left-sidebar">
+						<h1 style="color: #FE980F; text-align: center;font-size: 25px">تبلیغات</h1>
+						<video width="200" height="300" autoplay muted>
+                            <source src="">
+                        </video>
+                        <video width="200" height="300" autoplay muted>
+                            <source src="">
+                        </video>
+                        <video width="200" height="300" autoplay muted>
+                            <source src="">
+                        </video>
+
+					</div>
+                     </div><br><br>
+				</div>
+            </div>
+    </div>
+    </section>
+{% endblock %}

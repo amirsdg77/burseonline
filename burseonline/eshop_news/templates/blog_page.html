@@ -1,0 +1,189 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        #rcorners1 {
+          border-radius: 20px;
+          background: whitesmoke;
+          padding: 20px;
+        }
+        div.polaroid {
+          {#width: 1000px;#}
+          padding-right: 30px;
+            padding-left: 30px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+
+<section>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-9">
+                <div class="polaroid">
+					<div class="blog-post-area">
+						<h2 class="title text-center">خبر</h2>
+						<div class="single-blog-post">
+							<h3>{{ blog.headline }}</h3>
+							<div class="post-meta">
+								<ul>
+									<li><i class="fa fa-user"></i>{{ blog.authors.all.0 }}</li>
+									<li><i class="fa fa-clock-o"></i> {{ blog.pub_date.time }}</li>
+									<li><i class="fa fa-calendar"></i> {{ blog.pub_date.date }}</li>
+								</ul>
+								<span>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+								</span>
+							</div>
+							<a href="">
+								<img src="images/blog/blog-one.jpg" alt="">
+							</a>
+                            <center>
+                            <img width="750" src="{{ blog.title_image.url }}" style="max-width: 100%">
+                            </center>
+                            <br><br>
+							<p>{{ blog.body_text|linebreaks }}</p>
+							<div class="pager-area">
+								<ul class="pager pull-left">
+									<li><a href="#">قبلی</a></li>
+									<li><a href="#">بعـدی</a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!--/blog-post-area-->
+
+					<div class="rating-area">
+						<ul class="ratings">
+							<li class="rate-this">به این مطلب امتیـاز دهیـد :</li>
+							<li>
+								<i class="fa fa-star color"></i>
+								<i class="fa fa-star color"></i>
+								<i class="fa fa-star color"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</li>
+							<li class="color">{{ blog.comments.count }} نظر</li>
+						</ul>
+						<ul class="tag">
+							<li>برچسب :</li>
+							<li><a class="color" href=""> {{ blog.category.all.0 }} <span>/</span></a></li>
+						</ul>
+					</div><!--/rating-area-->
+
+					<div class="socials-share">
+						<a href=""><img src="images/blog/socials.png" alt=""></a>
+					</div><!--/socials-share-->
+
+					<div class="media commnets" style="box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);">
+						<a class="pull-right" href="#">
+							<img class="media-object" src="images/blog/Customer.jpg" alt="">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">{{ blog.authors.all.0 }}</h4>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+							<div class="blog-socials">
+								<ul>
+									<li><a href=""><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+									<li><a href=""><i class="fa fa-google-plus"></i></a></li>
+								</ul>
+								<a class="btn btn-primary" href="">سایـر مطالب نویسنده</a>
+							</div>
+						</div>
+					</div><!--Comments-->
+                    {% if user.is_authenticated %}
+{#                        <div class="replay-box">#}
+						<div class="row">
+
+							<div class="col-sm-8">
+								<div class="text-area">
+									<div class="blank-arrow">
+										<label>متن پیام</label>
+									</div>
+                                    <form method="post" action="{% url 'add-comment' blog.pk%}" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{form.body_text}}
+                                        <button type="submit" class="btnSubmit"  style="font-family: 'B Mehr';margin-top: 30px; margin-bottom: -5px">ارسال</button>
+                                    </form>
+
+									<span>*</span>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<h2>نظـر خود را بنویسیـد</h2>
+							</div>
+						</div>
+{#					</div><!--/Repaly Box-->#}
+                    {% else %}
+
+                        <a href="{% url 'login'%}">وارد شوید</a>
+
+                    {% endif %}
+					<div class="response-area">
+						<h2>نظرات</h2>
+						<ul class="media-list">
+                            {% for comment in blog.comments.all %}
+							<li class="media" style="box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);">
+
+								<a class="pull-right" href="#">
+									<img class="media-object" src="images/blog/Customer.jpg" alt="">
+								</a>
+								<div class="media-body">
+									<ul class="sinlge-post-meta">
+										<li><i class="fa fa-user"></i>{{ comment.user.all.0 }}</li>
+										<li><i class="fa fa-clock-o"></i> {{ comment.pub_date.time }} </li>
+										<li><i class="fa fa-calendar"></i> {{ comment.pub_date.date }}</li>
+									</ul>
+                                    <p>{{ comment.body_text }}</p>
+									<a class="btn btn-primary" href=""><i class="fa fa-reply"></i>پاسـخ</a>
+								</div>
+							</li>
+{#							<li class="media second-media">#}
+{#								<a class="pull-right" href="#">#}
+{#									<img class="media-object" src="images/blog/Customer.jpg" alt="">#}
+{#								</a>#}
+{#								<div class="media-body">#}
+{#									<ul class="sinlge-post-meta">#}
+{#										<li><i class="fa fa-user"></i>مشتـری شمـاره 1</li>#}
+{#										<li><i class="fa fa-clock-o"></i> 13:33 ب.ظ</li>#}
+{#										<li><i class="fa fa-calendar"></i> 25 تیـر 1397</li>#}
+{#									</ul>#}
+{#									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>#}
+{#									<a class="btn btn-primary" href=""><i class="fa fa-reply"></i>پاسـخ</a>#}
+{#								</div>#}
+{#							</li>#}
+                            {% endfor %}
+						</ul>
+					</div><!--/Response-area-->
+                </div><br><br>
+				</div>
+
+                <div class="col-sm-3">
+                    <div class="polaroid">
+					<div class="left-sidebar">
+						<h2>تبلیغات</h2>
+						<video width="200" height="300" autoplay muted>
+                            <source src="">
+                        </video>
+                        <video width="200" height="300" autoplay muted>
+                            <source src="">
+                        </video>
+                        <video width="200" height="300" autoplay muted>
+                            <source src="">
+                        </video>
+
+					</div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

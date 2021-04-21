@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title> add blog </title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="icon" href="../../static/img/b.png" type="image/gif" sizes="16x16">
+
+    <link rel="stylesheet" href="../../static/css/uploadSong.css?version=51">
+        <link rel="stylesheet" href="../../static/css/basics.css?version=51">
+</head>
+<body>
+<div class="container emp-profile" style="text-align: center;width: 500px">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p style="margin-left: 120px; margin-bottom: 5px; margin-top: 15px; font-family: 'B Mehr'"> :عنوان </p>
+        {{form.title}}
+        <p style="margin-left: 120px; margin-bottom: 5px; margin-top: 15px; font-family: 'B Mehr'"> نام: </p>
+        {{form.name}}
+        <center>
+            <button type="submit" class="btnSubmit"  style="font-family: 'B Mehr';margin-top: 30px; margin-bottom: -5px">آپلود</button>
+        </center>
+    </form>
+</div>
+</body>
+</html>
