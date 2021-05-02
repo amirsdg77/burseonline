@@ -1,0 +1,942 @@
+@font-face {
+  font-family: "IRANSans";
+  src: url('fonts/IRANSans.eot');
+  src: url('fonts/IRANSans.eot?#iefix') format('embedded-opentype'),
+    url('fonts/IRANSans.woff2') format('woff2'),
+    url('fonts/IRANSans.woff') format('woff'),
+    url('fonts/IRANSans.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'IRANSans', tahoma;
+  color: #1e2f38;
+  font-size: 14px;
+  word-spacing: -1px
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+/***********Default setting************/
+
+a:link,
+a:hover {
+  text-decoration: none;
+  outline: 0 !important
+}
+
+a:active {
+  color: #54c3ed
+}
+
+i,
+span,
+label,
+a {
+  display: inline-block;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 15px;
+  margin: 0;
+  padding: 0
+}
+
+img {
+  max-width: 100%
+}
+
+/********** Transition ************/
+a,
+i,
+input[type="submit"],
+form button,
+.landing-layer .main-header nav>ul>li>a:before,
+.landing-layer .main-header nav .responsive-menu {
+  outline: medium none;
+  text-decoration: none;
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -ms-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s
+}
+
+/*********** clearFix ************/
+.landing-layer .main-header:after,
+.landing-layer .main-header nav>ul:after,
+.landing-layer .main-header .clientarea .logged-in:after,
+.main-menu:after,
+.main-menu nav>ul:after {
+  display: block;
+  clear: both;
+  content: '';
+  visibility: hidden;
+  height: 0;
+  line-height: 0
+}
+
+
+.landing-layer {
+  width: 100%;
+  position: relative;
+  background: url('../images/header.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.landing-layer.home-page {
+  background: url('../images/landing.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 25px 0
+}
+
+.landing-layer .main-header {
+  padding: 40px 100px 0 0;
+  position: relative;
+}
+
+.landing-layer.home-page .main-header {
+  padding: 25px 100px 25px 0;
+  position: relative;
+}
+
+.landing-layer .main-header .title-homepage {
+  line-height: 20px;
+  position: absolute;
+  text-indent: -9999px
+}
+
+.landing-layer .main-header .logo {
+  position: absolute;
+  top: 19px;
+  right: 0;
+  width: 75px;
+  display: block;
+}
+
+.landing-layer.home-page .main-header .logo {
+  top: 0;
+}
+
+.landing-layer .main-header .logo img {
+  display: block;
+  width: 100%
+}
+
+.landing-layer .main-header nav {
+  position: relative;
+  width: auto;
+  white-space: nowrap;
+  float: right;
+  display: table;
+  margin-top: -5px
+}
+
+.landing-layer .main-header nav .responsive-menu {
+  font-size: 25px;
+  color: #fff;
+  display: none
+}
+
+.landing-layer .main-header nav .responsive-menu:hover {
+  color: #00bffe;
+  cursor: pointer;
+}
+
+.landing-layer .main-header nav>ul>li {
+  position: relative;
+  width: auto;
+  white-space: nowrap;
+  float: right;
+  padding-left: 25px
+}
+
+.landing-layer .main-header nav>ul>li>a {
+  font-size: 14px;
+  color: #fff;
+  line-height: 25px;
+  padding-bottom: 35px;
+  position: relative;
+}
+
+.landing-layer.home-page .main-header nav>ul>li>a {
+  padding-bottom: 25px
+}
+
+.landing-layer .main-header nav>ul>li>a:before {
+  position: absolute;
+  right: 0;
+  top: -15px;
+  width: 0;
+  height: 2px;
+  content: '';
+  box-shadow: 0 0 7px #fcc208;
+  -moz-box-shadow: 0 0 7px #fcc208;
+  -webkit-box-shadow: 0 0 7px #fcc208;
+  background-color: #fcc208;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+}
+
+.landing-layer .main-header nav>ul>li:hover>a:before {
+  width: 100%
+}
+
+.landing-layer .main-header nav>ul>li ul {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  padding: 15px;
+  background-color: #fff;
+  z-index: 100;
+  min-width: 200px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #eaeff2;
+  box-shadow: 0 0 5px rgba(237, 241, 244, 0.7);
+  -moz-box-shadow: 0 0 5px rgba(237, 241, 244, 0.7);
+  -webkit-box-shadow: 0 0 5px rgba(237, 241, 244, 0.7);
+  width: auto;
+  white-space: nowrap;
+  display: none
+}
+
+.landing-layer.home-page .main-header nav>ul>li ul {
+  top: 50px;
+}
+
+.landing-layer .main-header nav>ul>li ul li {
+  position: relative;
+  width: auto;
+  white-space: nowrap;
+  padding-right: 15px
+}
+
+.landing-layer .main-header nav>ul>li ul li a {
+  font-size: 14px;
+  color: #1e2f38;
+  line-height: 27px;
+}
+
+.landing-layer .main-header nav>ul>li ul li a:before {
+  width: 5px;
+  height: 5px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  background-color: #00bffe;
+  position: absolute;
+  right: 3px;
+  top: 12px;
+  content: ''
+}
+
+.landing-layer .main-header nav>ul>li ul li a:hover {
+  color: #00b3e9
+}
+
+.landing-layer .main-header .clientarea {
+  width: auto;
+  white-space: nowrap;
+  display: table;
+  float: left;
+  position: relative;
+}
+
+.landing-layer .main-header .clientarea .user-area {
+  width: auto;
+  float: left;
+  padding-right: 14px
+}
+
+.landing-layer .main-header .clientarea .user-area .logged-out {
+  position: relative;
+  margin-top: -8px
+}
+
+.landing-layer .main-header .clientarea .user-area .logged-out a {
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+}
+
+.landing-layer .main-header .clientarea .user-area .logged-out a:hover {
+  color: #fcc208
+}
+
+.landing-layer .main-header .clientarea .user-area .logged-out a:nth-child(2) {
+  padding-left: 11px
+}
+
+.landing-layer .main-header .clientarea .user-area .logged-out a:nth-child(2):before {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  content: '/';
+  font-size: 13px;
+  color: #fff
+}
+
+.landing-layer .main-header .clientarea .user-area .logged-out i {
+  font-size: 21px;
+  color: #fff;
+  position: relative;
+  top: 4px;
+  margin-left: 7px;
+}
+
+.landing-layer .main-header .clientarea .logged-in {
+  position: relative;
+  margin-top: -16px;
+  margin-right: 14px
+}
+
+.landing-layer .main-header .clientarea .logged-in .img-layer {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  position: relative;
+  float: left;
+  margin-right: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.landing-layer .main-header .clientarea .logged-in .img-layer img {
+  width: 100%;
+  display: block;
+  position: relative;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+
+.landing-layer .main-header .clientarea .logged-in .title {
+  width: auto;
+  min-width: 80px;
+  float: right;
+  padding-left: 10px;
+  position: relative;
+  line-height: 40px;
+  font-size: 13px;
+  color: #fff;
+  padding-top: 4px;
+  word-spacing: -1px;
+}
+
+.landing-layer .main-header .clientarea .logged-in .title i {
+  position: absolute;
+  right: -17px;
+  top: 15px;
+  font-size: 21px;
+  color: #fff
+}
+
+.landing-layer .main-header .clientarea .logged-in .title:hover,
+.landing-layer .main-header .clientarea .logged-in .title:hover i {
+  color: #00b3e9
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  padding: 15px 15px 10px;
+  background-color: #fff;
+  z-index: 100;
+  min-width: 200px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #eaeff2;
+  box-shadow: 0 0 5px rgba(237, 241, 244, 0.7);
+  -moz-box-shadow: 0 0 5px rgba(237, 241, 244, 0.7);
+  -webkit-box-shadow: 0 0 5px rgba(237, 241, 244, 0.7);
+  display: none;
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer .user-wallet {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eaeff2;
+  margin-bottom: 10px;
+  font-size: 13px
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer .user-wallet span {
+  color: #5fb430;
+  font-size: 14px
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer ul li {
+  padding-right: 10px
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer ul li a {
+  display: block;
+  line-height: 22px;
+  font-size: 13px;
+  color: #222b30;
+  margin: 7px 0;
+  position: relative;
+  padding-right: 3px
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer ul li a .new-msg {
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  background-color: #f3f7fa;
+  position: absolute;
+  left: 3px;
+  top: 1px
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer ul li a:before {
+  width: 5px;
+  height: 5px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  background-color: #6fc341;
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  content: ''
+}
+
+.landing-layer .main-header .clientarea .logged-in .sublayer ul li a:hover {
+  color: #5fb430
+}
+
+.landing-layer .main-header .clientarea>a {
+  width: auto;
+  height: 15px;
+  float: left;
+  font-size: 21px;
+  padding-left: 12px;
+  line-height: 15px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff
+}
+
+.landing-layer.home-page .main-header .clientarea>a {
+  display: none
+}
+
+.landing-layer .main-header .clientarea>a:hover {
+  color: #00b3e9
+}
+
+.landing-layer .main-header .clientarea>a i {
+  position: relative;
+  top: -2px
+}
+
+.landing-layer .main-header .cooperation {
+  width: auto;
+  float: left;
+  display: table;
+  position: relative;
+  padding: 0;
+  font-size: 14px;
+  color: #fff;
+  word-spacing: -2px;
+  display: none;
+  margin-top: -8px
+}
+
+.landing-layer .main-header .cooperation img {
+  width: 30px;
+  position: relative;
+  margin-left: 3px;
+  top: 1px
+}
+
+.landing-layer .landing-content {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  padding: 45px 0 70px
+}
+
+.landing-layer .landing-content .landing-header {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.landing-layer .landing-content .landing-header h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  line-height: 35px;
+  margin-bottom: 20px;
+  word-spacing: -2px
+}
+
+.landing-layer .landing-content .landing-header span {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  line-height: 35px
+}
+
+.landing-layer .landing-content .landing-search {
+  position: relative;
+  padding: 60px 0 45px
+}
+
+.landing-layer .landing-content .landing-search form {
+  width: 100%;
+  display: block;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-layer .landing-content .landing-search form input {
+  width: 100%;
+  display: block;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  line-height: 50px;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 15px;
+  color: #1e2f38;
+  border: 0;
+  outline: none;
+}
+
+.landing-layer .landing-content .landing-search form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1e2f38;
+  opacity: 1;
+}
+
+.landing-layer .landing-content .landing-search form ::-ms-input-placeholder,
+.landing-layer .landing-content .landing-search form :-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #1e2f38;
+}
+
+.landing-layer .landing-content .landing-search form button {
+  font-size: 25px;
+  color: #00bffe;
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  width: 50px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+}
+
+.landing-layer .landing-content .landing-search form button:hover {
+  color: #1e2f38
+}
+
+.landing-layer .landing-content .landing-search form button i {
+  position: relative;
+  top: 8px
+}
+
+.landing-layer .landing-statistics .statistic-col {
+  position: relative;
+  width: 140px;
+  margin: 0 auto
+}
+
+.landing-layer .landing-statistics .statistic-col img {
+  position: relative;
+  width: 100%
+}
+
+.landing-layer .landing-statistics .statistic-col .count {
+  font-size: 18px;
+  line-height: 20px;
+  position: absolute;
+  right: -35px;
+  top: 55px;
+  color: #fff;
+}
+
+.landing-layer .landing-statistics .statistic-col .title {
+  font-size: 15px;
+  line-height: 15px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  top: -5px
+}
+
+.main-menu {
+  box-shadow: 0 0 10px #ebf0f5;
+  -moz-box-shadow: 0 0 10px #ebf0f5;
+  -webkit-box-shadow: 0 0 10px #ebf0f5;
+  background-color: #fff;
+  border-bottom: 1px solid #eef4f9
+}
+
+.main-menu nav {
+  width: auto;
+  float: right;
+  display: table;
+  position: relative;
+}
+
+.main-menu nav>ul {
+  position: relative;
+  padding-top: 6px
+}
+
+.main-menu nav>ul>li {
+  float: right;
+  width: auto;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 30px
+}
+
+.main-menu nav>ul>li>a {
+  display: block;
+  font-size: 15px;
+  line-height: 30px;
+  padding: 15px 0 22px;
+  color: #1e2f38
+}
+
+.main-menu nav>ul>li .sign-down {
+  position: absolute;
+  left: 14px;
+  top: 22px;
+  font-size: 15px;
+  color: #6a7b82
+}
+
+.main-menu nav>ul>li:hover>a,
+.main-menu nav>ul>li:hover .sign-down {
+  color: #fcc208
+}
+
+.main-menu nav>ul>li>ul {
+  position: absolute;
+  right: 0;
+  top: 68px;
+  padding: 15px;
+  background-color: #fff;
+  z-index: 100;
+  min-width: 200px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #eaeff2;
+  box-shadow: 0 0 5px rgba(237, 241, 244, 0.9);
+  -moz-box-shadow: 0 0 5px rgba(237, 241, 244, 0.9);
+  -webkit-box-shadow: 0 0 5px rgba(237, 241, 244, 0.9);
+  width: auto;
+  white-space: nowrap;
+  border-top: 0;
+  display: none;
+}
+
+.main-menu nav>ul>li>ul li {
+  position: relative;
+  width: auto;
+  white-space: nowrap;
+  padding-right: 15px;
+  margin: 2px 0
+}
+
+.main-menu nav>ul>li>ul li a {
+  font-size: 14px;
+  color: #1e2f38;
+  line-height: 27px;
+}
+
+.main-menu nav>ul>li>ul li a:before {
+  width: 5px;
+  height: 5px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  background-color: #00bffe;
+  position: absolute;
+  right: 3px;
+  top: 12px;
+  content: ''
+}
+
+.main-menu nav>ul>li>ul li a:hover {
+  color: #00b3e9
+}
+
+.main-menu .cooperation {
+  width: auto;
+  float: left;
+  display: table;
+  position: relative;
+  padding: 19px 0;
+  font-size: 15px;
+  color: #00b3e9;
+  font-weight: bold;
+  word-spacing: -2px
+}
+
+.main-menu .cooperation img {
+  width: 35px;
+  position: relative;
+  margin-left: 3px;
+  top: 2px
+}
+
+
+
+
+/******** media queris ********/
+
+@media screen and (max-width : 1199px) {
+  .landing-layer .main-header nav>ul>li {
+    padding-left: 20px
+  }
+
+  .main-menu nav>ul>li {
+    padding-left: 22px
+  }
+
+  .main-menu nav>ul>li>a {
+    font-size: 14px;
+    padding: 12px 0 18px
+  }
+
+  .main-menu nav>ul>li .sign-down {
+    left: 9px;
+    top: 20px;
+    font-size: 14px;
+  }
+
+  .main-menu .cooperation img {
+    width: 30px;
+    margin-left: 2px
+  }
+
+  .main-menu .cooperation {
+    font-size: 14px
+  }
+
+  .main-menu nav>ul>li>ul {
+    top: 62px
+  }
+
+  .landing-layer .landing-content {
+    padding: 35px 0 50px
+  }
+}
+
+@media screen and (max-width : 991px) {
+  .search-layer {
+    width: 80%;
+    right: 20%;
+    margin-right: -10%
+  }
+
+  .landing-layer .main-header nav>ul,
+  .main-menu {
+    display: none
+  }
+
+  .landing-layer .main-header nav .responsive-menu {
+    display: block;
+    position: relative;
+    top: -2px
+  }
+
+  .landing-layer .main-header .logo {
+    width: 58px;
+    top: 15px
+  }
+
+  .landing-layer.home-page .main-header .logo {
+    top: 0;
+  }
+
+  .landing-layer .main-header {
+    padding: 30px 90px 12px 0;
+  }
+
+  .landing-layer.home-page .main-header {
+    padding: 18px 90px 25px 0
+  }
+
+  .landing-layer .main-header nav {
+    min-width: 38px
+  }
+
+  .landing-layer .main-header .clientarea {
+    float: right;
+  }
+
+  .landing-layer.home-page .main-header .clientarea>a {
+    padding: 0 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    display: block;
+  }
+
+  .landing-layer .landing-content {
+    width: 100%
+  }
+
+  .landing-layer .landing-content .landing-header h2 {
+    font-size: 22px;
+    margin-bottom: 15px
+  }
+
+  .landing-layer .landing-content .landing-header span {
+    font-size: 20px
+  }
+
+  .landing-layer .landing-content {
+    padding: 20px 0 0
+  }
+
+  .landing-layer .landing-content .landing-search {
+    padding: 40px 0 30px;
+  }
+
+  .landing-layer .main-header .cooperation {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width : 480px) {
+  .search-layer {
+    width: 90%;
+    right: 10%;
+    margin-right: -5%;
+    top: 10%
+  }
+
+  .landing-layer .main-header .cooperation img {
+    display: none
+  }
+
+  .landing-layer .main-header .cooperation {
+    margin-top: -2px;
+    margin-right: 12px;
+    line-height: 15px;
+    padding-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    float: right;
+  }
+
+  .landing-layer .main-header .cooperation:hover {
+    color: #00b3e9
+  }
+
+  .landing-layer .landing-content .landing-header h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 30px
+  }
+
+  .landing-layer .landing-content .landing-header span {
+    font-size: 17px;
+    line-height: 30px
+  }
+
+  .landing-layer .landing-content .landing-search {
+    padding: 30px 0 20px
+  }
+
+  .landing-layer .landing-content {
+    padding-top: 5px
+  }
+
+  .landing-layer .main-header,
+  .landing-layer.home-page .main-header {
+    padding-right: 75px
+  }
+
+  .landing-layer .landing-content .landing-search form input {
+    font-size: 14px;
+    word-spacing: -2px
+  }
+
+  .landing-layer .main-header .clientarea .logged-in .img-layer {
+    width: 35px;
+    height: 35px;
+    top: 5px
+  }
+
+  .landing-layer .main-header {
+    padding-right: 65px
+  }
+}
+
+@media screen and (max-width : 450px) {
+  .landing-layer .main-header .cooperation {
+    display: none
+  }
+
+  .landing-layer .landing-content .landing-header h2 {
+    line-height: 35px;
+    width: 280px;
+    display: block;
+    margin: 0 auto 5px
+  }
+
+  .landing-layer .landing-content .landing-header span {
+    display: none
+  }
+
+  .landing-layer .landing-content .landing-search {
+    padding-top: 15px
+  }
+}
+
+@media screen and (max-width :380px) {
+  .landing-layer .landing-content .landing-header h2 {
+    width: 250px;
+  }
+}
