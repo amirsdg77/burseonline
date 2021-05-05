@@ -63,8 +63,8 @@
             <div class="landing-content">
 
                 <div class="landing-header cooperation animated fadeIn">
-                    <h2 class="animated bounceIn">منتور مرجع آموزش آنلاین</h2>
-                    <span class="animated bounceIn">رسیدن به شغل رویایی با کمترین هزینه</span>
+                    <h2 class="animated zoomIn">منتور مرجع آموزش آنلاین</h2>
+                    <span class="animated zoomIn">رسیدن به شغل رویایی با کمترین هزینه</span>
                 </div>
 
                 <div class="landing-search">
@@ -293,6 +293,10 @@
             </div>
         </div>
     </div>
+    <div class="discount">
+        <img src="Site/images/Discount.png" alt="discunt">
+        <a  class="closeBtn" onclick="close()"><i class="zmdi zmdi-close" ></i></a>
+    </div>
 <!-- These tags are temporary   -->
 <br>
 <br>
@@ -310,6 +314,23 @@
 <br>
 <br>
 <br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <br>
 <br>
 <br>
@@ -460,7 +481,7 @@
     <!-- /fixed-menu -->
 
 
-
+    <script src="Site/js/custom.js"></script>
     <script src="Site/js/jquery.min.js"></script>
     <script src="Site/js/Bootstrap.js"></script>
     <script src="Site/OwlCarousel2-2.3.4/js/owl.autoplay.js"></script>
@@ -504,6 +525,16 @@ $('.play').on('click',function(){
 $('.stop').on('click',function(){
     owl.trigger('stop.owl.autoplay')
 })
+
+$(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 500) {
+                    $('.discount').fadeIn();
+                } else {
+                    $('.discount').fadeOut();
+                }
+            });
+        });
     </script>
 </body>
 

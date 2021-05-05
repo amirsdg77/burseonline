@@ -541,13 +541,12 @@ form button,
 }
 .status a{
   color: #2f0c55;
-  padding: 50px;
   margin-top: 20px;
   max-width: 250px;
   max-height: 210px;
   width: 170px;
   height: 170px;
-  border: 5px solid #8b1a82ce;
+  border: 5px solid #531397;
   border-radius: 50%;
   overflow: hidden;
   background-size: cover;
@@ -555,11 +554,35 @@ form button,
 }
 .status p{
   width: 170px;
+  color: #6a7b82;
 }
 
 .status a:hover{
   border: 5px dashed gray;
+  transform: scale(1.07);
 }
+
+.status >div :hover > p{
+  color: #531397;
+}
+
+.discount{
+  max-width: 300px;
+  position: fixed;
+  top: 250px;
+  left: -30px ;
+  z-index: 1;
+  display: none;
+}
+
+.discount .closeBtn{
+  position: relative;
+  top: -240px;
+  right: -12px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
 
 .fixed-menu {
   width: 310px;
@@ -740,6 +763,10 @@ form button,
 
 
 @media screen and (max-width : 1199px) {
+  .landing-layer .main-header nav>ul,
+  .main-menu {
+    display: none
+  }
   .landing-layer .main-header nav>ul>li {
     padding-left: 20px
   }
@@ -779,7 +806,16 @@ form button,
 }
 
 @media screen and (max-width : 991px) {
-
+  .discount{
+    top: 150px;
+    left: -10px;
+    width: 200px;
+  }
+  .discount .closeBtn{
+    top: -155px;
+    left: -5px;
+    font-size: 14px;
+  }
   .landing-layer .main-header nav>ul,
   .main-menu {
     display: none
@@ -852,8 +888,16 @@ form button,
 
 @media screen and (max-width : 480px) {
 
-
-
+  .discount{
+    top: 30px;
+    left: -10px;
+    width: 100px;
+  }
+  .discount .closeBtn{
+    top: -85px;
+    left: -2px;
+    font-size: 10px;
+  }
   .landing-layer .landing-content .landing-header h2 {
     font-size: 18px;
     margin-bottom: 10px;
