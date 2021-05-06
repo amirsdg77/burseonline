@@ -483,7 +483,7 @@ form button,
 
 .main-menu nav>ul>li:hover>a,
 .main-menu nav>ul>li:hover .sign-down {
-  color:  #5d209e;
+  color: #5d209e;
 }
 
 .main-menu nav>ul>li>ul {
@@ -516,69 +516,76 @@ form button,
   padding-right: 15px;
   margin: 2px 0;
 }
+
 .main-menu nav>ul>li>ul li a {
   font-size: 14px;
   color: #6a7b82;
   line-height: 27px;
   transition: 0.5s;
 }
-.main-menu nav>ul>li>ul li a >i {
+
+.main-menu nav>ul>li>ul li a>i {
   color: transparent;
 }
+
 .main-menu nav>ul>li>ul li a:hover i {
   color: #1e2f38;
 }
+
 .main-menu nav>ul>li>ul li a:hover {
   color: #5d209e;
   transform: translateX(-5px);
 }
 
-.status{
+.status {
   margin: 20px 0;
   overflow: hidden;
   text-align: center;
   font-size: 18px;
 }
-.status a{
+
+.status a {
   color: #2f0c55;
   margin-top: 20px;
   max-width: 250px;
   max-height: 210px;
   width: 170px;
   height: 170px;
-  border: 5px solid #531397;
+  border: 1px solid gainsboro;
   border-radius: 50%;
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  box-shadow: 1px 5px 10px 0.1px rgba(141, 141, 141, 0.644);
 }
-.status p{
+
+.status p {
   width: 170px;
   color: #6a7b82;
 }
 
-.status a:hover{
-  border: 5px dashed gray;
+.status a:hover {
+
   transform: scale(1.07);
 }
 
-.status >div :hover > p{
+.status>div :hover>p {
   color: #531397;
 }
 
-.discount{
-  max-width: 300px;
+.discount {
+  max-width: 400px;
   position: fixed;
-  top: 250px;
-  left: -30px ;
+  bottom: -55px;
+  left: -90px;
   z-index: 1;
   display: none;
 }
 
-.discount .closeBtn{
+.discount .closeBtn {
   position: relative;
-  top: -240px;
-  right: -12px;
+  bottom: 230px;
+  left: -90px;
   cursor: pointer;
   font-size: 25px;
 }
@@ -705,7 +712,6 @@ form button,
   position: absolute;
   right: 0;
   top: 0
-  
 }
 
 .fixed-menu .inner nav>ul li .arrow-sign i.zmdi-minus {
@@ -763,10 +769,12 @@ form button,
 
 
 @media screen and (max-width : 1199px) {
+
   .landing-layer .main-header nav>ul,
   .main-menu {
     display: none
   }
+
   .landing-layer .main-header nav>ul>li {
     padding-left: 20px
   }
@@ -806,16 +814,18 @@ form button,
 }
 
 @media screen and (max-width : 991px) {
-  .discount{
-    top: 150px;
-    left: -10px;
-    width: 200px;
+  .discount {
+    bottom: -30px;
+    left: -58px;
+    width: 270px;
   }
-  .discount .closeBtn{
-    top: -155px;
-    left: -5px;
+
+  .discount .closeBtn {
+    bottom: 155px;
+    left: -50px;
     font-size: 14px;
   }
+
   .landing-layer .main-header nav>ul,
   .main-menu {
     display: none
@@ -888,16 +898,18 @@ form button,
 
 @media screen and (max-width : 480px) {
 
-  .discount{
-    top: 30px;
-    left: -10px;
-    width: 100px;
+  .discount {
+bottom: -25px;
+    left: -33px;
+    width: 150px;
   }
-  .discount .closeBtn{
-    top: -85px;
-    left: -2px;
+
+  .discount .closeBtn {
+bottom: 90px;
+    left: -20px;
     font-size: 10px;
   }
+
   .landing-layer .landing-content .landing-header h2 {
     font-size: 18px;
     margin-bottom: 10px;
