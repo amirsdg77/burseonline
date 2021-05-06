@@ -541,16 +541,14 @@ form button,
   margin: 20px 0;
   overflow: hidden;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .status a {
   color: #2f0c55;
   margin-top: 20px;
-  max-width: 250px;
-  max-height: 210px;
-  width: 170px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   border: 1px solid gainsboro;
   border-radius: 50%;
   overflow: hidden;
@@ -560,13 +558,14 @@ form button,
 }
 
 .status p {
-  width: 170px;
+  font-size: 16px;
+  width: 150px;
   color: #6a7b82;
 }
 
 .status a:hover {
 
-  transform: scale(1.07);
+  transform: scale(1.05);
 }
 
 .status>div :hover>p {
@@ -598,7 +597,7 @@ form button,
   right: -310px;
   top: 0;
   z-index: 10002;
-  background-color: #2f0c55f1;
+  background-color: #2f0c55;
   padding: 5px 0;
 }
 
@@ -622,7 +621,6 @@ form button,
   width: auto;
   display: table;
   margin: 10px auto 0;
-  color: #fff !important;
 }
 
 .fixed-menu .logo img {
@@ -720,13 +718,13 @@ form button,
 
 .fixed-menu .inner nav>ul li .arrow-sign i:hover {
   cursor: pointer;
-  color: #fcc208;
-  border: 1px solid #fcc208;
+  color: #fcc308da;
+  border: 1px solid #fcc308da;
   border-radius: 50%;
 }
 
 .fixed-menu .inner nav>ul>li ul {
-  display: none
+  display: none;
 }
 
 
@@ -746,7 +744,7 @@ form button,
 .fixed-menu .inner nav>ul>li ul li {
   position: relative;
   padding: 2px 0;
-  width: 100%
+  width: 100%;
 }
 
 .fixed-menu .inner nav>ul>li ul {
@@ -757,14 +755,16 @@ form button,
   position: relative;
   width: 90%;
   line-height: 22px;
-  padding: 2px 0;
+  padding: 2px 7px;
+  padding-right: 20px;
   color: rgb(190, 190, 190);
   font-size: 13px;
+  border-radius: 10%;
 }
 
 .fixed-menu .inner nav>ul li:hover>a {
-  color: #fcc208;
-  transform: scale(1.02);
+  color: #9fd98c;
+  background-color: #17032c34;
 }
 
 
@@ -817,14 +817,24 @@ form button,
   .discount {
     bottom: -30px;
     left: -58px;
-    width: 270px;
+    width: 320px;
   }
 
   .discount .closeBtn {
-    bottom: 155px;
-    left: -50px;
+    bottom: 180px;
+    left: -70px;
     font-size: 14px;
   }
+
+  .status a{
+    width: 130px;
+    height: 130px;
+  }
+
+.status p{
+  font-size: 14px;
+  width: 130px;
+}
 
   .landing-layer .main-header nav>ul,
   .main-menu {
@@ -899,16 +909,26 @@ form button,
 @media screen and (max-width : 480px) {
 
   .discount {
-bottom: -25px;
-    left: -33px;
-    width: 150px;
+    bottom: -25px;
+    left: -45px;
+    width: 230px;
   }
 
   .discount .closeBtn {
-bottom: 90px;
-    left: -20px;
+    bottom: 135px;
+    left: -50px;
     font-size: 10px;
   }
+
+  .status a{
+    width: 100px;
+    height: 100px;
+  }
+
+.status p{
+  font-size: 12px;
+  width: 100px;
+}
 
   .landing-layer .landing-content .landing-header h2 {
     font-size: 18px;
