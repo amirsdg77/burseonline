@@ -70,7 +70,11 @@ input[type="submit"],
 form button,
 .landing-layer .main-header nav>ul>li>a:before,
 .landing-layer .main-header nav .responsive-menu,
-.courses-view .course-col>div .img-layer a:before {
+.courses-view .course-col>div .img-layer a:before,
+.articles-view .article-col>div .img-layer a span:before,
+.articles-view .article-col>div .img-layer a span:after,
+.articles-view .article-col>div .img-layer a span i:before,
+.articles-view .article-col>div .img-layer a span i:after {
   outline: medium none;
   text-decoration: none;
   -webkit-transition: all 0.2s linear 0s;
@@ -86,7 +90,12 @@ form button,
 .landing-layer .main-header .clientarea .logged-in:after,
 .main-menu:after,
 .main-menu nav>ul:after,
-.courses-view header.heading:after {
+.courses-view header.heading:after,
+.articles-view header.heading:after,
+.articles-view .article-col>div .detail:after,
+.newsletter-layer .namad-layer:after,
+.newsletter-layer .newsletter-form .inner:after,
+body>footer .top-footer:after {
   display: block;
   clear: both;
   content: '';
@@ -541,13 +550,12 @@ form button,
 }
 
 .status {
-  margin: 20px 0;
   overflow: hidden;
   text-align: center;
   font-size: 16px;
   display: block;
-  margin: 20px auto;
-  padding-right: 60px;
+  margin: 0 auto;
+  padding-right: 100px;
 }
 
 .status a {
@@ -583,7 +591,7 @@ form button,
   position: fixed;
   bottom: -55px;
   left: -90px;
-  z-index: 1;
+  z-index: 5;
   display: none;
 }
 
@@ -779,12 +787,14 @@ form button,
   background-position: cover;
 }
 
-.courses-view header.heading {
+.courses-view header.heading,
+.articles-view header.heading {
   position: relative;
-  margin-bottom: 45px
+  margin: 30px 0 50px 0;
 }
 
-.courses-view header.heading h2 {
+.courses-view header.heading h2,
+.articles-view header.heading h2 {
   position: relative;
   font-size: 18px;
   color: #2f0c55;
@@ -794,7 +804,8 @@ form button,
   white-space: nowrap;
 }
 
-.courses-view header.heading .view-more{
+.courses-view header.heading .view-more,
+.articles-view header.heading .view-more{
   width: auto;
   white-space: nowrap;
   display: table;
@@ -804,11 +815,13 @@ form button,
   word-spacing: -2px;
   margin-top: 35px;
 }
-.courses-view header.heading .view-more i{
+.courses-view header.heading .view-more i,
+.articles-view header.heading .view-more i{
   margin: 0px 5px 0 0;
 }
 
-.courses-view header.heading .view-more:hover {
+.courses-view header.heading .view-more:hover,
+.articles-view header.heading .view-more:hover {
   color: #fcc208;
   transform: translateX(-3px);
 }
@@ -842,7 +855,7 @@ form button,
 .courses-view .course-col>div .img-layer img {
   width: 100%;
   display: block;
-  height: 180px !important;
+  height: 150px !important;
 }
 
 .courses-view .course-col>div .img-layer a {
@@ -872,10 +885,6 @@ form button,
   top: 13px;
   color: #fff;
   z-index: 101
-}
-.courses-view .course-col>div .img-layer a
-{
-  color: red;
 }
 
 .courses-view .course-col>div:hover .img-layer a:before {
@@ -997,6 +1006,301 @@ form button,
 .courses-view .course-col>div .detail .bottom .free i {
   font-style: normal;
   font-size: 17px
+}
+.articles-view{
+  background-color: #2f0c55;
+}
+.articles-view .article-col>div {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.articles-view .article-col>div .img-layer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.articles-view .article-col>div .img-layer img {
+  width: 100%;
+  display: block;
+  height: 300px !important;
+}
+
+.articles-view .article-col>div .img-layer a {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0
+}
+
+.articles-view .article-col>div .img-layer:hover a {
+  opacity: 1
+}
+
+.articles-view .article-col>div .img-layer a span {
+  position: relative
+}
+
+.articles-view .article-col>div .img-layer a span i {
+  font-size: 14px;
+  padding: 5px 20px;
+  line-height: 40px;
+  position: relative;
+  font-style: normal;
+}
+
+.articles-view .article-col>div .img-layer a span:before {
+  width: 0;
+  height: 1px;
+  left: 0;
+  top: 0;
+  background-color: #9fd98c;
+  position: absolute;
+  content: ''
+}
+
+.articles-view .article-col>div .img-layer a span:after {
+  width: 0;
+  height: 1px;
+  right: 0;
+  bottom: 0;
+  background-color: #9fd98c;
+  position: absolute;
+  content: ''
+}
+
+
+.articles-view .article-col>div .img-layer a span:hover:before,
+.articles-view .article-col>div .img-layer a span:hover:after {
+  width: 100%
+}
+
+.articles-view .article-col>div .img-layer a span:hover i:before,
+.articles-view .article-col>div .img-layer a span:hover i:after {
+  height: 100%
+}
+
+.articles-view .article-col>div h2 {
+  padding: 11px 15px 2px;
+  position: relative;
+  z-index: 10
+}
+
+.articles-view .article-col>div h2 a {
+  line-height: 40px;
+  height: 40px;
+  font-size: 14px;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+.articles-view .article-col>div h2 a:hover {
+  color: #9fd98c
+}
+
+.articles-view .article-col>div p {
+  color: gainsboro;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: justify;
+  margin: 0 0 25px 0;
+  padding: 0 15px;
+  height: 55px;
+}
+
+.articles-view .article-col>div .detail {
+  padding: 15px
+}
+
+.articles-view .article-col>div .detail span {
+  line-height: 30px;
+  font-size: 14px;
+  width: auto;
+  display: inline-table;
+  float: right;
+  margin-left: 15px;
+  color: gainsboro
+}
+
+.articles-view .article-col>div .detail span i {
+  font-size: 14px;
+  margin-left: 3px;
+  position: relative;
+  top: 2px;
+  color: gainsboro
+}
+
+.articles-view .article-col>div .detail a {
+  font-size: 14px;
+  color: #9fd98c;
+  float: left;
+  width: auto;
+  display: inline-table;
+  line-height: 30px;
+}
+
+.articles-view .article-col>div .detail a i {
+  position: relative;
+  top: 2px;
+  margin-left: 3px;
+  font-size: 17px
+}
+
+.articles-view .article-col>div .detail a:hover {
+  color: #6fc341
+}
+
+
+.last-articles-layer .container {
+  position: relative;
+  z-index: 10
+}
+
+.newsletter-layer {
+  width: 100%;
+  padding: 45px 0 45px;
+  background-color: rgb(243, 243, 243);
+}
+
+.newsletter-layer .newsletter-form {
+width: 70%;
+display: block;
+margin: auto;
+}
+
+.newsletter-layer .newsletter-form form {
+  position: relative;
+  padding: 15px;
+  width: 100%;
+  border-top: 2px solid #2f0c55;
+  border-bottom: 2px solid #2f0c55;
+}
+
+.newsletter-layer .newsletter-form form .inner {
+  position: relative;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  overflow: hidden;
+  background-color: gainsboro;
+  height: 45px;
+}
+
+.newsletter-layer .newsletter-form form .inner .input-layer {
+  width: 42%;
+  float: right;
+  display: inline-table;
+  position: relative;
+}
+
+.newsletter-layer .newsletter-form form .inner .input-layer i {
+  font-size: 17px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 45px;
+  width: 45px;
+  text-align: center;
+  color: #2f0c55
+}
+
+.newsletter-layer .newsletter-form form .inner .input-layer input {
+  width: 100%;
+  padding: 0 40px 0 12px;
+  font-size: 13px;
+  height: 45px;
+  line-height: 45px;
+  background-clip: #fff;
+  border: 0;
+}
+
+.newsletter-layer .newsletter-form form .inner button {
+  width: auto;
+  padding: 0 13px;
+  font-size: 14px;
+  word-spacing: -2px;
+  height: 45px;
+  line-height: 45px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 0;
+  color: #fff;
+  background-color: #2f0c55;
+}
+
+.newsletter-layer .newsletter-form .inner button:hover {
+  background-color: #561997ab
+}
+
+footer .top-footer {
+  padding: 20px 0;
+  background-color: #2f0c55;
+  text-align: center;
+}
+footer .top-footer .aboutUs h2,
+footer .top-footer .contactUs h2{
+  overflow: hidden;
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px solid #6f3ca5;
+  padding: 10px 0 20px 0;
+}
+
+footer .top-footer .aboutUs p,
+footer .top-footer .contactUs p{
+  padding: 20px 0 20px 0;
+  color: #fff;
+}
+
+footer .top-footer .contactUs i{
+  margin: 0 2px 0 10px;
+  padding: 10px;
+  font-size: 40px;
+  color: #fff;
+}
+
+body>footer .copyright{
+  background-color: #1a072e;
+}
+
+body>footer .copyright p {
+  margin: 22px 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 25px;
+  color: #fff;
+  text-align: center;
+}
+
+body>footer .copyright p a {
+  color: #153248;
+}
+
+body>footer .copyright p a:hover {
+  color: #00bffe;
 }
 
 
