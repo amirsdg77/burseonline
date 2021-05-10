@@ -1014,7 +1014,7 @@ body>footer .top-footer:after {
   width: 100%;
   position: relative;
   overflow: hidden;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .articles-view .article-col>div .img-layer {
@@ -1275,12 +1275,35 @@ footer .top-footer .contactUs p{
   color: #fff;
 }
 
-footer .top-footer .contactUs i{
+footer .top-footer .contactUs  i{
   margin: 0 2px 0 10px;
   padding: 10px;
   font-size: 40px;
   color: #fff;
+  cursor: pointer;
 }
+
+#gmail:hover{
+  color: firebrick;
+}
+#instagram:hover{
+  color: deeppink;
+}
+#facebook:hover{
+color: dodgerblue;
+}
+#github:hover{
+  color: #905dc7cc;
+}
+#telegram{
+color: #fff;
+font-size: 40px;
+margin-right: 10px;
+}
+#telegram:hover{
+  color: #00bffe;
+}
+
 
 body>footer .copyright{
   background-color: #1a072e;
@@ -1308,7 +1331,7 @@ body>footer .copyright p a:hover {
 
   .landing-layer .main-header nav>ul,
   .main-menu {
-    display: none
+    padding-left: 20px
   }
 
   .landing-layer .main-header nav>ul>li {
