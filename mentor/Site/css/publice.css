@@ -329,20 +329,19 @@ body>footer .top-footer:after {
   text-shadow: 1px 1px 10px black;
 }
 
-.landing-layer .landing-content .landing-header h2 {
+.landing-layer .landing-content .landing-header h1 {
   width: 100%;
   text-align: center;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 35px;
   margin-bottom: 20px;
-  word-spacing: -2px
 }
 
 .landing-layer .landing-content .landing-header span {
   width: 100%;
   display: block;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 35px
 }
 
@@ -456,7 +455,6 @@ body>footer .top-footer:after {
   background-color: #fff;
   border-bottom: 1px solid #eef4f9;
 }
-
 .main-menu nav {
   width: auto;
   float: right;
@@ -855,7 +853,7 @@ body>footer .top-footer:after {
 .courses-view .course-col>div .img-layer img {
   width: 100%;
   display: block;
-  height: 150px !important;
+  height: 140px !important;
 }
 
 .courses-view .course-col>div .img-layer a {
@@ -1125,9 +1123,9 @@ body>footer .top-footer:after {
   font-size: 14px;
   line-height: 28px;
   text-align: justify;
-  margin: 0 0 25px 0;
   padding: 0 15px;
-  height: 55px;
+  height: 80px;
+  overflow: hidden;
 }
 
 .articles-view .article-col>div .detail {
@@ -1252,7 +1250,7 @@ margin: auto;
 }
 
 .newsletter-layer .newsletter-form .inner button:hover {
-  background-color: #561997ab
+  background-color: #692fa7;
 }
 
 footer .top-footer {
