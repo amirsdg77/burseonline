@@ -1209,107 +1209,13 @@
 
     <!-- javaScript files -->
     <script src="Site/fontawesome-free-5.15.3-web/js/all.js"></script>
-    <script src="Site/js/custom.js"></script>
     <script src="Site/js/jquery.min.js"></script>
     <script src="Site/js/Bootstrap.js"></script>
     <script src="Site/OwlCarousel2-2.3.4/js/owl.autoplay.js"></script>
     <script src="Site/js/wow.js"></script>
 
-    <script>
-        new WOW().init();
-        
-        // owl carousel slider
-        $(document).ready(function () {
-            $('.article-owl').owlCarousel({
-                autoplay: true,
-                rtl: true,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    300: {
-                        items: 1
-                    },
-                    450: {
-                        items: 1
-                    },
-                    576: {
-                        items: 1
-
-                    },
-                    768: {
-                        items: 1
-                    },
-                    992: {
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    }
-                }
-            })
-        
-            $('.owl-carousel').owlCarousel({
-                autoplay: true,
-                rtl: true,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    300: {
-                        items: 1
-                    },
-                    450: {
-                        items: 2
-                    },
-                    576: {
-                        items: 2
-
-                    },
-                    768: {
-                        items: 3
-                    },
-                    992: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            })
-
-
-
-        });
-        $('.play').on('click', function () {
-            owl.trigger('play.owl.autoplay', [3000])
-        })
-        $('.stop').on('click', function () {
-            owl.trigger('stop.owl.autoplay')
-        })
-        // discount box hide and show
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 500) {
-                    $('.discount').fadeIn();
-                } else {
-                    $('.discount').fadeOut();
-                }
-            });
-        });
-    </script>
+    <script src="Site/js/customJquery.js"></script>
+    <script src="Site/js/customJavaScript.js"></script>
 
 </body>
 

@@ -381,7 +381,7 @@
     <!-- popup search -->
     <div class="search-layer">
         <div class="sublayer">
-            <form method="get" action="https://toplearn.com/courses">
+            <form method="get" action="#">
                 <input type="text" name="Search" placeholder=" جستجو کنید ...">
                 <button><i class="zmdi zmdi-search"></i></button>
             </form>
@@ -395,18 +395,15 @@
         <div class="container">
             <!-- breadcrumb -->
             <div class="breadcrumb">
-                <ul itemtype="http://schema.org/BreadcrumbList">
-                    <li itemtype="http://schema.org/ListItem" itemscope itemprop="itemListElement"><a
-                            href="https://toplearn.com/" itemprop="item"><span itemprop="name"> تاپ لرن </span></a></li>
-                    <li itemtype="http://schema.org/ListItem" itemscope itemprop="itemListElement"><a href="#"
-                            itemprop="item" class="current"><span itemprop="name"> ورود به سایت </span></a></li>
+                <ul itemtype="">
+                    <li><a href="#"><span> منتور </span></a></li>
+                    <li><a href="#"><span> ورود به سایت </span></a></li>
                 </ul>
             </div>
             <!-- /breadcrumb -->
 
             <div class="client-form">
                 <div class="inner">
-
 
                     <div class="side-box">
                         <div class="sign-up-box">
@@ -421,14 +418,8 @@
                         </div>
                     </div>
 
-
-
                     <form method="post" action="#" class="col-lg-6 sign-in yek">
-                        <input type="hidden" value="/" id="ReturnUrl" name="ReturnUrl" />
-                        <input type="hidden" id="captchaInput" name="GoogleReCaptchaResponse" value="" />
                         <h1> ورود به سایت </h1>
-
-
                         <p>
                             با ورود به حساب کاربری خود ، از مزایای کاربران سایت بهره مند شوید
                         </p>
@@ -440,28 +431,13 @@
                             <div class="col-xs-12">
                                 <div class="input-element">
                                     <i class="zmdi zmdi-account"></i>
-                                    <input type="text" placeholder=" ایمیل" data-val="true"
-                                        data-val-email="ایمیل وارد شده معتبر نمباشد"
-                                        data-val-maxlength="پست الکترونیک میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100"
-                                        data-val-required="لطفا فیلد پست الکترونیک را وارد کنید" id="Email"
-                                        maxlength="100" name="Email" value="">
-                                    <span class="field-validation-valid" data-valmsg-for="Email"
-                                        data-valmsg-replace="true"></span>
-
+                                    <input type="text" placeholder=" ایمیل">
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="input-element">
                                     <i class="zmdi zmdi-lock"></i>
-                                    <input type="password" placeholder="رمز عبور" data-val="true"
-                                        data-val-maxlength="کلمه عبور میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100" data-val-minlength="کلمه عبور معتبر نیست"
-                                        data-val-minlength-min="4" data-val-required="لطفا فیلد کلمه عبور را وارد کنید"
-                                        id="Password" maxlength="100" name="Password">
-                                    <span class="field-validation-valid" data-valmsg-for="Password"
-                                        data-valmsg-replace="true"></span>
-
+                                    <input type="password" placeholder="رمز عبور" name="Password">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-5 pull-right">
@@ -473,42 +449,29 @@
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 captcha-col">
-                                <div class="g-recaptcha" data-sitekey="6LfaBAgaAAAAACrtdAbwWPjdL0gnhxyO6sZoSFRW"></div>
-                                <span class="field-validation-valid" data-valmsg-for="GoogleReCaptchaResponse"
-                                    data-valmsg-replace="true"></span>
-                            </div>
 
                             <div class="col-xs-12">
-                                <button class="button-st blue pull-left" style="margin-top: -5px;"> ورود به سایت
+                                <button class="button-st green pull-left" style="margin-top: -5px;"> ورود به سایت
                                 </button>
                             </div>
-                            <div class="validation-summary-valid" data-valmsg-summary="true">
-                                <ul>
-                                    <li style="display:none"></li>
-                                </ul>
-                            </div>
+                          
                         </div>
 
                         <div class="other-ways">
                             <div class="inside">
-                                <a class="google-account" href="https://toplearn.com/Provider/Google"><i
-                                        class="zmdi zmdi-google-old"></i></a>
+                                <a class="google-account" href="#"><i class="zmdi zmdi-google-old"></i></a>
                             </div>
                         </div>
 
                         <div class="other-link">
-                            <a href="https://toplearn.com/ForgotPassword"><i class="zmdi zmdi-lock"></i> رمز عبور خود را
+                            <a href="#"><i class="zmdi zmdi-lock"></i> رمز عبور خود را
                                 فراموش کرده ام ! </a>
                         </div>
 
-                        <input name="__RequestVerificationToken" type="hidden"
-                            value="CfDJ8N5vt4L77q1MqCw_aDraoRaB9XR74F4PubQZCFbSaf4qIm8ffmsavUhFs8QUd4Z-P0AyfO_Qs86eh0SxTRSATuhozKegS_CXbX9L4O4HXmrqCXMSmCnqvWyGxl277zfu6uhTAwPMpWLpdd2MZ8Ze2ZY" /><input
-                            name="RememberMe" type="hidden" value="false">
                     </form>
-                    <form method="post" action="Site/images/Mobile login-bro.png" class="col-lg-6 sign-up yek">
+                    <form method="post" action="#" class="col-lg-6 sign-up yek">
 
-                        <input type="hidden" id="captchaInput" name="GoogleReCaptchaResponse" value="" />
+                        <input type="hidden" value="" />
                         <h1> ثبت نام در سایت </h1>
                         <p>
                             با ثبت نام در سایت ، از مزایای کاربران سایت بهره مند شوید
@@ -521,70 +484,40 @@
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="input-element">
                                     <i class="zmdi zmdi-account"></i>
-                                    <input type="text" placeholder="نام کاربری" data-val="true"
-                                        data-val-maxlength="نام کاربری  میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100" data-val-remote="در حال بررسی ..."
-                                        data-val-remote-additionalfields="*.UserName"
-                                        data-val-remote-url="/Account/CheckUserNameAvablity"
-                                        data-val-required="لطفا فیلد نام کاربری  را وارد کنید" id="UserName"
-                                        maxlength="100" name="UserName" value="">
+                                    <input type="text" placeholder="نام کاربری" name="UserName" value="">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="input-element">
                                     <i class="zmdi zmdi-phone"></i>
-                                    <input type="text" placeholder="موبایل" data-val="true"
-                                        data-val-maxlength="موبایل میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100" data-val-regex="موبایل را بدرستی وارد کنید"
-                                        data-val-regex-pattern="^[0][9][0-9][0-9]{8,8}$"
-                                        data-val-required="لطفا فیلد موبایل را وارد کنید" id="Mobile" maxlength="100"
-                                        name="Mobile" value="">
+                                    <input type="text" placeholder="موبایل" name="Mobile" value="">
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="input-element">
                                     <i class="zmdi zmdi-email"></i>
-                                    <input type="email" placeholder="ایمیل" data-val="true"
-                                        data-val-email="لطفا فقط ایمیل صحیح وارد کنید "
-                                        data-val-maxlength="پست الکترونیک میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100" data-val-remote="در حال بررسی ..."
-                                        data-val-remote-additionalfields="*.Email"
-                                        data-val-remote-url="/Account/CheckEmailAvablity"
-                                        data-val-required="لطفا فیلد پست الکترونیک را وارد کنید" id="Email"
-                                        maxlength="100" name="Email" value="">
+                                    <input type="email" placeholder="ایمیل" name="Email" value="">
                                 </div>
 
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="input-element">
                                     <i class="zmdi zmdi-lock"></i>
-                                    <input type="password" placeholder="رمز عبور" data-val="true"
-                                        data-val-maxlength="کلمه عبور میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100"
-                                        data-val-minlength="کلمه عبور باید بیشتر از 6 کاراکتر باشد"
-                                        data-val-minlength-min="6" data-val-required="لطفا فیلد کلمه عبور را وارد کنید"
-                                        id="Password" maxlength="100" name="Password">
+                                    <input type="password" placeholder="رمز عبور" name="Password">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
 
                                 <div class="input-element">
                                     <i class="zmdi zmdi-lock"></i>
-                                    <input type="password" placeholder="تکرار رمز عبور" data-val="true"
-                                        data-val-equalto="تکرار کلمه عبور باید با کلمه عبور مطابقت داشته باشد"
-                                        data-val-equalto-other="*.Password"
-                                        data-val-maxlength="تکرار کلمه عبور میتواند حداکثر 100 کاراکتر داشته باشد"
-                                        data-val-maxlength-max="100"
-                                        data-val-required="لطفا فیلد تکرار کلمه عبور را وارد کنید" id="ConfirmPassword"
-                                        maxlength="100" name="ConfirmPassword">
+                                    <input type="password" placeholder="تکرار رمز عبور" name="ConfirmPassword">
                                 </div>
                             </div>
 
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="select-element">
                                     <label> چگونه با ما آشنا شدید ؟ </label>
-                                    <select data-val="true" data-val-required="The HowInvit field is required."
-                                        id="HowInvit" name="HowInvit">
+                                    <select>
                                         <option value="TelegramChanel"> از طریق تلگرام </option>
                                         <option value="Friend"> معرفی دوستان </option>
                                         <option value="Baner"> تبلیغات </option>
@@ -594,13 +527,11 @@
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 captcha-col">
-                                <div class="g-recaptcha" data-sitekey="6LfaBAgaAAAAACrtdAbwWPjdL0gnhxyO6sZoSFRW"></div>
-                            </div>
+                        
 
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="input-element">
-                                    <div class="validation-summary-valid" data-valmsg-summary="true">
+                                    <div class="validation-summary-valid">
                                         <ul>
                                             <li></li>
                                         </ul>
@@ -608,24 +539,14 @@
                                 </div>
                             </div>
                             <div class="col-xs-12">
-                                <button class="button-st blue pull-left"> ثبت نام در سایت </button>
+                                <button class="button-st yellow pull-left"> ثبت نام در سایت </button>
                             </div>
                         </div>
 
-
-
-                        <input name="__RequestVerificationToken" type="hidden"
-                            value="CfDJ8N5vt4L77q1MqCw_aDraoRaKKH9GMZ_5wgWtOokitwSUobPztRzdWsn2l3PBas-8ykt-1vzWDXh33kx5KbES37SozUxrqjx5p710_f08ZxVTAT7noXqeim50jr8n2Rnu2o1yWUAkqgGJrDVHpxxMKPs" />
                     </form>
 
-
-
-
-
                 </div>
-                <!-- ----------------------------------------------------- -->
 
-                <!-- ----------------------------------------------- -->
             </div>
 
         </div>
@@ -695,139 +616,16 @@
         </div>
     </footer>
 
-    <script>
-        const signInBox = document.querySelector(".sign-in-box");
-        const signUpBox = document.querySelector(".sign-up-box");
-        const signInButton = document.getElementById("sign-in-button");
-        const signUpButton = document.getElementById("sign-up-button");
-        const signIn = document.querySelector(".sign-in");
-        const signUp = document.querySelector(".sign-up")
-
-        signUpButton.addEventListener("click", () => {
-            signIn.style.left = "50%";
-            signUp.style.left = "50%";
-            signUp.style.zIndex = "5";
-            signUp.style.opacity = "1";
-            signInBox.style.right = "50%";
-            signUpBox.style.right = "50%";
-            signUpBox.style.zIndex = "1";
-        })
-
-        signInButton.addEventListener("click" ,() => {
-            signIn.style.left = "0";
-            signUp.style.left = "0";
-            signUp.style.zIndex = "1";
-            signUp.style.opacity = "0";
-            signInBox.style.right = "0";
-            signUpBox.style.right = "0";
-            signUpBox.style.zIndex = "100";
-        })
-    </script>
 
     <!-- javaScript files -->
     <script src="Site/fontawesome-free-5.15.3-web/js/all.js"></script>
-    <script src="Site/js/custom.js"></script>
     <script src="Site/js/jquery.min.js"></script>
     <script src="Site/js/Bootstrap.js"></script>
     <script src="Site/OwlCarousel2-2.3.4/js/owl.autoplay.js"></script>
     <script src="Site/js/wow.js"></script>
 
-    <script>
-        new WOW().init();
-
-        // owl carousel slider
-        $(document).ready(function () {
-            $('.article-owl').owlCarousel({
-                autoplay: true,
-                rtl: true,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    300: {
-                        items: 1
-                    },
-                    450: {
-                        items: 1
-                    },
-                    576: {
-                        items: 1
-
-                    },
-                    768: {
-                        items: 1
-                    },
-                    992: {
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    }
-                }
-            })
-
-            $('.owl-carousel').owlCarousel({
-                autoplay: true,
-                rtl: true,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    300: {
-                        items: 1
-                    },
-                    450: {
-                        items: 2
-                    },
-                    576: {
-                        items: 2
-
-                    },
-                    768: {
-                        items: 3
-                    },
-                    992: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            })
-
-
-
-        });
-        $('.play').on('click', function () {
-            owl.trigger('play.owl.autoplay', [3000])
-        })
-        $('.stop').on('click', function () {
-            owl.trigger('stop.owl.autoplay')
-        })
-        // discount box hide and show
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 500) {
-                    $('.discount').fadeIn();
-                } else {
-                    $('.discount').fadeOut();
-                }
-            });
-        });
-    </script>
-
+    <script src="Site/js/customJquery.js"></script>
+    <script src="Site/js/customJavaScript.js"></script>
 </body>
 
 </html>
