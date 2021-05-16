@@ -1,11 +1,3 @@
-
-// discount close btn
-var close = document.querySelector(".closeBtn");
-close.addEventListener("click", off);
-function off() {
-    document.querySelector(".discount").style.visibility = "hidden";
-}
-
 // the slide sign in and sign up
 const signInBox = document.querySelector(".sign-in-box");
 const signUpBox = document.querySelector(".sign-up-box");
@@ -37,3 +29,10 @@ signInButton.addEventListener("click" ,() => {
     signUpBox.style.borderRadius = "0 50px 50px 0"
     signInBox.style.borderRadius = "0 50px 50px 0"
 })
+
+// discount close btn
+var close = document.querySelector(".closeBtn");
+close.addEventListener("click", off);
+function off() {
+    document.querySelector(".discount").style.visibility = "hidden";
+}

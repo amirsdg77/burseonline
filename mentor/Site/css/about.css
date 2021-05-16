@@ -1,0 +1,25 @@
+.about-us{
+    width: 100%;
+    background-color: #fff;
+    padding: 70px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-radius: 50px;
+    box-shadow: 0 0 15px gainsboro;
+    line-height: 40px;
+    word-wrap: break-word;
+    word-break: keep-all;
+    background: url(../images/article-pattern.png);
+}
+.about-us img{
+    position: relative;
+    width: 20%;
+    display: block;
+    margin: auto;
+    margin-bottom: 50px;
+}
+.about-us h2{
+    margin-bottom: 10px;
+    font-size: 19px;
+    color: #2f0c55;
+}
