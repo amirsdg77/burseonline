@@ -146,7 +146,7 @@ body>footer .top-footer:after,
 }
 
 .breadcrumb ul li a:hover {
-  color: #2196f3
+  color: #531397
 }
 
 .button-st {
@@ -255,12 +255,12 @@ body>footer .top-footer:after,
 
 .landing-layer.home-page .main-header .logo {
   top: 0;
-  color: #fff;
 }
 
 .landing-layer .main-header .logo img {
   display: block;
-  width: 100%
+  width: 100%;
+
 }
 
 .landing-layer .main-header nav {
@@ -269,7 +269,7 @@ body>footer .top-footer:after,
   white-space: nowrap;
   float: right;
   display: table;
-  margin-top: -5px
+  margin-top: -5px;
 }
 
 .landing-layer .main-header nav .responsive-menu {
@@ -767,7 +767,7 @@ body>footer .top-footer:after,
 
 .main-menu nav>ul {
   position: relative;
-  padding-top: 6px
+  padding-top: 6px;
 }
 
 .main-menu nav>ul>li {
@@ -1311,6 +1311,8 @@ body>footer .top-footer:after,
 }
 .articles-view{
   background-color: #2f0c55;
+  background: url(../images/pt-1.png) top left no-repeat #2f0c55;
+  background-size: contain;
 }
 .articles-view .article-col>div {
   width: 100%;

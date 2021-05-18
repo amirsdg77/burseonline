@@ -1,7 +1,9 @@
-.about-us{
+.about-us {
+    display: block;
+    margin: auto;
     width: 100%;
     background-color: #fff;
-    padding: 70px;
+    padding: 20px 50px;
     margin-bottom: 50px;
     margin-top: 50px;
     border-radius: 50px;
@@ -9,17 +11,99 @@
     line-height: 40px;
     word-wrap: break-word;
     word-break: keep-all;
-    background: url(../images/article-pattern.png);
+    overflow: hidden;
+
 }
-.about-us img{
+
+.about-us .about-page-logo {
+    opacity: 1;
     position: relative;
-    width: 20%;
     display: block;
     margin: auto;
+    width: 20%;
+    left: 0;
     margin-bottom: 50px;
 }
-.about-us h2{
+.about-us p {
+    font-size: 15px;
+    color: #302d33ce;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 20px;
+}
+.about-us h2 {
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 20px;
     color: #2f0c55;
+}
+
+
+.about-us img {
+    position: absolute;
+    width: 80%;
+    left: -200px;
+    top: 0;
+    opacity: 0.05;
+    display: block;
+    margin-bottom: 80px;
+}
+
+
+@media screen and (max-width : 991px) {
+    .about-us h2 {
+        font-size: 19px;
+    }
+    .about-us p {
+        font-size: 14px;
+    }
+
+}
+
+
+@media screen and (max-width : 767px) {
+
+    .about-us h2 {
+        font-size: 18px;
+    }
+    .about-us p{
+        font-size: 13px;
+    }
+    .about-us .about-page-logo{
+        width: 30%;
+    }
+}
+
+
+@media screen and (max-width : 480px) {
+    .about-us{
+        width: 95%;
+    }
+    .about-us h2 {
+        font-size: 17px;
+    }
+    .about-us p{
+        font-size: 12px;
+    }
+    .about-us .about-page-logo{
+        width: 40%;
+    }
+    .about-us img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width :380px) {
+
+    .about-us h2 {
+        font-size: 16px;
+    }
+    .about-us p {
+        font-size: 10px;
+    }
+    .about-us img {
+        width: 100%;
+    }
+    .about-us .about-page-logo{
+        width: 50%;
+    }
 }
