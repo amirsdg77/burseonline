@@ -1,0 +1,86 @@
+/**************************** fixed dashboard******************** */
+.dashboard{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: gainsboro;
+    box-shadow: 0 0 10px gainsboro;
+    border-radius: 30px;
+    margin-left: 40px;
+    margin-bottom: 50px;
+border-radius: 10px;
+}
+.dashboard .avatar{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+
+}
+.dashboard img{
+    padding: 10px 0;
+    width: 80%;
+    border-radius: 100%;
+}
+.dashboard .user-name{
+    padding: 10px 0 ;
+    font-size: 20px;
+    color: #2f0c55;
+}
+.dashboard ul{
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: #2f0c55;
+
+}
+.dashboard li{
+    padding: 30px;
+    margin: 0;
+}
+.dashboard li a{
+    text-decoration: none;
+    color: #fff;
+}
+.dashboard li:hover{
+    background-color: #885eb4;
+}
+.active-mode{
+    background-color: #885eb4;
+}
+
+/* profile */
+
+.profile{
+    background: url(../images/article-pattern.png);
+    padding: 5px;
+    text-align: right;
+    background-color: #fff;
+    box-shadow: 0 0 10px gainsboro;
+    border-radius: 30px;
+}
+
+.profile h2{
+    text-align: right;
+    padding: 20px;
+    border-bottom: 1px solid #2f0c55;
+    font-size: 20px;
+    color: #2f0c55;
+}
+.profile a {
+    margin: 25px 0;
+    text-decoration: none;
+    color: #2f0c55c0;
+    padding-right: 15px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    cursor:  default;
+}
+.profile small{
+    color: #43494da6;
+}
+.profile i {
+    font-size: 25px;
+    color: #2f0c55b0;
+}
