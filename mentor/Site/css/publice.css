@@ -161,6 +161,15 @@ body>footer .top-footer:after,
   -webkit-border-radius: 5px;
   background-color: transparent;
 }
+.button-st.purple {
+  background-color: #2f0c55;
+}
+
+.button-st.purple:active,
+.button-st.purple:hover {
+  background-color: #531397;
+  color: #fff;
+}
 
 .button-st.blue {
   background-color: #00bffe;

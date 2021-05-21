@@ -6,21 +6,20 @@
     background-color: gainsboro;
     box-shadow: 0 0 10px gainsboro;
     border-radius: 30px;
-    margin-left: 40px;
     margin-bottom: 50px;
-border-radius: 10px;
+    border-radius: 20px;
+    border-bottom: 2px solid #9fd98c;
 }
 .dashboard .avatar{
     width: 100%;
     display: block;
     margin: 0 auto;
-    border-radius: 10px;
-
 }
 .dashboard img{
     padding: 10px 0;
     width: 80%;
     border-radius: 100%;
+
 }
 .dashboard .user-name{
     padding: 10px 0 ;
@@ -28,36 +27,55 @@ border-radius: 10px;
     color: #2f0c55;
 }
 .dashboard ul{
-    border-radius: 10px;
-    padding: 0;
+    border-radius: 0 0 20px 20px;
+    padding: 20px;
     margin: 0;
     background-color: #2f0c55;
-
+    text-align: right;
+    position: relative;
 }
 .dashboard li{
-    padding: 30px;
     margin: 0;
+    position: relative;
+    border-radius: 10px;
 }
 .dashboard li a{
+    position: relative;
     text-decoration: none;
     color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    right: 40px;
 }
 .dashboard li:hover{
-    background-color: #885eb4;
+    background-color: #1f0b357c;
 }
 .active-mode{
-    background-color: #885eb4;
+    background-color: #1f0b357c;
 }
+.dashboard .fa-house-user,
+.dashboard .fa-user-cog,
+.dashboard .fa-key,
+.dashboard .fa-cart-arrow-down,
+.dashboard .fa-wallet,
+.dashboard .fa-comment-dots,
+.dashboard .fa-sign-out-alt {
+  margin-left: 5px;
+  color: #c095ee;
+} 
 
 /* profile */
 
 .profile{
     background: url(../images/article-pattern.png);
-    padding: 5px;
+    padding: 20px;
     text-align: right;
     background-color: #fff;
     box-shadow: 0 0 10px gainsboro;
     border-radius: 30px;
+    max-width: 73%;
+    float: left;
+    margin-bottom: 20px;
 }
 
 .profile h2{
@@ -66,12 +84,13 @@ border-radius: 10px;
     border-bottom: 1px solid #2f0c55;
     font-size: 20px;
     color: #2f0c55;
+    margin-bottom: 40px;
 }
 .profile a {
-    margin: 25px 0;
+    margin: 15px 0;
     text-decoration: none;
     color: #2f0c55c0;
-    padding-right: 15px;
+    padding: 5px 15px 5px 0;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -81,6 +100,30 @@ border-radius: 10px;
     color: #43494da6;
 }
 .profile i {
-    font-size: 25px;
+    font-size: 20px;
     color: #2f0c55b0;
+}
+
+/* edit profile */
+
+.profile input{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    color: #43494da6;
+}
+.profile textarea{
+    width: 100%;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+.profile .editBtn {
+float: left;
+margin: 20px 0;
+}
+.profile .changePassBtn{
+ float: left;   
+ margin: 20px 15px;
 }

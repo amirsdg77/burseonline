@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد</title>
+    <title>ویرایش حساب کاربری</title>
 
     <link href="../Site/css/Bootstrap.css" rel="stylesheet" />
     <link href="../Site/css/publice.css" rel="stylesheet" />
@@ -400,8 +400,8 @@
                 </div>
 
                 <ul>
-                    <li class="active-mode"><a href="dashboard.html" > <i class="fas fa-house-user"></i> داشبورد</a></li>
-                    <li><a href="edit-profile.html"> <i class="fas fa-user-cog"></i> ویرایش حساب کاربری</a></li>
+                    <li><a href="dashboard.html" > <i class="fas fa-house-user"></i> داشبورد</a></li>
+                    <li  class="active-mode"><a href="edit-profile.html"> <i class="fas fa-user-cog"></i> ویرایش حساب کاربری</a></li>
                     <li><a href="change-password.html"> <i class="fas fa-key"></i> تغییر رمز عبور</a></li>
                     <li><a href="#"> <i class="fas fa-cart-arrow-down"></i> دوره های من</a></li>
                     <!-- <li><a href="#"> <i class="fas fa-wallet"></i> کیف پول</a></li> -->
@@ -411,28 +411,31 @@
             </div>
             <!-- profile -->
             <div class="profile col-lg-9">
-                <h2>اطلاعات حساب کاربری</h2>
+                <h2>ویرایش حساب کاربری</h2>
 
                 <div class="col-lg-6">
-                    <i class="zmdi zmdi-account"><a>نام و نام خانوادگی : <small>رضا قنبری</small></a></i><br>
-                    <i class="zmdi zmdi-account-circle"><a>نام کاربری : <small>reza1596</small></a></i><br>
-                    <i class="zmdi zmdi-phone-in-talk"><a>شماره تماس : <small>09302180838</small></a></i><br>
-                    <i class="zmdi zmdi-email"><a>ایمیل : <small>reza001391@gmail.com</small></a></i><br>
+                    <i class="zmdi zmdi-account"><a>نام</a></i><br>
+                    <input type="text" value="رضا">
+                    <i class="zmdi zmdi-phone-in-talk"><a>شماره تماس</a></i><br>
+                    <input type="text" value="09302180838">
+                    <i class="zmdi zmdi-email"><a>ایمیل</a></i><br>
+                    <input type="email" value="reza001391@gmail.com">
                 </div>
-
                 <div class="col-lg-6">
-                    <i class="zmdi zmdi-time"><a>تاریخ عضویت : <small>1400/02/30</small></a></i><br>
-                    <i class="zmdi zmdi-lamp"><a>مهارت ها : <small>Css - js - git</small></a></i><br>
-                    <i class="zmdi zmdi-calendar"><a>تاریخ تولد : <small>1375</small></a></i><br>
+                    <i class="zmdi zmdi-account"><a>نام خانوادگی</a></i><br>
+                    <input type="text" value="قنبری">
+                    <i class="zmdi zmdi-lamp"><a>مهارت ها</a></i><br>
+                    <input type="text" value="Css-js-git">
+                    <i class="zmdi zmdi-calendar"><a>تاریخ تولد</a></i><br>
+                    <input type="time" value="1375">
                 </div>
-                <div class="col-lg-10">
-                    <a> <i class="zmdi zmdi-fire"></i> بیوگرافی : <small>این متن جهت تست نوشته شده است این متن جهت تست
-                            نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست
-                            نوشته شده است</small></a><br>
+                <div class="col-lg-12">
+                    <i class="zmdi zmdi-male-alt"><a> بیوگرافی </a></i><br>
+                    <textarea  rows="5"></textarea>
+                    <button type="submit" class="editBtn button-st purple">ذخیره</button>
                 </div>
 
             </div>
-
         </div>
     </div>
 
