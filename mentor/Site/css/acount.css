@@ -1,5 +1,10 @@
 /**************************** fixed dashboard******************** */
-.dashboard{
+body{
+    display: unset
+}
+.dashboard {
+    position: sticky;
+    top: 0;
     padding: 0;
     margin: 0;
     text-align: center;
@@ -10,23 +15,27 @@
     border-radius: 20px;
     border-bottom: 2px solid #9fd98c;
 }
-.dashboard .avatar{
+
+.dashboard .avatar {
     width: 100%;
     display: block;
     margin: 0 auto;
 }
-.dashboard img{
+
+.dashboard img {
     padding: 10px 0;
     width: 80%;
     border-radius: 100%;
 
 }
-.dashboard .user-name{
-    padding: 10px 0 ;
+
+.dashboard .user-name {
+    padding: 10px 0;
     font-size: 20px;
     color: #2f0c55;
 }
-.dashboard ul{
+
+.dashboard ul {
     border-radius: 0 0 20px 20px;
     padding: 20px;
     margin: 0;
@@ -34,12 +43,14 @@
     text-align: right;
     position: relative;
 }
-.dashboard li{
+
+.dashboard li {
     margin: 0;
     position: relative;
     border-radius: 10px;
 }
-.dashboard li a{
+
+.dashboard li a {
     position: relative;
     text-decoration: none;
     color: #fff;
@@ -47,12 +58,15 @@
     border-radius: 10px;
     right: 40px;
 }
-.dashboard li:hover{
+
+.dashboard li:hover {
     background-color: #1f0b357c;
 }
-.active-mode{
+
+.active-mode {
     background-color: #1f0b357c;
 }
+
 .dashboard .fa-house-user,
 .dashboard .fa-user-cog,
 .dashboard .fa-key,
@@ -60,14 +74,15 @@
 .dashboard .fa-wallet,
 .dashboard .fa-comment-dots,
 .dashboard .fa-sign-out-alt {
-  margin-left: 5px;
-  color: #c095ee;
-} 
+    margin-left: 5px;
+    color: #c095ee;
+}
 
 /* profile */
 
-.profile{
-    background: url(../images/article-pattern.png);
+.profile {
+    background-color: #f4f4f4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='temple' fill='%232f0c55' fill-opacity='0.01'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     padding: 20px;
     text-align: right;
     background-color: #fff;
@@ -78,7 +93,7 @@
     margin-bottom: 20px;
 }
 
-.profile h2{
+.profile h2 {
     text-align: right;
     padding: 20px;
     border-bottom: 1px solid #2f0c55;
@@ -86,19 +101,21 @@
     color: #2f0c55;
     margin-bottom: 40px;
 }
+
 .profile a {
     margin: 15px 0;
     text-decoration: none;
     color: #2f0c55c0;
     padding: 5px 15px 5px 0;
-    font-size: 18px;
+    font-size: 17px;
     font-style: normal;
-    font-weight: 600;
-    cursor:  default;
+    cursor: default;
 }
-.profile small{
+
+.profile small {
     color: #43494da6;
 }
+
 .profile i {
     font-size: 20px;
     color: #2f0c55b0;
@@ -106,7 +123,7 @@
 
 /* edit profile */
 
-.profile input{
+.profile input {
     display: block;
     width: 100%;
     padding: 10px;
@@ -114,16 +131,115 @@
     border-radius: 5px;
     color: #43494da6;
 }
-.profile textarea{
+
+.profile textarea {
     width: 100%;
     border: 1px solid gainsboro;
     border-radius: 5px;
 }
+
 .profile .editBtn {
-float: left;
-margin: 20px 0;
+    float: left;
+    margin: 20px 0;
 }
-.profile .changePassBtn{
- float: left;   
- margin: 20px 15px;
+
+.profile .changePassBtn {
+    float: left;
+    margin: 20px 15px;
+}
+
+/* ****************** my course *******************/
+
+.no-course h3 {
+    text-align: center;
+    padding: 50px;
+    font-size: 30px;
+    color: rgb(182, 179, 179);
+    display: none;
+}
+
+.my-course {
+    position: relative;
+    display: block;
+    margin-bottom: 35%;
+    display: block;
+}
+
+.course-box {
+    background-color: rgb(109, 68, 146);
+    color: #fff;
+    padding: 0px;
+    transition: all 0.6s ease-in-out;
+    box-shadow: 0 0 2px rgb(180, 176, 185);
+    border-radius: 5px;
+}
+
+.course-box h3 {
+    padding: 15px;
+}
+
+.course-box p {
+    padding: 15px;
+    font-size: 12px;
+    color: rgba(214, 210, 219, 0.705);
+}
+
+.course-box span {
+    padding-right: 15px;
+    font-size: 25px;
+}
+
+.course-box .progress {
+    margin: 0 15px;
+    height: 10px;
+    background-color: #2f0c55;
+}
+
+.course-box .progress-bar {
+    background-color: #9fd98c;
+}
+
+.course-box .view-course {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    background-color: #2f0c55;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    height: 0;
+}
+
+.view-course a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.course-box:hover .view-course {
+    height: 40px;
+}
+
+.course-box:hover {
+    transform: scale(1.05);
+}
+
+.midlle-line {
+    border: 1px solid black;
+}
+.paging{
+text-align: center;
+direction: rtl !important;
+}
+
+.page-link{
+    cursor: pointer !important;
+    color: #2f0c55 !important;
+
+}
+.page-link:hover{
+    color: #c095ee !important;
 }
