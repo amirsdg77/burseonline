@@ -7,6 +7,7 @@ const signIn = document.querySelector(".sign-in");
 const signUp = document.querySelector(".sign-up")
 
 signUpButton.addEventListener("click", () => {
+    
     signIn.style.left = "50%";
     signUp.style.left = "50%";
     signUp.style.zIndex = "5";
@@ -29,10 +30,3 @@ signInButton.addEventListener("click" ,() => {
     signUpBox.style.borderRadius = "0 50px 50px 0"
     signInBox.style.borderRadius = "0 50px 50px 0"
 })
-
-// discount close btn
-var close = document.querySelector(".closeBtn");
-close.addEventListener("click", off);
-function off() {
-    document.querySelector(".discount").style.visibility = "hidden";
-}

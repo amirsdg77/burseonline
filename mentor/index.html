@@ -1215,7 +1215,14 @@
 
     <script src="Site/js/customJquery.js"></script>
     <script src="Site/js/customJavaScript.js"></script>
-
+    <script>
+        // discount close btn
+        const close = document.querySelector(".closeBtn");
+close.addEventListener("click", off);
+function off() {
+    document.querySelector(".discount").style.visibility = "hidden";
+}
+    </script>
 </body>
 
 </html>

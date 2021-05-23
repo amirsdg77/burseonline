@@ -227,9 +227,7 @@ body{
     transform: scale(1.05);
 }
 
-.midlle-line {
-    border: 1px solid black;
-}
+
 .paging{
 text-align: center;
 direction: rtl !important;
@@ -237,9 +235,40 @@ direction: rtl !important;
 
 .page-link{
     cursor: pointer !important;
-    color: #2f0c55 !important;
-
+    color: #39363d !important;
+    font-size: 14px !important;
 }
 .page-link:hover{
-    color: #c095ee !important;
+    color: #9b6cce !important;
+}
+
+/* **************** supprot page */
+.close-btn{
+    color: firebrick;
+    cursor: pointer;
+    font-weight: bold;
+}
+.close-btn:hover{
+    color: red;
+}
+.answered{
+    color: #9fd98c;
+}
+.pending{
+    color: #fcc208;
+}
+.new-message{
+    font-size: 16px !important;
+    cursor: pointer !important;
+}
+.new-message:hover{
+    transform: scale(1.02);
+    color: #2f0c55;
+}
+.warning-box{
+    background-color: #f0bcba8c;
+    color: #3e3744;
+    margin-bottom: 50px;
+    padding: 20px 10px 10px 10px;
+    border: 1px solid #3e3744;
 }
