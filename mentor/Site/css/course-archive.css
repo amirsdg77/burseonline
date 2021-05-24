@@ -46,19 +46,21 @@
 }
 
 
-.form-box{ 
+.form-box {
     padding: 20px;
     border-radius: 5px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px 1px gainsboro;
 }
-.search-form input{
+
+.search-form input {
     width: 100%;
     padding: 10px;
     border: 1px solid gainsboro;
     border-radius: 5px;
 }
-.search-form button{
+
+.search-form button {
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -66,7 +68,8 @@
     left: 22px;
     top: 8px;
 }
-.select-layer select{
+
+.select-layer select {
     float: left;
     padding: 10px;
     border: none;
@@ -74,31 +77,36 @@
     border: 1px solid gainsboro;
     margin-right: 20px;
 }
+
 .courses-view {
     float: left;
-    margin-top: 50px;
+    margin-top: 30px;
 }
-.course-col{
+
+.course-col {
     padding: 5px;
     float: left;
 }
-.aside-filter{
+
+.aside-filter {
     width: 100%;
     padding: 0px;
-    margin-top: 20px;
+    margin-top: 30px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px 1px gainsboro;
     border-bottom: 1px solid gainsboro;
     border-radius: 10px;
 }
-.aside-filter h2{
+
+.aside-filter h2 {
     padding: 20px;
     border-bottom: 1px solid gainsboro;
 }
 
-.aside-categories{
+.aside-categories {
     padding: 20px;
 }
+
 .aside-categories>ul>li {
     margin: 9px 0;
     position: relative;
@@ -118,6 +126,7 @@
     position: relative;
     padding-right: 25px;
     font-size: 14px;
+    color: #6e6871;
 }
 
 .aside-categories>ul>li label:before {
@@ -146,9 +155,11 @@
     top: 4px;
     opacity: 0
 }
-.aside-title{
-    color: #8246c2;
+
+.aside-title {
+    color: rgb(71, 60, 73) !important;
 }
+
 .aside-categories>ul>li label:hover {
     cursor: pointer;
 }
