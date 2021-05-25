@@ -36,7 +36,7 @@
                     <ul>
                         <li><a href="#"> آخرین دوره ها </a></li>
                         <li><a href="#"> معرفی مدرسین </a></li>
-                        <li><a href="#l"> بلاگ </a></li>
+                        <li><a href="#"> بلاگ </a></li>
                         <li><a href="#"> پرسش و پاسخ </a></li>
                         <li><a href="#"> درخواست مشاوره </a></li>
                         <li><a href="#"> همکاری با منتور </a></li>
@@ -415,8 +415,8 @@
                         <input type="text" placeholder="نام و نام خانوادگی">
                         <input type="text" placeholder="شماره موبایل">
                         <input type="email" placeholder="ایمیل">
-                        <textarea name="contact-text" cols="30" rows="10"></textarea>
-                        <button type="submit">ارسال</button>
+                        <textarea name="contact-text" cols="30" rows="10" class="editor" placeholder="پیام خود را بنویسید"></textarea>
+                        <button type="submit" class="button-st green">ارسال</button>
                     </form>
                 </div>
                 <div class="col-lg-12 bottom-box">
@@ -499,6 +499,67 @@
 
     <script src="Site/js/customJquery.js"></script>
     <script src="Site/js/customJavaScript.js"></script>
+
+    <!-- Ckeditor 5 -->
+    <script src="Site/ckeditor5/build/ckeditor.js"></script>
+	<script>ClassicEditor
+        .create( document.querySelector( '.editor' ), {
+            
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    '|',
+                    'outdent',
+                    'indent',
+                    '|',
+                    'imageUpload',
+                    'undo',
+                    'redo'
+                ]
+            },
+            language: 'fa',
+            image: {
+                toolbar: [
+                    'imageTextAlternative',
+                    'imageStyle:full',
+                    'imageStyle:side'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+            licenseKey: '',
+            
+            
+        } )
+        .then( editor => {
+            window.editor = editor;
+    
+            
+            
+            
+    
+            
+            
+            
+        } )
+        .catch( error => {
+            console.error( 'Oops, something went wrong!' );
+            console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+            console.warn( 'Build id: d79o3t3u039i-5ovvpxebq8d4' );
+            console.error( error );
+        } );
+</script>
+
 </body>
+
 
 </html>

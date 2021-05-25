@@ -1,0 +1,411 @@
+header {
+    padding: 25px 0 30px;
+    position: relative;
+    width: auto;
+    display: table;
+    float: right;
+}
+header h1 {
+    width: auto;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e2f38;
+    display: inline-table;
+    line-height: 35px;
+}
+
+header span {
+    width: auto;
+    white-space: nowrap;
+    display: inline-table;
+    font-size: 15px;
+    color: #686e71;
+    padding-right: 15px
+}
+
+
+/***************** breadcrump************* */
+.breadcrumb {
+    padding: 25px 0 30px;
+    width: auto;
+    display: table;
+    float: left;
+    position: relative;
+    top: 3px
+}
+
+.aside-course{
+    float: right;
+    padding: 0;
+}
+
+.main-body-course{
+    float: left;
+    padding: 0;
+    max-width: 73.5%;
+}
+
+.course-information,
+.course-tag,
+.related-articles{
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px gainsboro;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+} 
+
+.course-information h2{
+    border-bottom: 1px solid gainsboro;
+    padding: 20px;
+}
+
+.course-information h2>a{
+    float: left;
+    padding: 0;
+}
+/* *************  ************** */
+.free-course{
+    color: #9fd98c !important;
+}
+.cash-course{
+    color: #fcc208 !important;
+}
+.complete{
+    color: #69c949 !important;
+}
+.recording{
+    color: #ad66ff !important;
+}
+/* ******** info ************** */
+
+.course-information a{
+    text-decoration: none;
+    color: #2e2a33;
+    padding: 10px;
+}
+.course-information small{
+    color: #686e71;
+}
+
+/******************* introduction************* */
+.course-introduction,
+.course-download,
+.course-comment,
+.course-video{
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px gainsboro;
+    padding: 20px;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.course-introduction .course-image{
+    background: url(../images/javascript.png) no-repeat;
+    background-size: contain;
+    padding: 230px 20px;
+}
+.course-introduction h2{
+    margin: 25px 0;
+    font-size: 18px;
+    color: #2f0c55;
+}
+.course-introduction p {
+    line-height: 40px;
+    font-size: 13px !important;
+}
+
+/* ******************** tags **************** */
+.course-tag h3{
+    padding: 10px;
+
+}
+.course-tag a{
+    font-size: 13px;
+    text-decoration: none;
+    background-color: #e5d9ec7e;
+    color: #2e2a33;
+    padding: 2px 6px;
+    margin: 5px;
+}
+.course-tag .fa-tag{
+    margin-left: 5px;
+    font-size: 14px;
+    color: #686e71;
+}
+
+/* ************* aside button **************** */
+.button-group{
+    overflow: hidden !important;
+    padding: 0;
+}
+.button-group button{
+    width: 100% ;
+    display: block;
+    margin: auto;
+    overflow: hidden !important;
+}
+.favorites-btn{
+    margin: 15px 0 !important;
+    border: 1px solid #1e2f38;
+    color: #1e2f38;
+      border: 0;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 0 20px;
+     border-radius: 5px;
+     -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #1e2f38;
+    overflow: hidden;
+}
+.favorites-btn::after{
+    position: absolute;
+    content: '';
+    background-color: #2f0c55;
+    width: 100%;
+    padding: 20px;
+    left: -100%;
+    transition: 0.6s;
+    z-index: -1;
+    border-radius: 5px;
+}
+.favorites-btn:hover .fa-heart{
+    color: crimson;
+    transition-delay: 0.2s;
+}
+.favorites-btn:hover{
+    color: #f8f8f8;
+    transition-delay: 0.2s;
+}
+.favorites-btn:hover::after{
+    left: 0;
+}
+
+/* *********** related articles ************** */
+.related-articles{
+    padding: 5px 0 !important;
+}
+.related-articles h2{
+    padding: 10px;
+    border-bottom: 1px solid gainsboro;
+}
+.related-articles img{
+    border-radius: 5px;
+    padding: 10px 0;
+}
+.related-articles a{
+    padding: 20px;
+    padding-left: 0;
+    text-decoration: none;
+    color: #1e2f38;
+    font-size: 12px;
+}
+.related-articles a:hover{
+    color: #ad66ff;
+    transform: scale(1.02);
+}
+.related-articles div{
+    border-bottom: 1px solid gainsboro;
+}
+
+
+
+/**************** download box **************/
+
+.course-download h2>a{
+    float: left;
+    text-decoration: none;
+    margin-bottom: 50px;
+    color: #686e71;
+}
+.course-download .fa-list{
+    margin-left: 10px;
+    color: #686e71;
+}
+
+.download-box{
+    border: 1px dashed gainsboro;
+    padding: 15px;
+    margin: 5px 0;
+}
+.download-box-active{
+    background-color: #eeeeee;
+    
+}
+.part-number{
+    position: absolute;
+    border: 1px solid gray;
+    right: -15px;
+    top: 25px;
+    border-radius: 50px;
+    padding: 5px 10px;
+    background-color: rgba(241, 241, 241, 0.733);
+    color: rgb(12, 12, 12);
+}
+.number-active{
+    background-color: #2f0c55;
+    color: #fff;
+}
+.download-box span{
+    font-size: 25px;
+    color: gainsboro;
+    position: relative;
+    top: 4px;
+}
+.download-box div a{
+    margin-right: 10px;
+    padding: 0 15px;
+    text-decoration: none;
+    color: #686e71;
+    font: 16px !important;
+    line-height: 50px;
+}
+.download-icons{
+    float: left;
+    line-height: 50px;
+}
+.download-icons a{
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+.fa-download,
+.fa-play{
+    color: #686e71;
+    transition: 0.2s all ease-in-out;
+}
+.fa-download:hover{
+    color: #2f0c55;
+    transform: scale(1.2);
+}
+.fa-play:hover{
+    color: #69c949;
+    transform: scale(1.2);
+}
+/* ******************* comment box ************** */
+
+.course-comment .fa-comments{
+    margin-left: 10px;
+    color: #686e71;
+}
+.course-comment h2{
+    margin-bottom: 80px;
+}
+.comment-box{
+    margin: 5px 0;
+}
+.comment-box img{
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    border-radius: 100%;
+
+}
+.user-comment,
+.reply-comment{
+    border-radius: 5px;
+    width: 88%;
+    float: left;
+    border: 1px solid gainsboro;
+    padding: 20px;
+    margin: 10px 0;
+}
+.user-comment a,
+.reply-comment a{
+    padding: 0 15px;
+    text-decoration: none;
+    color: #a0a0a0;
+    font-size: 13px;
+}
+.user-comment,
+.reply-comment{
+    color: #a0a0a0;
+    font-size: 18px;
+    position: relative;
+    top: 5px;
+}
+.comment-box .button-st{
+    float: left;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    margin-right: 10px;
+}
+.comment-text{
+    font-size: 14px;
+    margin-top: 25px;
+    color: #686e71;
+    line-height: 30px;
+}
+
+
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+	width: 100%;
+	background: #fff;
+	font-size: 1em;
+	line-height: 1.6em;
+	min-height: 180px;
+	padding: 0em 2em;
+    margin-bottom: 20px;
+}
+
+.register-first{
+    width: 100%;
+    border-radius: 5px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fcc30896;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.leave-comment label{
+    margin: 10px 0;
+}
+.leave-comment input{
+    width: 100%;
+    border: 1px solid gainsboro;
+    padding: 5px;
+}
+.leave-comment button{
+    padding: 0 20px;
+    float: left;
+}
+
+/* *********video************** */
+
+.course-video .afterglow{
+    width: 100%;
+    height: 500px;
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+.course-video .fa-video{
+    margin-left: 10px;
+    color: #686e71;
+}
+.course-video h2{
+    color: #2f0c55;
+    padding: 20px 0;
+    border-bottom: 1px solid gainsboro;
+}
+.course-video h2 > span{
+    float: left;
+}
+.course-video p {
+    color: #686e71;
+    font-size: 13px;
+    padding: 5px 0;
+
+}

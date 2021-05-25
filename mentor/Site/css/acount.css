@@ -272,3 +272,17 @@ direction: rtl !important;
     padding: 20px 10px 10px 10px;
     border: 1px solid #3e3744;
 }
+
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+	width: 100%;
+	background: #fff;
+	font-size: 1em;
+	line-height: 1.6em;
+	min-height: 180px;
+	padding: 0em 2em;
+    margin-bottom: 20px;
+}
