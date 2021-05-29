@@ -1,13 +1,14 @@
 // the slide sign in and sign up
 const signInBox = document.querySelector(".sign-in-box");
 const signUpBox = document.querySelector(".sign-up-box");
-const signInButton = document.getElementById("sign-in-button");
-const signUpButton = document.getElementById("sign-up-button");
+const signInButton = document.querySelector(".sign-in-button");
+const signUpButton = document.querySelector(".sign-up-button");
 const signIn = document.querySelector(".sign-in");
 const signUp = document.querySelector(".sign-up")
 
-signUpButton.addEventListener("click", () => {
-    
+
+
+function signUpBtn(){
     signIn.style.left = "50%";
     signUp.style.left = "50%";
     signUp.style.zIndex = "5";
@@ -17,9 +18,8 @@ signUpButton.addEventListener("click", () => {
     signUpBox.style.zIndex = "1";
     signUpBox.style.borderRadius = "50px 0 0 50px"
     signInBox.style.borderRadius = "50px 0 0 50px"
-})
-
-signInButton.addEventListener("click" ,() => {
+}
+function signInBtn(){
     signIn.style.left = "0";
     signUp.style.left = "0";
     signUp.style.zIndex = "1";
@@ -29,4 +29,17 @@ signInButton.addEventListener("click" ,() => {
     signUpBox.style.zIndex = "100";
     signUpBox.style.borderRadius = "0 50px 50px 0"
     signInBox.style.borderRadius = "0 50px 50px 0"
-})
+}
+
+function signUpMobile(){
+    signUp.style.zIndex ="5";
+    signUp.style.opacity ="1";
+    signIn.style.zIndex = "1";
+    signIn.style.opacity = "0";
+}
+function signInMobile(){
+    signUp.style.zIndex ="1";
+    signUp.style.opacity ="0";
+    signIn.style.zIndex = "5";
+    signIn.style.opacity = "1";
+}

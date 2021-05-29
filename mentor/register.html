@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود</title>
+    <title>ثبت نام</title>
 
     <link href="Site/css/Bootstrap.css" rel="stylesheet" />
     <link href="site/css/publice.css" rel="stylesheet" />
@@ -49,8 +49,8 @@
                     <div class="user-area">
                         <div class="logged-out">
                             <i class="zmdi zmdi-account-o"></i>
-                            <a href="login.html"> ورود </a>
-                            <a href="register.html"> ثبت نام </a>
+                            <a href="Login.html"> ورود </a>
+                            <a href="Login.html"> ثبت نام </a>
                         </div>
                     </div>
                 </div>
@@ -461,7 +461,7 @@
 
                         <div class="other-link">
                             <a href="#"><i class="zmdi zmdi-lock"></i> رمز عبور خود رافراموش کرده ام ! </a>
-                            <a class="sign-up-button mobile-btn" onclick="signUpMobile()"><i class="fas fa-user-plus"></i> ثبت نام در سایت </a>
+                            <p class="sign-up-button" onclick="signUpBtn()">ثبت نام در سایت </p>
 
                         </div>
 
@@ -538,7 +538,7 @@
                             <div class="col-xs-12">
                                 <button class="button-st green pull-left"> ثبت نام در سایت </button>
                                 <div class="other-link">
-                                    <a class="sign-up-button mobile-btn" onclick="signInMobile()"> <i class="fas fa-sign-in-alt"></i> ورود به حساب  </a>
+                                    <p class="sign-up-button" onclick="signInBtn()"> ورود به حساب  </p>
         
                                 </div>
                             </div>
@@ -627,7 +627,26 @@
 
     <script src="Site/js/customJquery.js"></script>
     <script src="Site/js/customJavaScript.js"></script>
+ <script>
+    (function () {
+        const signInBox = document.querySelector(".sign-in-box");
+    const signUpBox = document.querySelector(".sign-up-box");
+    const signInButton = document.querySelector(".sign-in-button");
+    const signUpButton = document.querySelector(".sign-up-button");
+    const signIn = document.querySelector(".sign-in");
+    const signUp = document.querySelector(".sign-up")
 
+    signIn.style.left = "50%";
+    signUp.style.left = "50%";
+    signUp.style.zIndex = "5";
+    signUp.style.opacity = "1";
+    signInBox.style.right = "50%";
+    signUpBox.style.right = "50%";
+    signUpBox.style.zIndex = "1";
+    signUpBox.style.borderRadius = "50px 0 0 50px"
+    signInBox.style.borderRadius = "50px 0 0 50px"
+    })();
+</script> 
 
 </body>
 

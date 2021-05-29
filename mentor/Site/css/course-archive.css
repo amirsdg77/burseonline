@@ -176,5 +176,43 @@
 
 .aside-categories>ul>li ul {
     padding-right: 25px;
-    padding-top: 4px
+    padding-top: 4px;
+}
+
+/* ************** media query ****************** */
+
+/* ************1199 */
+@media screen and (max-width : 1199px) {
+
+    .course-archive-content p,
+    .course-archive-content a,
+    .course-archive-content span,
+    .course-archive-content span i,
+    .course-archive-content label {
+        font-size: 14px !important;
+    }
+}
+
+
+/* ******************767************************** */
+@media screen and (max-width : 767px) {
+    .course-col {
+        padding-left: 15%;
+    }
+}
+
+/* **********************450********************************** */
+@media screen and (max-width : 450px) {
+
+    .course-archive-content p,
+    .course-archive-content a,
+    .course-archive-content span,
+    .course-archive-content span i,
+    .course-archive-content label {
+        font-size: 13px !important;
+    }
+
+    .course-col {
+        padding-left: 0;
+    }
 }

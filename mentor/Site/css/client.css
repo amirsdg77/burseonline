@@ -1,5 +1,5 @@
 * {
-    transition: all 0.6s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .main-menu {
@@ -12,17 +12,18 @@
     background: url('../images/pattern.png') repeat #f3f7fa;
 }
 
-.yek {
+.main-body {
     position: absolute;
     top: 0;
     height: 100%;
-    transition: all 0.6s ease-in-out;
+
 }
 
 .sign-in {
     left: 0;
     width: 50%;
     z-index: 2;
+    opacity: 1;
 }
 
 .sign-up {
@@ -35,7 +36,7 @@
 .client-form>.inner {
     position: relative;
     background-color: transparent;
-    width: 1000px;
+    width: 90%;
     min-height: 850px;
     border-radius: 25px;
     -moz-border-radius: 15px;
@@ -58,6 +59,7 @@
     height: 100%;
     text-align: center;
     border-radius: 50px;
+
 }
 
 .client-page .client-form>.inner form>h1 {
@@ -67,7 +69,7 @@
     padding: 15px 0 10px;
     font-size: 20px;
     line-height: 35px;
-    color: #2f0c55;
+    color: #1e2f38;
     margin-top: 20px;
 }
 
@@ -75,17 +77,17 @@
     display: block;
     width: 100%;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 14px;
     line-height: 28px;
-    color: #2f0c55a6;
+    color: #3e535e;
     padding: 5px 0
 }
 
 .client-page .client-form>.inner form>img {
-    width: 304px;
+    width: 80%;
     display: block;
-    margin: 0 auto 40px
+    margin: 0 auto 0px
 }
 
 .client-page .client-form>.inner form .other-ways {
@@ -137,7 +139,7 @@
 }
 
 .client-page .client-form>.inner form .other-ways .inside a:hover {
-    color: #00b3e9
+    color: #9fd98c
 }
 
 .client-page .client-form>.inner form .input-element {
@@ -184,9 +186,6 @@
     color: #d4dee3
 }
 
-.client-page .client-form>.inner form .input-element i.zmdi-account {
-    font-size: 21px
-}
 
 .client-page .client-form>.inner form .checkbox-remember {
     width: 100%;
@@ -254,14 +253,17 @@
     margin-top: 25px
 }
 
-.client-page .client-form>.inner form .other-link a {
+.client-page .client-form>.inner form .other-link a,
+.client-page .client-form>.inner form .other-link p {
     width: 100%;
     display: block;
     font-size: 13px;
     line-height: 25px;
-    color: #2f0c55;
-    margin-bottom: 20px
+    color: #3e535e;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
+
 
 .client-page .client-form>.inner form .other-link a i.zmdi-lock {
     position: relative;
@@ -272,17 +274,11 @@
     text-align: right;
 }
 
-.client-page .client-form>.inner form .other-link a i.zmdi-account,
-.client-page .client-form>.inner form .other-link a i.zmdi-account-add {
-    position: relative;
-    top: 3px;
-    font-size: 17px;
-    width: 20px;
-    text-align: right;
-}
 
-.client-page .client-form>.inner form .other-link a:hover {
-    color: #9fd98c;
+.client-page .client-form>.inner form .other-link a:hover,
+.client-page .client-form>.inner form .other-link a:hover .fa-sign-in-alt,
+.client-page .client-form>.inner form .other-link a:hover .fa-user-plus {
+    color: #6fc341;
 }
 
 .client-page .client-form>.inner form button {
@@ -290,34 +286,37 @@
     width: 100%;
 }
 
-.client-page .client-form>.inner form .captcha-layer {
-    padding-top: 23px
-}
-
-.client-page .client-form.password-recovery-form form button {
-    margin-bottom: 25px;
-}
 
 .side-box {
     position: relative;
     width: 100% !important;
     min-height: 850px;
-    background-color: #ffffff;
+    background-color: #fff;
     text-align: center;
-    transition: all 0.6s ease-in-out;
     border-radius: 50px;
+    z-index: 1;
+
 }
-.side-box h2{
+
+.side-box h2 {
     font-size: 30px;
     margin-bottom: 5px;
 }
-.side-box button{
-    padding: 0px 90px;
-    background-color: transparent;
-    border: 2px solid #fff;
-    border-radius: 50px;
 
+.side-box button {
+    padding: 0px 100px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    transition: 0.3s;
 }
+
+.side-box button:hover {
+    background-color: #9fd98c;
+    transform: scale(1.1);
+    color: #2f0c55;
+}
+
 .sign-up-box {
     position: absolute;
     min-height: 850px;
@@ -332,7 +331,6 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1000' height='500' preserveAspectRatio='none' viewBox='0 0 1000 500'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1091%26quot%3b)' fill='none'%3e%3crect width='1000' height='500' x='0' y='0' fill='rgba(47%2c 12%2c 85%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c366.54C75.525%2c372.525%2c151.872%2c374.426%2c221.624%2c344.854C299.508%2c311.835%2c371.641%2c261.976%2c416.222%2c190.082C463.935%2c113.137%2c511.478%2c15.418%2c478.091%2c-68.739C444.148%2c-154.298%2c330.338%2c-168.9%2c253.624%2c-219.767C199.931%2c-255.369%2c156.16%2c-303.23%2c94.807%2c-322.882C32.405%2c-342.87%2c-32.072%2c-334.5%2c-97.559%2c-332.255C-185.445%2c-329.242%2c-284.403%2c-360.118%2c-354.838%2c-307.469C-426.197%2c-254.13%2c-461.174%2c-154.212%2c-454.613%2c-65.363C-448.336%2c19.637%2c-368.999%2c76.1%2c-321.298%2c146.732C-282.366%2c204.38%2c-257.559%2c272.155%2c-200.146%2c311.433C-141.854%2c351.312%2c-70.407%2c360.961%2c0%2c366.54' fill='%231f0837'%3e%3c/path%3e%3cpath d='M1000 877.115C1069.0720000000001 884.89 1122.016 818.269 1178.56 777.844 1232.271 739.444 1285.868 702.3389999999999 1321.878 646.9970000000001 1362.179 585.06 1412.248 515.183 1396.435 443.001 1380.633 370.871 1302.97 332.755 1243.46 289.03999999999996 1195.113 253.525 1138.299 239.291 1084.104 213.56799999999998 1017.567 181.98700000000002 961.636 111.10300000000001 888.601 120.61000000000001 815.62 130.111 771.265 204.42200000000003 723.5989999999999 260.497 676.351 316.08000000000004 613.079 371.459 613.358 444.409 613.635 516.812 680.307 568.624 724.9970000000001 625.59 759.948 670.142 803.7470000000001 702.142 845.531 740.359 897.325 787.731 930.249 869.264 1000 877.115' fill='%23401073'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1091'%3e%3crect width='1000' height='500' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
     background-size: cover;
     background-position: top right;
-
 }
 
 .sign-in-box {
@@ -349,17 +347,70 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1000' height='500' preserveAspectRatio='none' viewBox='0 0 1000 500'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1091%26quot%3b)' fill='none'%3e%3crect width='1000' height='500' x='0' y='0' fill='rgba(47%2c 12%2c 85%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c366.54C75.525%2c372.525%2c151.872%2c374.426%2c221.624%2c344.854C299.508%2c311.835%2c371.641%2c261.976%2c416.222%2c190.082C463.935%2c113.137%2c511.478%2c15.418%2c478.091%2c-68.739C444.148%2c-154.298%2c330.338%2c-168.9%2c253.624%2c-219.767C199.931%2c-255.369%2c156.16%2c-303.23%2c94.807%2c-322.882C32.405%2c-342.87%2c-32.072%2c-334.5%2c-97.559%2c-332.255C-185.445%2c-329.242%2c-284.403%2c-360.118%2c-354.838%2c-307.469C-426.197%2c-254.13%2c-461.174%2c-154.212%2c-454.613%2c-65.363C-448.336%2c19.637%2c-368.999%2c76.1%2c-321.298%2c146.732C-282.366%2c204.38%2c-257.559%2c272.155%2c-200.146%2c311.433C-141.854%2c351.312%2c-70.407%2c360.961%2c0%2c366.54' fill='%231f0837'%3e%3c/path%3e%3cpath d='M1000 877.115C1069.0720000000001 884.89 1122.016 818.269 1178.56 777.844 1232.271 739.444 1285.868 702.3389999999999 1321.878 646.9970000000001 1362.179 585.06 1412.248 515.183 1396.435 443.001 1380.633 370.871 1302.97 332.755 1243.46 289.03999999999996 1195.113 253.525 1138.299 239.291 1084.104 213.56799999999998 1017.567 181.98700000000002 961.636 111.10300000000001 888.601 120.61000000000001 815.62 130.111 771.265 204.42200000000003 723.5989999999999 260.497 676.351 316.08000000000004 613.079 371.459 613.358 444.409 613.635 516.812 680.307 568.624 724.9970000000001 625.59 759.948 670.142 803.7470000000001 702.142 845.531 740.359 897.325 787.731 930.249 869.264 1000 877.115' fill='%23401073'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1091'%3e%3crect width='1000' height='500' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
     background-size: cover;
     background-position: top right;
-
 }
 
-@media screen and (max-width : 767px) {
-    .client-page .client-form>.inner form .captcha-layer {
-        padding-top: 0;
-        margin-bottom: 20px
+.fa-sign-in-alt,
+.fa-user-plus {
+    margin-left: 5px;
+    color: #686e71;
+}
+
+.mobile-btn {
+    display: none !important;
+}
+
+
+/* ************** media query ****************** */
+
+/* ******************************991****************************** */
+@media screen and (max-width : 991px) {
+
+    .client-form p,
+    a {
+        font-size: 12px !important;
+    }
+
+    .client-form h2 {
+        font-size: 14px;
+    }
+
+    .client-form h1 {
+        font-size: 18px;
+    }
+
+    .client-page .client-form>.inner form .input-element input,
+    .client-page .client-form>.inner form .select-element select {
+        font-size: 12px;
+    }
+    label {
+        font-size: 12px !important;
     }
 }
 
-@media screen and (max-width : 760px) {
+/* ******************767************************** */
+@media screen and (max-width : 767px) {
+    .sign-in {
+        width: 100%;
+        z-index: 2;
+        left: 0 !important;
+    }
+
+    .sign-up {
+        width: 100%;
+        opacity: 1;
+        z-index: 1;
+        left: 0 !important;
+    }
+
+    .mobile-btn {
+        display: block !important;
+    }
+
+    .side-box {
+        display: none;
+    }
+
+
     .client-page .client-form {
         padding: 35px 0 80px;
         width: 100%
@@ -368,8 +419,35 @@
     .client-page .client-form .inner:before {
         display: none
     }
-}
+    .client-page .client-form>.inner form>img{
+        width:40%;
+    }
+    .client-page .client-form>.inner form>h1{
+        line-height: 5px;
+    }
 
+    .client-form p,
+    a {
+        font-size: 11px !important;
+    }
+
+    .client-form h2 {
+        font-size: 13px;
+    }
+
+    .client-form h1 {
+        font-size: 16px;
+    }
+
+    .client-page .client-form>.inner form .input-element input,
+    .client-page .client-form>.inner form .select-element select {
+        font-size: 11px;
+    }
+    label {
+        font-size: 11px !important;
+    }
+}
+/* *********************600********************************* */
 @media screen and (max-width : 600px) {
 
     .client-page .client-form form div.pull-left,
@@ -391,10 +469,54 @@
     .client-page .client-form>.inner form {
         padding: 15px 25px 25px
     }
+    .client-form>.inner,
+    .side-box,
+    .sign-up-box,
+    .sign-in-box{
+        min-height: 950px;
+    }
+    .client-page .client-form>.inner form>img{
+        width:55%;
+    }
 }
+/* **********************450********************************** */
+@media screen and (max-width : 450px) {
 
-@media screen and (max-width : 420px) {
     .client-page .client-form>.inner form {
         padding: 15px 15px 20px
     }
+    .client-page .client-form>.inner form .input-element i {
+        font-size: 15px !important;
+        top: 15px;
+    }
+    .client-page .client-form>.inner form>img{
+        width:80%;
+    }
+    .client-form>.inner,
+    .side-box,
+    .sign-up-box,
+    .sign-in-box{
+        min-height: 950px;
+    }
+    .client-form p,
+    a {
+        font-size: 10px !important;
+    }
+
+    .client-form h2 {
+        font-size: 12px;
+    }
+
+    .client-form h1 {
+        font-size: 14px;
+    }
+
+    .client-page .client-form>.inner form .input-element input,
+    .client-page .client-form>.inner form .select-element select {
+        font-size: 10px;
+    }
+    label {
+        font-size: 10px !important;
+    }
 }
+
