@@ -7,7 +7,6 @@ const signIn = document.querySelector(".sign-in");
 const signUp = document.querySelector(".sign-up")
 
 
-
 function signUpBtn(){
     signIn.style.left = "50%";
     signUp.style.left = "50%";
@@ -42,4 +41,12 @@ function signInMobile(){
     signUp.style.opacity ="0";
     signIn.style.zIndex = "5";
     signIn.style.opacity = "1";
+}
+
+//////////////////////// js code for acount panel
+
+function deleted() {
+    var parent = document.querySelector(".tb");
+    var child = document.querySelector(".tr");
+    parent.removeChild(child);
 }
