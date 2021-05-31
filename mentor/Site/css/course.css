@@ -277,9 +277,7 @@ header span {
 
 .download-box-active {
     background-color: #eeeeee;
-
 }
-
 .part-number {
     position: absolute;
     border: 1px solid gray;
@@ -533,7 +531,9 @@ header span {
         width: 60px !important;
         height: 60px !important;
     }
-
+    .course-video .afterglow{
+        height: 400px;
+    }
 }
 
 
@@ -579,6 +579,9 @@ header span {
     }
     .related-articles img {
         display: none;
+    }
+    .course-video .afterglow{
+        height: 350px;
     }
 }
 
@@ -631,5 +634,8 @@ header span {
 
     .related-articles img {
         display: none;
+    }
+    .course-video .afterglow{
+        height: 250px;
     }
 }
