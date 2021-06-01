@@ -1,0 +1,196 @@
+header h1{
+    font-size: 22px;
+    color: #1e2f38;
+}
+section{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+/* ************* question-box ******************/
+.question-box{
+    margin: 0;
+    padding: 20px 5px;
+}
+
+/* ************* header information ******************/
+.head-info{
+    border-bottom: 1px solid gainsboro;
+    padding: 0 10px;
+}
+
+/***************** midlle text ***************** */
+.text-question-info{
+    padding: 20px;
+}
+.text-question-info h2{
+    margin-bottom: 20px;
+    color: #686e71;
+    font-size: 18px;
+}
+.text-question-info p,
+.answer-box p{
+    color: #1e2f38;
+    line-height: 40px;
+}
+/* ************ image bottom ******************** */
+.bottom-img-user{
+    padding: 0 20px;
+}
+.bottom-img-user img{
+    position: relative;
+    bottom: 0;
+    width: 70px;
+    height: 70px;
+    float: right;
+    border-radius: 100%;
+}
+.bottom-img-user a{
+    text-decoration: none;
+    padding-top: 10px;
+    color: #2f0c55;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+/* ************ answer secetion ****************** */
+.answer{
+    margin: 20px 0;
+}
+.answer img{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}
+
+.answer .col-lg-3{
+    text-align: center;
+} 
+.answer a{
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2f0c55;
+}
+.answer-box{
+    background-color: #f9f9f9;
+    box-shadow:  0 0 10px gainsboro;
+    padding: 10px 20px;
+}
+
+.answer-box p{
+    margin: 0;
+}
+.hide-item{
+    display: none;
+}
+/* *********** send-answer ************** */
+.send-answer{
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px gainsboro;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.send-answer h2{
+    font-size: 18px;
+    color: #9fd98c;
+    padding: 10px;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 40px;
+}
+.send-answer button{
+    float: left;
+}
+
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+	width: 100%;
+	background: #fff;
+	font-size: 1em;
+	line-height: 1.6em;
+	min-height: 250px;
+	padding: 0em 2em;
+    margin-bottom: 20px;
+}
+
+/* ************** hide right border before span *************** */
+.no-border::before{
+    border: none !important;
+    padding: 10px 0;
+}
+.no-border{
+    padding: 0 !important;
+}
+
+@media screen and (max-width : 1199px) {
+.right-side-question P,
+.right-side-question span,
+.right-side-question  h3,
+.right-side-question a{
+    font-size: 13px !important;
+}
+.right-side-question h2{
+    font-size: 16px;
+}
+.bottom-img-user a{
+    margin-right: 15px;
+}
+.answer img{
+    width: 90px !important;
+    height: 90px !important;
+}
+}
+
+/* ******************* 991 *********************** */
+@media screen and (max-width : 991px) {
+    .answer img{
+        width: 80px !important;
+        height: 80px !important;
+        display: block;
+    }
+    .answer a{
+        margin-left: 50px;
+    }
+}
+
+
+/* ************************** 767 ******************** */
+@media screen and (max-width : 767px) {
+    .show-item{
+        display: none;
+    }
+    .hide-item{
+        display: block;
+    }
+    .hide-item{
+        margin-bottom: 20px;
+    }
+    .hide-item a{
+        display: block;
+        margin-right: 13px;
+    }
+    .answer img{
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+
+
+/* ***************** 480 ********************* */
+@media screen and (max-width : 480px) {
+    .right-side-question P,
+    .right-side-question span,
+    .right-side-question  h3,
+    .right-side-question a{
+        font-size: 12px !important;
+    }
+    .right-side-question h2{
+        font-size: 14px;
+    }
+    .answer img{
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
