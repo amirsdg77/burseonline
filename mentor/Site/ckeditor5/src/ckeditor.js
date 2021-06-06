@@ -3,11 +3,19 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor.js';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
+import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
@@ -28,11 +36,19 @@ class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
+	Alignment,
 	Autoformat,
 	BlockQuote,
 	Bold,
+	CKFinderUploadAdapter,
+	CloudServices,
+	CodeBlock,
 	Essentials,
+	FontColor,
+	FontSize,
 	Heading,
+	Highlight,
+	HtmlEmbed,
 	Image,
 	ImageCaption,
 	ImageStyle,
