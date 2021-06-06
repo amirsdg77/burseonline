@@ -880,10 +880,9 @@ body>footer .top-footer:after,
 
 .status a {
   color: #2f0c55;
-  margin-top: 20px;
+  margin-top: 50px;
   width: 150px;
   height: 150px;
-
   border-radius: 100%;
   overflow: hidden;
   background-size: cover;
@@ -906,9 +905,11 @@ body>footer .top-footer:after,
 .status>div :hover>p {
   color: #531397;
 }
-.active-status{
+
+.active-status {
   opacity: 1 !important;
 }
+
 .discount {
   max-width: 400px;
   position: fixed;
@@ -1353,6 +1354,7 @@ body>footer .top-footer:after,
   margin: 0;
   padding: 0;
 }
+
 .last-articles-layer .container {
   position: relative;
   z-index: 10;
@@ -1360,6 +1362,7 @@ body>footer .top-footer:after,
   margin: 0;
   width: 100%;
 }
+
 .articles-view .article-owl {
   background-color: #f4f4f427;
   border-radius: 5px;
@@ -1391,12 +1394,14 @@ body>footer .top-footer:after,
   width: 100%;
   height: 300px !important;
   border-radius: 20px;
-  
+
 }
-.articles-view .article-col>div .img-layer:hover img{
+
+.articles-view .article-col>div .img-layer:hover img {
   filter: brightness(40%);
 }
- .articles-view .article-col>div .img-layer a {
+
+.articles-view .article-col>div .img-layer a {
   position: absolute;
   right: 0px;
   top: 0;
@@ -2125,10 +2130,34 @@ body>footer .copyright p a:hover {
     padding-right: 45px;
     margin-top: 10px
   }
+
+  .status {
+    position: relative;
+    right: 10px;
+  }
+  .status a{
+    width: 200px ;
+    height: 200px ;
+  }
+  .status p{
+    position: relative;
+    right: 50px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
 }
 
 @media screen and (max-width :380px) {
   .landing-layer .landing-content .landing-header h2 {
     width: 250px;
+  }
+  .status {
+    position: relative;
+    right: -30px !important;
+  }
+  .status p{
+    position: relative;
+    right: 50px;
+    font-size: 14px;
   }
 }

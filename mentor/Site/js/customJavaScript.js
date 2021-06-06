@@ -50,3 +50,25 @@ function deleted() {
     var child = document.querySelector(".tr");
     parent.removeChild(child);
 }
+
+
+//////////////// close shope button
+const emptyCart = document.querySelector(".empty-cart");
+const cart = document.querySelector(".cart");
+const shopList = document.getElementById("1stShop")
+
+function closeShop(){
+    shopList.style.display = "none";
+    document.getElementById("del-modal").style.display = "block";
+
+}
+function closeLastShop(){
+    emptyCart.style.display = "block";
+    cart.style.display = "none";
+    document.getElementById("del-modal").style.display = "block";
+}
+
+function hideModal(){
+    document.getElementById("del-modal").style.display = "none";
+
+}
