@@ -1,4 +1,4 @@
-header {
+.intro {
     padding: 25px 0 30px;
     position: relative;
     width: auto;
@@ -6,7 +6,7 @@ header {
     float: right;
 }
 
-header h1 {
+.intro h1 {
     width: auto;
     white-space: nowrap;
     font-size: 18px;
@@ -16,7 +16,7 @@ header h1 {
     line-height: 35px;
 }
 
-header span {
+.intro span {
     width: auto;
     white-space: nowrap;
     display: inline-table;

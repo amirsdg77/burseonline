@@ -1,4 +1,4 @@
-header {
+.intro {
     padding: 25px 0 30px;
     position: relative;
     width: auto;
@@ -6,7 +6,7 @@ header {
     float: right;
 }
 
-header h1 {
+.intro h1 {
     width: auto;
     white-space: nowrap;
     font-size: 18px;
@@ -16,7 +16,7 @@ header h1 {
     line-height: 35px;
 }
 
-header span {
+.intro span {
     width: auto;
     white-space: nowrap;
     display: inline-table;
@@ -396,14 +396,19 @@ header span {
     margin-bottom: 20px;
 }
 
-.register-first {
+.register-first p {
     width: 100%;
+    line-height: 40px;
     border-radius: 5px;
-    height: 50px;
-    line-height: 50px;
     background-color: #fcc30896;
     text-align: center;
-    margin: 50px 0;
+    margin: 5px 0 20px 0;
+    display: block;
+}
+
+.register-first a {
+    color: #8c51ca;
+    text-decoration: none;
 }
 
 .leave-comment label {

@@ -372,6 +372,12 @@ body {
 }
 
 
+.tr  a{
+    padding: 0 !important;
+    margin: 0 !important; 
+    cursor: pointer !important;
+}
+
 /* wallet button and input */
 
 .wallet .wallet-input-1{
