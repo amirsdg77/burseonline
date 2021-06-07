@@ -46,13 +46,32 @@
                 </nav>
 
                 <div class="clientarea">
-                    <div class="user-area">
-                        <div class="logged-out">
+                    <div class="user-area" >
+
+                        <!-- when user log-out this div should be shown -->
+                        <div class="logged-out" style="display: none;">
                             <i class="zmdi zmdi-account-o"></i>
                             <a href="login.html"> ورود </a>
                             <a href="register.html"> ثبت نام </a>
                         </div>
+                        <!-- when user log-in this div should be shown-->
+                        <div class="logged-in">
+                            <a href="javascript:void(0)" class="img-layer"><img src="Site/images/avatar-366.png"></a>
+                            <a href="javascript:void(0)" class="title"> رضا قنبری <i class="zmdi zmdi-caret-down"></i> </a>
+                            <div class="sublayer" style="display: block;">
+                                <ul>
+                                    <li><a href=""> مشاهده حساب کاربری </a></li>
+                                    <li><a href=""> ویرایش حساب کاربری </a></li>
+                                    <li><a href=""> کیف پول من </a></li>
+                                    <li><a href=""> دوره های من </a></li>
+                                    <li><a href=""> تیکت ها </a></li>
+                                    <li><a href=""> خروج از حساب کاربری </a></li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
+                    <a href="javascript:void(0)"><i class="zmdi zmdi-search"></i></a>
                 </div>
 
             </header>
