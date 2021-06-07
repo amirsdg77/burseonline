@@ -911,18 +911,18 @@ body>footer .top-footer:after,
 }
 
 .discount {
-  max-width: 400px;
+  max-width: 150px;
   position: fixed;
-  bottom: -55px;
-  left: -90px;
+  bottom: -20px;
+  left: 0px;
   z-index: 5;
   display: none;
 }
 
 .discount .closeBtn {
   position: relative;
-  bottom: 230px;
-  left: -90px;
+  bottom: 160px;
+  left: 10px;
   cursor: pointer;
   font-size: 25px;
 }
@@ -1814,17 +1814,8 @@ body>footer .copyright p a:hover {
 }
 
 @media screen and (max-width : 991px) {
-  .discount {
-    bottom: -30px;
-    left: -58px;
-    width: 320px;
-  }
 
-  .discount .closeBtn {
-    bottom: 180px;
-    left: -70px;
-    font-size: 14px;
-  }
+
 
   .status a {
     width: 130px;
@@ -1993,18 +1984,6 @@ body>footer .copyright p a:hover {
 @media screen and (max-width : 480px) {
   .course-col {
     right: 0;
-  }
-
-  .discount {
-    bottom: -25px;
-    left: -45px;
-    width: 230px;
-  }
-
-  .discount .closeBtn {
-    bottom: 135px;
-    left: -50px;
-    font-size: 10px;
   }
 
   .status a {
