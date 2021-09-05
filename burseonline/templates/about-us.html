@@ -1,0 +1,36 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+
+<body>
+
+    <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html" ><span> منتور </span></a></li>
+                <li><a href="#"class="current"><span>  درباره منتور </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+        <div class="row">
+            <div class="about-us col-lg-12">
+                <img src="{% static 'Site/images/pettern-1.png' %}" alt="back">
+                <img src="{% static 'Site/images/logo.png' %}" alt="logo" class="about-page-logo">
+                <p>
+                    {{ setting.about_us }}
+                </p>
+        </div>
+    </div>
+
+    <!-- /main content page -->
+
+</body>
+
+</html>
+
+{% endblock %}

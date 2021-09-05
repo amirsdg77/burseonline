@@ -1,0 +1,218 @@
+.aside-categories>ul>li label:before,
+.aside-categories>ul>li label:after {
+    outline: medium none;
+    text-decoration: none;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -ms-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s
+}
+
+.course-archive-content>header {
+    padding: 25px 0 30px;
+    position: relative;
+    width: auto;
+    display: table;
+    float: right;
+}
+
+.course-archive-content .breadcrumb {
+    padding: 25px 0 30px;
+    width: auto;
+    display: table;
+    float: left;
+    position: relative;
+    top: 3px
+}
+
+.course-archive-content>header h1 {
+    width: auto;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e2f38;
+    display: inline-table;
+    line-height: 35px;
+}
+
+.course-archive-content>header span {
+    width: auto;
+    white-space: nowrap;
+    display: inline-table;
+    font-size: 15px;
+    color: #686e71;
+    padding-right: 15px
+}
+
+
+.form-box {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px 1px gainsboro;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.search-form button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    left: 22px;
+    top: 8px;
+}
+
+.select-layer select {
+    float: left;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    margin-right: 20px;
+}
+
+.courses-view {
+    float: left;
+    margin-top: 30px;
+}
+
+.course-col {
+    padding: 5px;
+    float: left;
+}
+
+.aside-filter {
+    width: 100%;
+    padding: 0px;
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px 1px gainsboro;
+    border-bottom: 1px solid gainsboro;
+    border-radius: 10px;
+}
+
+.aside-filter h2 {
+    padding: 20px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.aside-categories {
+    padding: 20px;
+}
+
+.aside-categories>ul>li {
+    margin: 9px 0;
+    position: relative;
+    width: 100%;
+}
+
+.aside-categories>ul>li input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+
+.aside-categories>ul>li label {
+    display: block;
+    line-height: 25px;
+    position: relative;
+    padding-right: 25px;
+    font-size: 14px;
+    color: #6e6871;
+}
+
+.aside-categories>ul>li label:before {
+    width: 18px;
+    height: 18px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border: 1px solid #d7e1e6;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+
+.aside-categories>ul>li label:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    background-color: #8246c2;
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 4px;
+    opacity: 0
+}
+
+.aside-title {
+    color: rgb(71, 60, 73) !important;
+}
+
+.aside-categories>ul>li label:hover {
+    cursor: pointer;
+}
+
+.aside-categories>ul>li input:checked+label:after,
+.aside-categories>ul>li label:hover:after {
+    opacity: 1
+}
+
+.aside-categories>ul>li input:checked+label:before,
+.aside-categories>ul>li label:hover:before {
+    border: 1px solid #1e2f38;
+}
+
+.aside-categories>ul>li ul {
+    padding-right: 25px;
+    padding-top: 4px;
+}
+
+/* ************** media query ****************** */
+
+/* ************1199 */
+@media screen and (max-width : 1199px) {
+
+    .course-archive-content p,
+    .course-archive-content a,
+    .course-archive-content span,
+    .course-archive-content span i,
+    .course-archive-content label {
+        font-size: 14px !important;
+    }
+}
+
+
+/* ******************767************************** */
+@media screen and (max-width : 767px) {
+    .course-col {
+        padding-left: 15%;
+    }
+}
+
+/* **********************450********************************** */
+@media screen and (max-width : 450px) {
+
+    .course-archive-content p,
+    .course-archive-content a,
+    .course-archive-content span,
+    .course-archive-content span i,
+    .course-archive-content label {
+        font-size: 13px !important;
+    }
+
+    .course-col {
+        padding-left: 0;
+    }
+}

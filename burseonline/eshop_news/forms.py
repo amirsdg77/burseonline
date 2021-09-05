@@ -19,6 +19,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body_text',)
+        # widgets = {
+        #     'body_text': forms.TextInput(attrs={'class': 'editor'}),
+        # }
 
 
 class CategoryForm(forms.ModelForm):

@@ -1,0 +1,67 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<body>
+
+    <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html"><span> منتور </span></a></li>
+                <li><a href="#" class="current"><span> تماس با ما </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+        <div class="row">
+            <div class="col-lg-12 contact-us">
+                <div class="col-lg-5  right-box">
+                    <img src="Site/images/Telecommuting-rafiki.png" alt="">
+                    <div class="contact-info">
+                        <i class="fas fa-phone" style="color: #2f0c55;"></i> <a href="#"> تلفن تماس (روزهای کاری ۹ الی
+                            ۱۷): <span>021-12345678</span></a><br>
+                        <i class="fas fa-envelope-open-text" style="color: #2f0c55;"></i> <a href="#">آدرس ایمیل:
+                            <span>mentor@gmail.com</span></a><br>
+                        <i class="fas fa-map-marked-alt" style="color: #2f0c55;"></i> <a href="#">آدرس دفتر مرکزی:
+                            <span>تهران - تهران</span></a><br>
+                        <i class="fab fa-whatsapp" style="color: #2f0c55;"></i> <a href="#">پشتیبانی واتساپ:
+                            <span>mentor</span></a><br>
+                    </div>
+
+                </div>
+                <div class="col-lg-7  left-box">
+                    <h2>تماس با ما</h2>
+                    <hr><br>
+                    <form method="post" enctype='multipart/form-data'>
+                        {% csrf_token %}
+                        نام و نام خانوادگی:
+                        {{ form.name }}
+                        موبایل:
+                        {{ form.phone }}
+                        ایمیل:
+                        {{ form.email }}
+                        متن:
+                        {{ form.media }}
+                        {{ form.body_text }}
+                        <button type="submit" class="button-st green">ارسال</button>
+                    </form>
+                </div>
+                <div class="col-lg-12 bottom-box">
+                    <p>با دنبال کردن کانال تلگرام و صفحه‌ی اینستاگرام منتور (هردو به آدرس _mentor_) از تخفیف‌ها و
+                        جذاب‌ترین مطالب آموزشی لذت ببرید!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>
+
+{% endblock %}

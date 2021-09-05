@@ -1,46 +1,233 @@
 {% extends 'shared/_MainLayout.html' %}
 {% load static %}
-{% load render_partial %}
+{% load mathfilters %}
 
 {% block content %}
-    <section>
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوره های آموزشی</title>
+    <link rel="stylesheet" href="{% static 'Site/css/course-archive.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/blog.css' %}">
+
+
+
+</head>
+
+<body>
+
+    <!-- main content page -->
+    <div class="course-archive-page">
         <div class="container">
-            <div class="row">
 
-                <div class="col-sm-9 padding-right">
-                    <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">لیست محصولات</h2>
-                        {% for product in page_obj %}
-                            {% include 'products/product_item_component.html' with product=product %}
-                        {% endfor %}
+            <section class="course-archive-content">
+                <!-- breadcrumb -->
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="/"><span> منتور </span></a></li>
+                        <li><a href="/products"><span> دوره های آموزشی </span></a></li>
+                    </ul>
+                </div>
+                <!-- /breadcrumb -->
+                <header>
+                    <h1> دوره های آموزشی </h1> <span> ( {{ page_obj.count }} ) </span>
+                </header>
+
+                <div class="clearfix"></div>
+                <!-- start filter box -->
+                <form action="#" class="form-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="search-form col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Search" placeholder="عنوان مورد نظر ...">
+                        <button><i class="zmdi zmdi-search"></i></button>
+                    </div>
+                    <div class="order-layer col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+<!--                        <div class="select-layer">-->
+<!--                            <select>-->
+<!--                                <option selected> مرتب سازی بر اساس عنوان </option>-->
+<!--                                <option> مرتب سازی بر اساس تاریخ انتشار </option>-->
+<!--                                <option> مرتب سازی بر اساس قیمت </option>-->
+<!--                                <option> مرتب سازی بر اساس محبوبیت </option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+
+<!--                        <div class="select-layer">-->
+<!--                            <select>-->
+<!--                                <option selected> همه </option>-->
+<!--                                <option> نقدی </option>-->
+<!--                                <option> رایگان </option>-->
+<!--                                <option> ویژه </option>-->
+<!--                            </select>-->
+<!--                        </div>-->
 
 
-                        <div class="clearfix"></div>
-                        <ul class="pagination">
-                            {% if page_obj.has_previous %}
-                                <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+
+                    </div>
+
+                </form>
+                <!-- /end filter box -->
+
+                <section class="row">
+
+
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <div class="aside-filter">
+                            <h2>فیلتر بر اساس دسته بندی</h2>
+
+                            <div class="aside-categories">
+                                <ul>
+                                    <li>
+                                        <a href="/products">
+                                        <label for="cat-0" class="aside-title"> همه دسته بندی ها </label>
+                                        </a>
+                                    </li>
+
+                                    {% for category in categories %}
+                            <li>
+
+                                <label for="cat-1" class="aside-title">
+                                {{category}} </label>
+
+                                <ul>
+                                    {% for cat in category.productcategory_set.all reversed %}
+                                    <li>
+                                        <a href="{% url 'product-category' cat.pk %}">
+                                         <label for="cat-9">
+                                            {{ cat }}
+                                        </label>
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </li>
+                            {% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="courses-view col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                        <div class="inner">
+                            <div class="row"></div>
+                            {% for product in page_obj %}
+                            <!-- col -->
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 course-col wow animated fadeInUp">
+                                <div class="box-shadow">
+                                    <div class="img-layer">
+                                        <a href="#">
+                                            <i class="zmdi zmdi-more-vert"></i>
+                                        </a>
+                                        <img class="lazy" src="{% static 'Site/images/1 (4).png' %}" alt="">
+
+                                    </div>
+                                    <h2><a href="{% url 'product-detail' product.pk %}">
+                                           {{ product.title }} </a></h2>
+                                    {% if product.discount_price is not 0 %}
+                                <div class="detail">
+                                    <div class="top">
+                                    <span class="percent"><p>{{ product.discount_price }}%</p></span>
+
+                                        <a href="#"><i class="zmdi zmdi-account-circle"></i> {{product.teacher}} </a>
+
+                                    </div>
+                                    <div class="bottom">
+
+                                        <span class="previous-price"><b><del>{{ product.price }}</del></b></span>
+                                        <br>
+
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> {% widthratio 100|sub:product.discount_price 100 product.price %} </i> تومان </span>
+                                            <br>
+
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="detail">
+                                    <div class="top">
+
+                                        <a href="#"><i class="zmdi zmdi-account-circle"></i> {{product.teacher}} </a>
+
+                                    </div>
+                                    <div class="bottom">
+
+                                        <br>
+                                        {% if product.price is 0 %}
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> رایگان </i>  </span>
+                                            <br>
+                                        {% else %}
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> 400,000 </i> تومان </span>
+                                            <br>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                </div>
+
+                            </div>
+                            <!-- /col -->
+                            {% endfor %}
+
+                           
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paging">
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-right"></i></a></li>
                             {% endif %}
-                            {% for page in paginator.page_range %}
+                                {% for page in paginator.page_range %}
                                 {% if page == page_obj.number %}
-                                    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                                    <li class="page-item"><a class="page-link page-link-active" href="?page={{ page }}">{{ page }}</a></li>
                                 {% else %}
                                     <li><a href="?page={{ page }}">{{ page }}</a></li>
                                 {% endif %}
                             {% endfor %}
-                            {% if page_obj.has_next %}
-                                <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i></a></li>
                             {% endif %}
-                        </ul>
-                    </div><!--features_items-->
-                </div>
+                              </ul>
+                        </div>
 
-                <div class="col-sm-3">
-                    <div class="left-sidebar">
-                        {% render_partial 'products_categories_partial' %}
                     </div>
-                </div>
+                     
 
-            </div>
+
+
+                    
+                </section>
+
+
+
+
+
+            </section>
         </div>
-    </section>
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
+
 {% endblock %}

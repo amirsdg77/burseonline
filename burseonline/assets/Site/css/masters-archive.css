@@ -1,0 +1,155 @@
+.intro {
+    padding: 25px 0 30px;
+    position: relative;
+    width: auto;
+    display: table;
+    float: right;
+}
+
+.intro h1 {
+    width: auto;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e2f38;
+    display: inline-table;
+    line-height: 35px;
+}
+
+.intro span {
+    width: auto;
+    white-space: nowrap;
+    display: inline-table;
+    font-size: 15px;
+    color: #686e71;
+    padding-right: 15px
+}
+
+.breadcrumb {
+    padding: 25px 0 30px;
+    width: auto;
+    display: table;
+    float: left;
+    position: relative;
+    top: 3px
+}
+.img-box span:before {
+    width: 150px;
+    height: 150px;
+    background: url('../images/floral-alphabet-letter-m-by-Vexels.svg') no-repeat left bottom;
+    content: '';
+    position: absolute;
+    left: 60px;
+    bottom: -20px;
+    opacity: 0.03;
+    z-index: -1;
+  }
+
+/* **************  image box  **************** */
+section{
+    padding: 10px !important;
+}
+.img-box{
+    display: block;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    padding: 0;
+    border-radius: 50px 50px 5px 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px gainsboro;
+    text-align: center;
+    z-index: -2;
+}
+.img-box .master-img img{
+    width: 310px;
+    height: 240px;
+    border-radius: 50px 50px 0 0;
+    transition: all 0.3s ease-in-out;
+    padding: 0;
+    z-index: 1;
+}
+.img-box:hover{
+    border-radius: 0 !important;
+    box-shadow: 0 0 2px  #804bb8;
+}
+.img-box:hover .master-img img{
+    border-radius: 0 !important;
+}
+
+.img-box .master-link{
+    padding: 20px;
+    margin: 10px 0 25px 0;
+    font-size: 16px;
+    text-decoration: none;
+    color: #804bb8;
+}
+.img-box .fa-user{
+    margin-left: 5px;
+    color: #804bb8;
+    font-size: 14px;
+}
+.img-box .master-link:hover{
+    transform: translateY(-3px);
+}
+
+
+@media screen and (max-width : 1199px) {
+    .img-box span:before{
+        left: 72px;
+    }
+}
+
+/* ******************* 991 *********************** */
+@media screen and (max-width : 991px) {
+    .img-box span:before{
+        left: 92px;
+    }
+    .img-box .master-img img{
+        width: 400px;
+        height: 280px;
+    }
+}
+
+
+/* ************************** 767 ******************** */
+@media screen and (max-width : 767px) {
+    .img-box{
+        max-width: 70%;
+        margin-right: 100px;
+    }
+    .img-box .master-img img{
+        width: 550px;
+        height: 420px;
+    }
+    .img-box span:before{
+        display: none;
+    }
+}
+@media screen and (max-width : 660px){
+    .img-box{
+        margin-right: 80px;
+    }
+
+}
+/* ************************** 550 ******************** */
+@media screen and (max-width : 550px){
+    .img-box{
+        max-width: 100%;
+        margin-right: 0;
+    }
+    .img-box .master-img img{
+        width: 600px;
+        height: 400px;
+    }
+
+}
+
+/* ***************** 480 ********************* */
+@media screen and (max-width : 480px) {
+    .img-box .master-img img{
+        width: 500px;
+        height: 330px;
+    }
+
+}
+

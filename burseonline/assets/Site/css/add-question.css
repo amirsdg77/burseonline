@@ -1,0 +1,57 @@
+.main-box{
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px gainsboro;
+    border-radius: 5;
+}
+.main-box h2{
+    font-size: 18px;
+    padding: 20px;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 30px;
+}
+
+.main-box .main-subject label,
+.main-box form label{
+    padding: 10px;
+    margin-bottom: 30px;
+
+}
+.main-box .main-subject select,
+.main-box form input{
+    padding: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.main-box .main-subject optgroup{
+    color: #1e2f38;
+}
+.main-box .main-subject option{
+    color: #686e71;
+}
+
+.main-box input{
+    width: 50%;
+}
+
+.main-box button{
+    float: left;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Decoupled document build. */
+.ck.editor__editable[role='textbox'],
+.ck.ck-editor__editable[role='textbox'],
+/* Inline & Balloon build. */
+.ck.editor[role='textbox'] {
+	width: 100%;
+	background: #fff;
+	font-size: 1em;
+	line-height: 1.6em;
+	min-height: 180px;
+	padding: 0em 2em;
+    margin-bottom: 20px;
+}

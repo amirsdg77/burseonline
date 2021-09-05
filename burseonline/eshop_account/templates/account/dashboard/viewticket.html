@@ -1,0 +1,91 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> جزئیات تیکت </title>
+    <link rel="stylesheet" href="{% static '/Site/css/acount.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <!-- breadcrumb -->
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="index.html"><span> منتور </span></a></li>
+                    <li><a href="#" class="current"><span> داشبورد </span></a></li>
+                </ul>
+            </div>
+            <!-- /breadcrumb -->
+            <!-- fixed dashboard -->
+            <div class="dashboard col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="avatar">
+                    <img src="{{ user.profile.image.url }}" alt="">
+                    <p class="user-name">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+
+                <ul>
+                    <li><a href="/user"> <i class="fas fa-house-user"></i> داشبورد </a></li>
+                    <li><a href="/user/edit"> <i class="fas fa-user-cog"></i> ویرایش حساب کاربری</a></li>
+                    <li><a href="/user/change_password"> <i class="fas fa-key"></i> تغییر رمز عبور</a></li>
+                    <li><a href="/user/products"> <i class="fas fa-cart-arrow-down"></i> دوره های من</a></li>
+                    <li><a href="/user/wallet"> <i class="fas fa-wallet"></i> کیف پول</a></li>
+                    <li><a href="/user/factor"> <i class="fas fa-receipt"></i> فاکتور ها</a></li>
+                    <li class="active-mode"><a href="/user/support"> <i class="far fa-comment-dots"></i> تیکت ها </a></li>
+                    <li><a href="/user/my-questions"> <i class="far fa-question-circle"></i> سوالات من</a></li>
+                    <li><a href="/user/consultation_request"> <i class="fas fa-user-clock"></i> درخواست های مشاوره</a></li>
+                    <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i> خروج از حساب</a></li>
+                </ul>
+            </div>
+            <!-- profile -->
+            <div class="profile col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <h2>{{ ticket.headline }}</h2>
+                
+                <div class="time-ticket">
+                    <span> <b> تاریخ ثبت :</b>{{ticket.pub_date}}</span>
+                    <span><b>وضعیت:</b> بسته شده </span>
+                </div>
+                <hr>
+                <div class="questions-ticket">
+                    <span> در تاریخ <small> {{ ticket.pub_date.date }} </small> در ساعت <small> {{ ticket.pub_date.time }}</small> </span>
+                    <p>
+                        {{ ticket.body_text|safe }}
+                    </p>
+                </div>
+                <div class="answers-ticket">
+                    <span> در تاریخ <small> {{ ticket.answers.all.0.pub_date.date }} </small> در ساعت <small> {{ ticket.answers.all.0.pub_date.time}}</small> </span>
+                    <p>
+                        {{ ticket.answers.all.0.body_text|safe }}
+                    </p>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+ 
+
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرفی استاد</title>
+    <link rel="stylesheet" href="{% static 'Site/css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/advisers.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/course-archive.css'}">
+    <link rel="stylesheet" href="{% static 'Site/css/blog.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- main content page -->
+
+    <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="/masters"><span> معرفی مدرسین </span></a></li>
+                <li><a href="#" class="current"><span> {{master.first_name}} {{master.last_name}} </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+        <header class="intro">
+            <h1> {{master.first_name}} {{master.last_name}} </h1>
+        </header>
+        <div class="clearfix"></div>
+
+
+        <!-- Introduction -->
+        <section class="advisers-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="adviser-profile col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <h2>{{master.first_name}} {{master.last_name}}</h2>
+                <p>{{master.profile.bio}}</p>
+                <span></span>
+            </div>
+        </section>
+
+        <!--  text master -->
+
+        <div class="text-master col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p>دوره های استاد مورد نظر</p>
+        </div>
+        {% for course in master.profile.bought_products.all %}
+        <!-- master course -->
+        <div class="courses-view col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="inner">
+                <div class="row"></div>
+                <!-- col -->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 course-col wow animated fadeInUp">
+                    <div class="box-shadow">
+                        <div class="img-layer">
+                            <a href="#">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+                            <img class="lazy" src="{% static 'Site/images/1 (4).png' %}" alt="">
+
+                        </div>
+                        <h2><a href="{% url 'product-detail' course.pk %}">
+                                {{ course.title }} </a></h2>
+                        <div class="detail">
+                            <div class="top">
+                                <a href="#"><i class="zmdi zmdi-account-circle"></i>
+                                    {{ course.teacher }} </a>
+                            </div>
+                            <div class="bottom">
+                                <span class="time"><i class="zmdi zmdi-time"></i> 9:53:00 </span>
+                                <span class="price">
+                                    <i> {{ course.price }} </i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /col -->
+
+
+
+
+            </div>
+        </div>
+        {% endfor %}
+
+
+<!--        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paging">-->
+<!--            <ul class="pagination">-->
+<!--                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>-->
+<!--                <li class="page-item"><a class="page-link page-link-active" href="#">1</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">4</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">5</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#">6</a></li>-->
+<!--                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>-->
+<!--              </ul>-->
+<!--        </div>-->
+
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

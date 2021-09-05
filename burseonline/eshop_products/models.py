@@ -4,6 +4,8 @@ import os
 
 from eshop_products_category.models import ProductCategory
 from eshop_news.models import Comment
+from ckeditor.fields import RichTextField
+
 
 
 def get_filename_ext(filepath):
@@ -51,12 +53,14 @@ class ProductsManager(models.Manager):
 
 class Videos(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField(verbose_name='توضیحات', null=True)
+    number = models.IntegerField(verbose_name='شماره ویدیو', default=0, blank=True)
+    time = models.TimeField(default=None)
+    description = RichTextField(blank=True, null=True)
     video = models.FileField(upload_to=upload_image_path)
 
     class Meta:
-        verbose_name = 'video'
-        verbose_name_plural = 'videos'
+        verbose_name = 'ویدیو محصول'
+        verbose_name_plural = 'ویدیوهای محصولات'
 
     def __str__(self):
         return self.title
@@ -64,8 +68,10 @@ class Videos(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=150, verbose_name='عنوان')
-    description = models.TextField(verbose_name='توضیحات')
+    description = RichTextField(blank=True, null=True)
+    title_image = models.ImageField(upload_to=upload_image_path, null=True)
     price = models.IntegerField(verbose_name='قیمت', default=0, blank=True)
+    discount_price = models.IntegerField(verbose_name='تخفیف', default=0, blank=True)
     teacher = models.CharField(max_length=150, verbose_name='استاد', default=None)
     skill = models.CharField(max_length=150, verbose_name='مهارت', default=None, null=True)
     video = models.FileField(upload_to=upload_image_path, null=True, blank=True, verbose_name='ویدیو ی معرفی')

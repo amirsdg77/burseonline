@@ -2,188 +2,384 @@
 {% load static %}
 
 {% block content %}
-    <style>
-        #rcorners1 {
-          border-radius: 20px;
-          background: whitesmoke;
-          padding: 20px;
-        }
-        div.polaroid {
-          {#width: 1000px;#}
-          padding-right: 30px;
-            padding-left: 30px;
-            padding-top: 30px;
-            padding-bottom: 30px;
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
-        }
-    </style>
 
-<section>
-		<div class="container">
-			<div class="row">
 
-				<div class="col-sm-9">
-                <div class="polaroid">
-					<div class="blog-post-area">
-						<h2 class="title text-center">خبر</h2>
-						<div class="single-blog-post">
-							<h3>{{ blog.headline }}</h3>
-							<div class="post-meta">
-								<ul>
-									<li><i class="fa fa-user"></i>{{ blog.authors.all.0 }}</li>
-									<li><i class="fa fa-clock-o"></i> {{ blog.pub_date.time }}</li>
-									<li><i class="fa fa-calendar"></i> {{ blog.pub_date.date }}</li>
-								</ul>
-								<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-								</span>
-							</div>
-							<a href="">
-								<img src="images/blog/blog-one.jpg" alt="">
-							</a>
-                            <center>
-                            <img width="750" src="{{ blog.title_image.url }}" style="max-width: 100%">
-                            </center>
-                            <br><br>
-							<p>{{ blog.body_text|linebreaks }}</p>
-							<div class="pager-area">
-								<ul class="pager pull-left">
-									<li><a href="#">قبلی</a></li>
-									<li><a href="#">بعـدی</a></li>
-								</ul>
-							</div>
-						</div>
-					</div><!--/blog-post-area-->
+<html class="no-js" dir="rtl" lang="fa-IR">
 
-					<div class="rating-area">
-						<ul class="ratings">
-							<li class="rate-this">به این مطلب امتیـاز دهیـد :</li>
-							<li>
-								<i class="fa fa-star color"></i>
-								<i class="fa fa-star color"></i>
-								<i class="fa fa-star color"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</li>
-							<li class="color">{{ blog.comments.count }} نظر</li>
-						</ul>
-						<ul class="tag">
-							<li>برچسب :</li>
-							<li><a class="color" href=""> {{ blog.category.all.0 }} <span>/</span></a></li>
-						</ul>
-					</div><!--/rating-area-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عنوان مقاله</title>
+    <link rel="stylesheet" href="{% static 'Site/css/course-archive.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/article.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/course.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+</head>
 
-					<div class="socials-share">
-						<a href=""><img src="images/blog/socials.png" alt=""></a>
-					</div><!--/socials-share-->
+<body>
 
-					<div class="media commnets" style="box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);">
-						<a class="pull-right" href="#">
-							<img class="media-object" src="images/blog/Customer.jpg" alt="">
-						</a>
-						<div class="media-body">
-							<h4 class="media-heading">{{ blog.authors.all.0 }}</h4>
-							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-							<div class="blog-socials">
-								<ul>
-									<li><a href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-								</ul>
-								<a class="btn btn-primary" href="">سایـر مطالب نویسنده</a>
-							</div>
-						</div>
-					</div><!--Comments-->
-                    {% if user.is_authenticated %}
-{#                        <div class="replay-box">#}
-						<div class="row">
 
-							<div class="col-sm-8">
-								<div class="text-area">
-									<div class="blank-arrow">
-										<label>متن پیام</label>
-									</div>
-                                    <form method="post" action="{% url 'add-comment' blog.pk%}" enctype="multipart/form-data">
-                                            {% csrf_token %}
-                                            {{form.body_text}}
-                                        <button type="submit" class="btnSubmit"  style="font-family: 'B Mehr';margin-top: 30px; margin-bottom: -5px">ارسال</button>
-                                    </form>
+    <div class="container">
 
-									<span>*</span>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<h2>نظـر خود را بنویسیـد</h2>
-							</div>
-						</div>
-{#					</div><!--/Repaly Box-->#}
-                    {% else %}
 
-                        <a href="{% url 'login'%}">وارد شوید</a>
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="/blog"><span> مقالات </span></a></li>
+                <li><a href="#" class="current"><span> {{ blog.headline }} </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+        <header class="intro">
+            <h1> {{ blog.headline }} </h1>
+        </header>
 
-                    {% endif %}
-					<div class="response-area">
-						<h2>نظرات</h2>
-						<ul class="media-list">
-                            {% for comment in blog.comments.all %}
-							<li class="media" style="box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);">
+        <div class="clearfix"></div>
 
-								<a class="pull-right" href="#">
-									<img class="media-object" src="images/blog/Customer.jpg" alt="">
-								</a>
-								<div class="media-body">
-									<ul class="sinlge-post-meta">
-										<li><i class="fa fa-user"></i>{{ comment.user.all.0 }}</li>
-										<li><i class="fa fa-clock-o"></i> {{ comment.pub_date.time }} </li>
-										<li><i class="fa fa-calendar"></i> {{ comment.pub_date.date }}</li>
-									</ul>
-                                    <p>{{ comment.body_text }}</p>
-									<a class="btn btn-primary" href=""><i class="fa fa-reply"></i>پاسـخ</a>
-								</div>
-							</li>
-{#							<li class="media second-media">#}
-{#								<a class="pull-right" href="#">#}
-{#									<img class="media-object" src="images/blog/Customer.jpg" alt="">#}
-{#								</a>#}
-{#								<div class="media-body">#}
-{#									<ul class="sinlge-post-meta">#}
-{#										<li><i class="fa fa-user"></i>مشتـری شمـاره 1</li>#}
-{#										<li><i class="fa fa-clock-o"></i> 13:33 ب.ظ</li>#}
-{#										<li><i class="fa fa-calendar"></i> 25 تیـر 1397</li>#}
-{#									</ul>#}
-{#									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده ازلورملورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>#}
-{#									<a class="btn btn-primary" href=""><i class="fa fa-reply"></i>پاسـخ</a>#}
-{#								</div>#}
-{#							</li>#}
-                            {% endfor %}
-						</ul>
-					</div><!--/Response-area-->
-                </div><br><br>
-				</div>
+        <!-- main body -->
+        <section class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 
-                <div class="col-sm-3">
-                    <div class="polaroid">
-					<div class="left-sidebar">
-						<h2>تبلیغات</h2>
-						<video width="200" height="300" autoplay muted>
-                            <source src="">
-                        </video>
-                        <video width="200" height="300" autoplay muted>
-                            <source src="">
-                        </video>
-                        <video width="200" height="300" autoplay muted>
-                            <source src="">
-                        </video>
+            <div class="article-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="header-article">
+                    <img class="head-image" src="{{ blog.title_image.url }}" alt="{% static 'Site/images/1 (2).jpg' %}">
+                    <div class="overlay-avatar">
+                        <img src="{{ blog.authors.all.0.profile.image.url }}" alt="{% static 'Site/images/avatar-366.png' %}">
 
-					</div>
+                        <span class="view-artcile"> <i class="fas fa-eye"></i> # </span>
+                        <span> <i class="fas fas fa-calendar"></i> {{ blog.pub_date.date }} </span>
+                        <span> <i class="fas fa-user"></i> <a href="#"></a>{{ blog.authors.all.0 }} </span>
                     </div>
-				</div>
-			</div>
-		</div>
-	</section>
+                </div>
+
+
+
+                <div>
+                    <h2>{{ blog.headline }}</h2>
+                    {{ blog.body_text|safe }}
+
+                </div>
+            </div>
+
+           <!-- tags -->
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 course-tag">
+            <h3><i class="fas fa-tag"></i>برچسب ها :</h3>
+            <a href="#">{{ blog.category.all.0 }}</a>
+        </div>
+
+            <!-- comment box -->
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 course-comment">
+                <h2><i class="fas fa-comments"></i>{{ blog.comments.count }} نظر</h2>
+                <!-- col -->
+                {% for comment in blog.comments.all %}
+                <div class="comment-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <img src="{{ comment.user.all.0.profile.image.url }}" alt="acount">
+                    <div class="user-comment">
+                        <div>
+                            <a href="#"></a> <span> {{ comment.user.all.0 }} </span>
+                            <a>{{ comment.pub_date.time }} - {{ comment.pub_date.date }}</a>
+<!--                            <button class="button-st green">ثبت پاسخ</button>-->
+<!--                            <button class="button-st yellow">گزارش</button>-->
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comment-text">
+                                {{ comment.body_text|safe }}
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="reply-comment">-->
+<!--                        <div>-->
+<!--                            <img src="Site/images/img_avatar1.png" alt="">-->
+<!--                            <a href="#"></a> <span> | </span>-->
+<!--                            <a> ارسال در شنبه 1400/03/01</a>-->
+
+<!--                            <button class="button-st yellow">گزارش</button>-->
+<!--                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comment-text">-->
+<!--                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک-->
+<!--                                است.-->
+<!--                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک-->
+<!--                                است.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+                </div>
+                {% endfor %}
+                <!-- /col -->
+
+
+                <div class="leave-comment col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {% if not user.is_authenticated %}
+                    <div class="register-first">
+                        <p class="alert-question col-lg-12 col-md-12 col-sm-12 col-xs-12">برای ارسال سوال ابتدا <a
+                            href="/login"> وارد </a> حساب کاربری خود شوید و یا در سایت <a href="/register">ثبت
+                            نام</a> کنید</p>
+                    </div>
+                    {% else %}
+                    <label for="cm-ms">پیام</label>
+                    <form method="post" action="{% url 'add-comment' blog.pk%}">
+                        {% csrf_token %}
+                        {{form.media}}
+                        {{form.body_text}}
+
+                        <button type="submit" class="button-st purple"> ارسال</button>
+                    </form>
+                    {% endif %}
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <section class="col-lg-3 col-md-3 col-sm-12 col-xs-12"> 
+
+<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                <div class="aside-filter">-->
+<!--                    <h2>دسته بندی دوره های آموزشی</h2>-->
+
+<!--                    <div class="aside-categories">-->
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                <span for="cat-0" class="aside-title"> همه دسته بندی ها </span>-->
+<!--                            </li>-->
+
+<!--                            <li>-->
+<!--                                <span for="cat-1" class="aside-title">-->
+<!--                                    برنامه نویسی موبایل </span>-->
+<!--                                <ul>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-9">-->
+<!--                                            زامارین ( Xamarin )-->
+<!--                                        </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-35"> Kotlin </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-38"> Ionic </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-40"> Android </span>-->
+<!--                                    </li>-->
+
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span for="cat-2" class="aside-title">-->
+<!--                                    برنامه نویسی وب </span>-->
+<!--                                <ul>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-6"> ASP.NET-->
+<!--                                            WebForms-->
+<!--                                        </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-7"> ASP.NET MVC </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-11"> PHP </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-22"> Asp.Net Core </span>-->
+<!--                                    </li>-->
+
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span for="cat-3" class="aside-title">-->
+<!--                                    طراحی-->
+<!--                                    سایت </span>-->
+<!--                                <ul>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-10"> Angular </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-16"> BootStrap </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-21"> طراحی سایت </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-24"> React </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-25"> Jquery </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-26"> JavaScript </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-28"> VueJs </span>-->
+<!--                                    </li>-->
+
+<!--                                </ul>-->
+<!--                            </li>-->
+
+<!--                            <li>-->
+<!--                                <span for="cat-5" class="aside-title">-->
+<!--                                    تحت-->
+<!--                                    ویندوز </span>-->
+<!--                                <ul>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-8"> CSharp </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-20"> Unity </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-23"> NodeJs </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-27"> Python </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-30"> Java </span>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span for="cat-14" class="aside-title"> سئو </span>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span for="cat-17" class="aside-title">-->
+<!--                                    سیستم-->
+<!--                                    عامل </span>-->
+<!--                                <ul>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-15"> مدیریت پروژه </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-18"> Linux </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-45"> اینترنت </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-55"> Docker </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-61"> ساخت ستاپ </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-69">-->
+<!--                                            برنامه های کاربردی-->
+<!--                                        </span>-->
+<!--                                    </li>-->
+
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span for="cat-46" class="aside-title"> امنیت-->
+<!--                                </span>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span for="cat-57" class="aside-title"> گرافیک-->
+<!--                                </span>-->
+<!--                                <ul>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-58"> Photoshop </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <span for="cat-59"> گرافیک </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-62"> Premiere </span>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+
+<!--                                        <span for="cat-63"> موشن گرافیک </span>-->
+<!--                                    </li>-->
+
+<!--                                </ul>-->
+<!--                            </li>-->
+
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+        </section>
+
+
+
+
+    </div>
+
+
+
+    <script>ClassicEditor
+            .create(document.querySelector('.editor'), {
+
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        '|',
+                        'outdent',
+                        'indent',
+                        '|',
+                        'imageUpload',
+                        'undo',
+                        'redo'
+                    ]
+                },
+                language: 'fa',
+                image: {
+                    toolbar: [
+                        'imageTextAlternative',
+                        'imageStyle:full',
+                        'imageStyle:side'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+                licenseKey: '',
+
+
+            })
+            .then(editor => {
+                window.editor = editor;
+
+
+
+
+
+
+
+
+            })
+            .catch(error => {
+                console.error('Oops, something went wrong!');
+                console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+                console.warn('Build id: d79o3t3u039i-5ovvpxebq8d4');
+                console.error(error);
+            });
+    </script>
+
+</body>
+
+</html>
+
 {% endblock %}

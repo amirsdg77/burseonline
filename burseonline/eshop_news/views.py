@@ -12,72 +12,32 @@ from eshop_setting.models import SiteSetting
 from .models import Blog, Comment, Education
 
 
-class EducationView(ListView):
-    model = Education
-    template_name = "education.html"
-    paginate_by = 10
-
-
-def education_page(request, pk):
-    blog = None
-    for blog in Education.objects.all():
-        if blog.pk == pk:
-            blog = blog
-            break
-    form = CommentForm(request.POST or None)
-    context = {
-        'education': blog,
-        'form': form
-    }
-    return render(request, 'education_page.html', context)
-
-
-def add_edu(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = EducationForm(request.POST, request.POST, request.POST)
-        if form.is_valid():
-            blog = form.save()
-            blog.authors.add(current_user)
-            blog.save()
-            return redirect('/education')
-    else:
-        form = BlogForm()
-
-    context = {
-        'form': form
-    }
-
-    return render(request, 'add_blog.html', context)
-
-
-def add_edu_comment(request, pk):
-    blog = None
-    for blog in Education.objects.all():
-        if blog.pk == pk:
-            blog = blog
-            break
-    form = CommentForm(request.POST or None)
-    if form.is_valid():
-        comment = form.save()
-        comment.user.add(request.user)
-        comment.save()
-        blog.comments.add(comment)
-        blog.save()
-    return redirect('/education/' + str(pk))
-
-
 class LatestNews(ListView):
     model = Blog
     template_name = "blog.html"
-    paginate_by = 10
+    paginate_by = 9
+
+
+class SearchBlogView(ListView):
+    template_name = "blog.html"
+    paginate_by = 9
+
+    def get_queryset(self):
+        request = self.request
+        print(request.GET)
+        query = request.GET.get('q')
+        if query is not None:
+            return Blog.objects.search(query)
+
+        return Blog.objects.all()
 
 
 def blog_page(request, pk):
     blog = None
-    for blog in Blog.objects.all():
-        if blog.pk == pk:
-            blog = blog
+    for bl in Blog.objects.all():
+        if bl.pk == pk:
+            blog = bl
+            blog.visit += 1
             break
     form = CommentForm(request.POST or None)
     context = {
@@ -101,15 +61,6 @@ def add_comment(request, pk):
         blog.comments.add(comment)
         blog.save()
     return redirect('/blog/'+str(pk))
-
-
-def news(request):
-    site_setting = SiteSetting.objects.first()
-    context = {
-        'setting': site_setting
-    }
-
-    return render(request, 'education.html', context)
 
 
 def add_blog_category(request):

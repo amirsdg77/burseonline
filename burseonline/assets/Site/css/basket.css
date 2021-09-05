@@ -1,0 +1,226 @@
+/* ******* alert box ************** */
+.alert-shop p {
+    width: 100%;
+    border-radius: 5px;
+    line-height: 50px;
+    background-color: #fcc30896;
+    text-align: center;
+    margin: 50px 0;
+}
+
+/* *********** These codes are displayed if the cart is empty */
+.empty-cart {
+    display: none;
+}
+
+.empty-cart img {
+    margin: 0 auto;
+    display: block;
+}
+
+.empty-cart p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/************* shoping list *****************/
+.cart{
+    display: block;
+}
+.shop-list {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px gainsboro;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.shop-list h2 {
+    font-size: 18px;
+    color: #1e2f38;
+    display: inline-block;
+
+}
+
+.shop-list p {
+    color: #686e71;
+    padding-top: 30px;
+    display: inline-block;
+}
+
+.shop-list span {
+    color: #8f9396;
+    position: absolute;
+    left: 25px;
+}
+
+.shop-list span del {
+    color: crimson;
+}
+
+
+
+/* ********** discount-code ******************* */
+.discount-code,
+.payment-method,
+.payment-info {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px gainsboro;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.discount-code input {
+    width: 70%;
+    border-radius: 0 5px 5px 0;
+    border: 1 px solid gainsboro;
+    padding: 8.5px;
+}
+
+.discount-code>.button-st {
+    width: 20%;
+    margin-right: 0;
+    position: absolute;
+    border-radius: 5px 0 0 5px;
+    top: 20px;
+    left: 45px;
+}
+
+/* ********* payment info ************** */
+.payment-info>.button-st {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.payment-info span {
+    float: left;
+}
+
+.payment-info p {
+    display: inline-block;
+}
+
+.final-price {
+    color: #9fd98c;
+    padding-left: 15px;
+    font-size: 20px;
+    position: relative;
+
+    top: -5px;
+}
+
+/* *********** close button */
+.close-shop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.close-shop a {
+    text-decoration: none;
+    color: rgb(158, 24, 51);
+}
+
+.close-shop a:hover {
+    color: crimson;
+    transform: scale(1.02);
+}
+
+/* *********** modal ************* */
+.fa-check-circle {
+    font-size: 100px;
+    color: #9fd98c;
+    margin-bottom: 40px;
+}
+
+
+/* ************* 1199 ********************* */
+@media screen and (max-width : 1199px) {
+
+    .cart p,
+    .cart span,
+    .cart a,
+    .cart label,
+    .cart button,
+    .alert-shop p,
+    .empty-cart p {
+        font-size: 16px;
+    }
+
+    .cart h2 {
+        font-size: 18px;
+    }
+}
+
+/* ******************************991****************************** */
+@media screen and (max-width : 991px) {
+
+    .cart p,
+    .cart span,
+    .cart a,
+    .cart label,
+    .cart button,
+    .alert-shop p,
+    .empty-cart p {
+        font-size: 15px;
+    }
+
+    .cart h2 {
+        font-size: 17px;
+    }
+
+}
+
+/* ************************** 767 ******************** */
+@media screen and (max-width : 767px) {
+
+    .cart p,
+    .cart span,
+    .cart a,
+    .cart label,
+    .cart button,
+    .alert-shop p,
+    .empty-cart p {
+        font-size: 14px;
+    }
+
+    .cart h2 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+
+}
+
+/* ***************** 480 ********************* */
+@media screen and (max-width : 480px) {
+
+    .cart p,
+    .cart span,
+    .cart a,
+    .cart label,
+    .cart button,
+    .alert-shop p,
+    .empty-cart p {
+        font-size: 12px;
+    }
+
+    .cart h2 {
+        font-size: 12px;
+        width: 70%;
+    }
+    .shop-list p {
+        width: 30%;
+    }
+    .shop-list span{
+        font-size: 10px;
+    }
+    
+}

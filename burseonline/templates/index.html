@@ -1,0 +1,386 @@
+{% extends 'shared/_MainLayoutHome.html' %}
+{% load static %}
+{% load mathfilters %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزشگاه آنلاین منتور</title>
+    <link href="{% static 'Site/images/logo.png' %}" rel="icon">
+    <link href="{% static 'Site/css/Bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'site/css/publice.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'Site/OwlCarousel2-2.3.4/scss/owl.carousel.scss' %}">
+    <link rel="stylesheet" href="{% static 'Site/OwlCarousel2-2.3.4/scss/owl.theme.default.scss' %}">
+    <script src="{% static 'Site/fontawesome-free-5.15.3-web/css/all.css' %}"></script>
+</head>
+
+<body>
+    <!-- discount box -->
+    <div class="discount wow animated infinite pulse">
+        <a href="{% url 'product-category' 0 %}"><img src="{% static 'Site/images/Discount.png' %}" alt="discunt"></a>
+        <a class="closeBtn" onclick="close()"><i class="zmdi zmdi-close"></i></a>
+    </div>
+
+    <!-- fixed-menu -->
+    <div class="fixed-menu">
+        <div class="inner">
+            <a href="javascript:void(0)" class="close-menu"><i class="zmdi zmdi-close"></i></a>
+            <div class="logo">
+                <a href="/"><img src="{% static 'Site/images/logo.png' %}"></a>
+            </div>
+            <form method="get" action="#">
+                <input type="text" name="Search" class="autocomplete" placeholder=" جستجو کنید ...">
+                <button><i class="zmdi zmdi-search wow animated infinite pulse"></i></button>
+            </form>
+            <nav>
+                <div class="heading"> آموزش های منتور </div>
+                <ul>
+                    <li>
+                        <a href=""><i class="zmdi zmdi-smartphone-android"></i> برنامه نویسی موبایل </a>
+
+                        <ul>
+                            <li><a href="#"> زامارین ( Xamarin ) </a></li>
+                            <li><a href="#"> Kotlin </a></li>
+                            <li><a href="#"> Ionic </a></li>
+                            <li><a href="#"> Android </a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-laptop"></i> برنامه نویسی وب </a>
+
+                        <ul>
+                            <li><a href="#"> ASP.NET WebForms </a></li>
+                            <li><a href="#"> ASP.NET MVC </a></li>
+                            <li><a href="#"> PHP </a></li>
+                            <li><a href="#"> Asp.Net Core </a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href=""><i class="zmdi zmdi-language-html5"></i> طراحی سایت </a>
+
+                        <ul>
+                            <li><a href="#"> Angular </a></li>
+                            <li><a href="#"> BootStrap </a></li>
+                            <li><a href="#"> طراحی سایت </a></li>
+                            <li><a href="#"> React </a></li>
+                            <li><a href="#"> Jquery </a></li>
+                            <li><a href="#"> JavaScript </a></li>
+                            <li><a href="#"> VueJs </a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-desktop-windows"></i> تحت ویندوز </a>
+
+                        <ul>
+                            <li><a href="#"> CSharp </a></li>
+                            <li><a href="#"> Unity </a></li>
+                            <li><a href="#"> NodeJs </a></li>
+                            <li><a href="#"> Python </a></li>
+                            <li><a href="#"> Java </a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-trending-up"></i> سئو </a>
+
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-devices"></i> سیستم عامل </a>
+
+                        <ul>
+                            <li><a href="#"> مدیریت پروژه </a></li>
+                            <li><a href="#"> Linux </a></li>
+                            <li><a href="#"> اینترنت </a></li>
+                            <li><a href="#"> Docker </a></li>
+                            <li><a href="#"> ساخت ستاپ </a></li>
+                            <li><a href="#"> برنامه های کاربردی </a></li>
+                            <li><a href="#"> Excel </a></li>
+
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-shield-security"></i> امنیت </a>
+
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-brush"></i> گرافیک </a>
+
+                        <ul>
+                            <li><a href="#"> Photoshop </a></li>
+                            <li><a href="#"> گرافیک </a></li>
+                            <li><a href="#"> Premiere </a></li>
+                            <li><a href="#"> موشن گرافیک </a></li>
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+                <div class="heading"> منوی دسترسی </div>
+                <ul>
+                    <li><a href="#"> همکاری با منتور </a></li>
+                    <li><a href="#"> آخرین دوره ها </a></li>
+                    <li><a href="#"> معرفی مدرسین </a></li>
+                    <li><a href="#"> بلاگ </a></li>
+                    <li><a href="#"> درخواست آموزش </a></li>
+                    <li><a href="#"> پرسش و پاسخ </a></li>
+                    <li><a href="#"> درخواست مشاوره </a></li>
+                    <li><a href=""> تماس با ما </a></li>
+                    <li><a href=""> درباره ما </a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+    <!-- /fixed-menu -->
+
+
+    <!-- last courses -->
+    <section class="last-courses-layer courses-view">
+        <div class="container">
+            <header class="heading">
+                <h2> آخرین دوره های منتور </h2>
+                <br>
+                <a class="view-more" href="/products"> مشاهده همه دوره ها <i
+                        class="zmdi zmdi-long-arrow-left"></i></a>
+            </header>
+
+            <div class="inner">
+                <div class="suggested-courses-carousel owl-carousel">
+                    <!-- col -->
+                    {% for group in latest_products %}
+                    {% for product in group %}
+                    <div class="item wow animated fadeInUp">
+                        <div class="course-col">
+                            <div class="box-shadow">
+                                <div class="img-layer">
+                                    <a href="#">
+                                        <i class="zmdi zmdi-more-vert"></i>
+                                    </a>
+                                    <img class="lazy " src="{% static 'Site/images/1 (1).png' %}" alt="">
+
+                                </div>
+                                <h2><a href="{% url 'product-detail' product.pk %}">{{ product.title }}</a></h2>
+                                {% if product.discount_price is not 0 %}
+                                <div class="detail">
+                                    <div class="top">
+                                    <span class="percent"><p>{{ product.discount_price }}%</p></span>
+
+                                        <a href="#"><i class="zmdi zmdi-account-circle"></i> {{product.teacher}} </a>
+
+                                    </div>
+                                    <div class="bottom">
+
+                                        <span class="previous-price"><b><del>{{ product.price }}</del></b></span>
+                                        <br>
+
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> {% widthratio 100|sub:product.discount_price 100 product.price %} </i> تومان </span>
+                                            <br>
+
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="detail">
+                                    <div class="top">
+
+                                        <a href="#"><i class="zmdi zmdi-account-circle"></i> {{product.teacher}} </a>
+
+                                    </div>
+                                    <div class="bottom">
+
+                                        <br>
+                                        {% if product.price is 0 %}
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> رایگان </i>  </span>
+                                            <br>
+                                        {% else %}
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> {{ product.price }} </i> تومان </span>
+                                            <br>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    <!-- /col -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /last courses -->
+
+
+
+    <!-- last articles -->
+    <div class="last-articles-layer articles-view wow animated fadeInUp">
+        <section class="container">
+            <header class="heading">
+                <h2 style="color: white;"> آخرین مقالات منتور</h2>
+                <br>
+                <a class="view-more" href="/blog" style="color: white;"> مشاهده همه مقالات <i
+                        class="zmdi zmdi-arrow-left"></i></a>
+            </header>
+            {% if blog.0 is not None%}
+            <div class="article-owl owl-carousel">
+                <!-- col -->
+                <div class="article-col row item">
+                    <div class="container">
+                        <div class="img-layer col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img class="lazy" src="{{ blog.0.title_image.url }}">
+                            <a href="{% url 'blog-page' blog.0.pk %}">
+                                <span><i>مشاهده کامل مقاله</i></span> </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 article-text-box">
+                            <h2><a href="{% url 'blog-page' blog.0.pk %}">{{ blog.0.headline }}</a></h2>
+                            <p>
+                                {{ blog.0.body_text|safe }}
+                            </p>
+                            <div class="detail">
+                                <span><i class="zmdi zmdi-eye"></i> {{blog.0.visit}} </span>
+                                <span><i class="zmdi zmdi-comments"></i> {{ blog.0.comments.count }} </span>
+                                <a href="#"><i class="zmdi zmdi-account-circle"></i> {{ blog.0.authors.all.0 }} </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /col -->
+
+
+
+            </div>
+            {% endif %}
+        </section>
+    </div>
+    <!-- /last articles -->
+
+    <!-- Free courses -->
+    <section class="last-courses-layer courses-view ">
+        <div class="container">
+            <header class="heading">
+                <h2> دوره های محبوب منتور </h2>
+            </header>
+            <div class="inner">
+                <div class="suggested-courses-carousel owl-carousel">
+                    <!-- col -->
+                    {% for group in most_visit %}
+                    {% for product in group %}
+                    <div class="item wow animated fadeInUp">
+                        <div class="course-col">
+                            <div class="box-shadow">
+                                <div class="img-layer">
+                                    <a href="#">
+                                        <i class="zmdi zmdi-more-vert"></i>
+                                    </a>
+                                    <img class="lazy " src="{% static 'Site/images/1 (1).png' %}" alt="">
+
+                                </div>
+                                <h2><a href="{% url 'product-detail' product.pk %}">{{ product.title }}</a></h2>
+                                {% if product.discount_price is not 0 %}
+                                <div class="detail">
+                                    <div class="top">
+                                    <span class="percent"><p>{{ product.discount_price }}%</p></span>
+
+                                        <a href="#"><i class="zmdi zmdi-account-circle"></i> {{product.teacher}} </a>
+
+                                    </div>
+                                    <div class="bottom">
+
+                                        <span class="previous-price"><b><del>{{ product.price }}</del></b></span>
+                                        <br>
+
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> {% widthratio 100|sub:product.discount_price 100 product.price %} </i> تومان </span>
+                                            <br>
+
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="detail">
+                                    <div class="top">
+
+                                        <a href="#"><i class="zmdi zmdi-account-circle"></i> {{product.teacher}} </a>
+
+                                    </div>
+                                    <div class="bottom">
+
+                                        <br>
+                                        {% if product.price is 0 %}
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> رایگان </i>  </span>
+                                            <br>
+                                        {% else %}
+                                        <span class="time"><i class="zmdi zmdi-time"></i> 14:14:00 </span>
+                                        <span class="price">
+                                            <i> {{ product.price }} </i> تومان </span>
+                                            <br>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    <!-- /col -->
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="{% static 'Site/fontawesome-free-5.15.3-web/js/all.js' %}"></script>
+    <script src="{% static 'Site/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Site/js/Bootstrap.js' %}" ></script>
+    <script src="{% static 'Site/OwlCarousel2-2.3.4/js/owl.autoplay.js' %}"></script>
+    <script src="{% static 'Site/js/wow.js' %}"></script>
+
+    <script src="{% static 'Site/js/customJquery.js' %}"></script>
+    <script src="{% static 'Site/js/customJavaScript.js' %}"></script>
+    <script>
+        // discount close btn
+        const close = document.querySelector(".closeBtn");
+        close.addEventListener("click", off);
+        function off() {
+            document.querySelector(".discount").style.visibility = "hidden";
+        }
+    </script>
+
+
+
+
+    <!-- javaScript files -->
+</body>
+
+</html>
+
+{% endblock %}

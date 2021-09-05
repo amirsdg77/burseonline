@@ -1,0 +1,141 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ارسال تیکت </title>
+    <link rel="stylesheet" href="{% static 'Site/css/acount.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <!-- breadcrumb -->
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="/"><span> منتور </span></a></li>
+                    <li><a href="#" class="current"><span> داشبورد </span></a></li>
+                </ul>
+            </div>
+            <!-- /breadcrumb -->
+            <!-- fixed dashboard -->
+            <div class="dashboard col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="avatar">
+                    <img src="{{ user.profile.image.url }}" alt="">
+                    <p class="user-name">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+
+                <ul>
+                    <li><a href="/user"> <i class="fas fa-house-user"></i> داشبورد </a></li>
+                    <li><a href="/user/edit"> <i class="fas fa-user-cog"></i> ویرایش حساب کاربری</a></li>
+                    <li><a href="/user/change_password"> <i class="fas fa-key"></i> تغییر رمز عبور</a></li>
+                    <li><a href="/user/products"> <i class="fas fa-cart-arrow-down"></i> دوره های من</a></li>
+                    <li><a href="/user/wallet"> <i class="fas fa-wallet"></i> کیف پول</a></li>
+                    <li><a href="/user/factor"> <i class="fas fa-receipt"></i> فاکتور ها</a></li>
+                    <li class="active-mode"><a href="/user/support"> <i class="far fa-comment-dots"></i> تیکت ها <span class="new-alert"></span></a></li>
+                    <li><a href="/user/my-questions"> <i class="far fa-question-circle"></i> سوالات من</a></li>
+                    <li><a href="/user/my-answers"> <i class="fas fa-chalkboard-teacher"></i> پاسخ های من</a></li>
+                    <li><a href="/user/consultation_request"> <i class="fas fa-user-clock"></i> درخواست های مشاوره</a></li>
+                    <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i> خروج از حساب</a></li>
+                </ul>
+            </div>
+            <!-- profile -->
+            <div class="profile col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <form class="contact-form row" method="post" enctype='multipart/form-data'>
+                        {% csrf_token %}
+                <h2>ارسال تیکت</h2>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <a><i class="fas fa-border-style"></i> عنوان </a>
+                    {{ ticket_form.headline }}
+                </div>
+                <div class="col-lg-12">
+                    <a><i class="fas fa-keyboard"></i> متن پیام </a>
+                    {{ ticket_form.media }}
+                    {{ ticket_form.body_text }}
+                    <button type="submit" class="editBtn button-st purple">ارسال</button>
+                </div>
+                </form>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+ <!-- Ckeditor 5 -->
+ <script src="{% static '/Site/ckeditor5/build/ckeditor.js' %}"></script>
+ <script>ClassicEditor
+     .create( document.querySelector( '.editor' ), {
+         
+         toolbar: {
+             items: [
+                 'heading',
+                 '|',
+                 'bold',
+                 'italic',
+                 'link',
+                 '|',
+                 'outdent',
+                 'indent',
+                 '|',
+                 'imageUpload',
+                 'undo',
+                 'redo'
+             ]
+         },
+         language: 'fa',
+         image: {
+             toolbar: [
+                 'imageTextAlternative',
+                 'imageStyle:full',
+                 'imageStyle:side'
+             ]
+         },
+         table: {
+             contentToolbar: [
+                 'tableColumn',
+                 'tableRow',
+                 'mergeTableCells'
+             ]
+         },
+         licenseKey: '',
+         
+         
+     } )
+     .then( editor => {
+         window.editor = editor;
+ 
+         
+         
+         
+ 
+         
+         
+         
+     } )
+     .catch( error => {
+         console.error( 'Oops, something went wrong!' );
+         console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+         console.warn( 'Build id: d79o3t3u039i-5ovvpxebq8d4' );
+         console.error( error );
+     } );
+</script>
+
+</body>
+
+</html>
+
+{% endblock %}

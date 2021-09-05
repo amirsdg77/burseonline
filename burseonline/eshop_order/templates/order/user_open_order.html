@@ -1,85 +1,139 @@
 {% extends 'shared/_MainLayout.html' %}
+{% load static %}
 
 {% block content %}
-    <section id="cart_items">
-        <div class="container">
-            <div class="breadcrumbs">
-                <ol class="breadcrumb">
-                    <li><a href="/">خانـه</a></li>
-                    <li class="active">لیست محصولات موجود در سبد خرید شما</li>
-                </ol>
-            </div><!--/breadcrums-->
-            {% if order != None and details|length > 0 %}
-                <div class="table-responsive cart_info">
-                    <table class="table table-condensed">
-                        <thead>
-                        <tr class="cart_menu">
-                            <td class="image">کـالا</td>
-                            <td class="description"></td>
-                            <td class="price">قیمت</td>
-                            <td class="quantity">تعـداد</td>
-                            <td class="total">مجمـوع</td>
-                            <td></td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for detail in details %}
-                            <tr>
-                                <td class="cart_product">
-                                    <a href=""><img src="{{ detail.product.image.url }}" alt=""
-                                                    style="width: 110px;height: 110px"></a>
-                                </td>
-                                <td class="cart_description">
-                                    <h4><a href="">{{ detail.product.title }}</a></h4>
-                                    <p>شناسـه : {{ detail.product.id }}</p>
-                                </td>
-                                <td class="cart_price">
-                                    <p>{{ detail.product.price }} ريال</p>
-                                </td>
-                                <td class="cart_quantity">
-                                    <div class="cart_quantity_button">
-                                        <span>{{ detail.count }}</span>
-                                    </div>
-                                </td>
-                                <td class="cart_total">
-                                    <p class="cart_total_price">{{ detail.get_detail_sum }} ريال</p>
-                                </td>
-                                <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href="/remove-order-detail/{{ detail.id }}"><i
-                                            class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            {% else %}
-                <div class="alert alert-warning">
-                    <p>هیچ محصولی در سبد خرید شما یافت نشد</p>
-                </div>
-            {% endif %}
-        </div>
-    </section>
+<html class="no-js" dir="rtl" lang="fa-IR">
 
-    <section id="do_action">
-        <div class="container">
-            <div class="heading">
-                <h3>نهایی کردن سفارش یا ادامه خریـد ؟! </h3>
-                <p>در صورتیکـه کوپن خریـد و یا کد تخفیف داریـد میتوانید از آن استفاده نمایید | با استفاده از بخش مربوطه
-                    هزینه حمل و نقل خود را محاسبـه نمایید</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="total_area">
-                        <ul>
-                            <li>مجمـوع سبـد خریـد <span>{{ total }} تومان</span></li>
-                            <li>هزینـه حمل و نقـل <span>رایـگان</span></li>
-                            <li>مجمـوع <span>{{ total }} تومان</span></li>
-                        </ul>
-                        <a class="btn btn-default check_out" href="/request">پرداخت</a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبد خرید</title>
+    <link rel="stylesheet" href="{% static 'Site/css/basket.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/acount.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- main content page -->
+
+    <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="#" class="current"><span> سبد خرید </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <section class="alert-shop col-lg-12 col-md-12 col-sm-12 col-xm-12">
+            <p>لطفا در خرید خود دقت کنید ، هزینه پرداختی به هیچ عنوان قابل استرداد نمی باشد</p>
+        </section>
+
+        {% if order != None and details|length > 0 %}
+
+        <section class="cart col-lg-12 col-md-12 col-sm-12 col-xm-12">
+
+            <div class="shop col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <!-- Other boxes -->
+                {% for detail in details %}
+                <div class="shop-list" id="1stShop">
+                    <h2>{{detail.product.title}}</h2>
+                    <span><del>{{ detail.product.price }}</del></span><br>
+                    <p>مدرس : {{ detail.product.teacher }}</p>
+                    <span style="padding-top: 30px;">#</span>
+                    <div class="close-shop">
+                        <a onclick="closeShop()" href="/remove-order-detail/{{ detail.id }}"> <i class="fas fa-times"></i> </a>
                     </div>
+
                 </div>
+                {% endfor %}
+                <!-- This is the last box to be closed -->
+            </div>
+
+            <div class="shop-info col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <!-- discount box -->
+                <div class="discount-code col-lg-12">
+                    <input type="text" placeholder="کد تخفیف">
+                    <button class="button-st purple"> ثبت </button>
+                </div>
+
+                <!-- payment method -->
+                <div class="payment-method col-lg-12">
+                    <form>
+                        <div>
+                            <input type="radio" id="customRadio" name="example1" value="customEx">
+                            <label for="customRadio" style="margin-bottom: 20px;">درگاه
+                                پرداخت آنلاین</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="customRadio1" name="example1" value="customEx">
+                            <label for="customRadio1">کیف پول (موجودی {{user.profile.wallet.money}} تومان)</label>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- payment info -->
+                <div class="payment-info col-lg-12">
+                    <p>موجوی کیف پول شما : </p>
+                    <span>{{user.profile.wallet.money}} تومان</span><br>
+                    <p>مبلغ کل : </p>
+                    <span>{{ total }}</span><br>
+                    <p>تخفیف : </p>
+                    <span>0 تومان</span>
+                    <hr><br>
+                    <p>مبلغ قابل پرداخت : </p>
+                    <span class="final-price"> {{ total }} </span>
+                    <button class="button-st purple" href="/request">پرداخت نهایی</button>
+                </div>
+
+            </div>
+
+
+        </section>
+
+        {% else %}
+        <section class="empty-cart col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <img src="{% static 'Site/images/cart.png' %}" alt="">
+            <p>سبد خرید شما خالیست</p>
+
+
+
+
+        </section>
+        {% endif %}
+
+    </div>
+
+
+    <!-- The Modal -->
+    <div class="modal" id="del-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <i class="fas fa-check-circle"></i>
+                    <p>با موفقیت حذف شد</p>
+                </div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="hideModal()">OK</button>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- /main content page -->
+
+
+
+</body>
+
+</html>
+
 {% endblock %}

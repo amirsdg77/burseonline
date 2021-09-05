@@ -1,0 +1,140 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عنوان سوال</title>
+    <link rel="stylesheet" href="{% static 'Site/css/forum.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/forum-question.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/forum.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/course-archive.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- main content page -->
+    <div class="container">
+
+        <header class="intro">
+            <h1>عنوان سوال</h1>
+        </header>
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="/forum" class="current"><span> تالار گفت و گو </span></a></li>
+                <li><a href="#" class="current"><span> عنوان سوال </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- right side and main body -->
+        <section class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right-side-question">
+
+            <div class="question-box">
+
+                <div class="head-info">
+                    <span class="no-border"> {{question.pub_date}} </span>
+                    <span> {{question.visit}} بازدید </span>
+                    <span> {{question.answers.count}} پاسخ </span>
+                </div>
+
+                <div class="text-question-info">
+                    <h2>{{question.title}}</h2>
+                    <p>{{question.body_text|safe}}</p>
+                </div>
+                <div class="bottom-img-user">
+                    <img src="{% static 'Site/images/avatar-366.png' %}" alt="user">
+                    <a>{{question.user}}</a><br>
+                    <span class="no-border">10 پرسش</span>
+                    <span> {{question.answers.count}} پاسخ</span>
+                </div>
+            </div>
+            <!-- answer -->
+            {% for answer in question.answers.all %}
+            <div class="answer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div  class="show-item col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <img src="{{question.user.profile.all.0.image.url}}" alt="username">
+                    <a href="#">{{question.user}}</a>
+                </div>
+
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 answer-box">
+                    <div class="hide-item">
+                        <img  src="{{answer.user.profile.all.0.image.url}}" alt="username">
+                        <a href="#">{{answer.question.user}}</a>
+                    </div>
+
+                    <span class="no-border">{{answer.pub_date.date}}</span>
+                    <span> ساعت {{answer.pub_date.time}}</span>
+                    <p>{{ answer.body_text|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+
+                <div class="send-answer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2>افزودن پاسخ جدید</h2>
+                    <form method="post" action="{% url 'answer' question.pk %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div>
+                            {{ form.media }}
+                            {{form.body_text}}
+                        </div>
+                    <button type="submit" class="button-st green">ارسال</button>
+                    </form>
+                </div>
+        </section>
+        <!-- /right side and main body -->
+
+        
+        <!-- lincks -->
+<!--        <section class="col-lg-4 col-md-4 col-sm-12 col-xs-12">-->
+
+<!--            <div class="related-questions">-->
+<!--                <h2>داغترین ها</h2>-->
+<!--                &lt;!&ndash; item &ndash;&gt;-->
+<!--                <div href="#" class="questions-info">-->
+<!--                    <a href="#">-->
+<!--                        <p>سوال مرتبط با پرسش مورد نظر</p>-->
+<!--                    </a><br>-->
+<!--                    <span><i class="fas fa-eye"></i> 5 </span>-->
+<!--                    <span><i class="fas fa-comment"></i> 10 </span>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /item &ndash;&gt;-->
+
+<!--            </div>-->
+
+<!--        </section>-->
+
+        <!--/ lincks -->
+
+    </div>
+    <!-- /main content page -->
+
+
+
+
+
+ <!-- Ckeditor 5 -->
+
+
+</body>
+
+{% endblock %}

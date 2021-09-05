@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core import validators
 from eshop_products.models import Videos
 from eshop_products.models import Product
+from .models import Ticket, Question, Answer, ContactUs
 
 
 class EditUserForm(forms.Form):
@@ -20,9 +21,12 @@ class EditUserForm(forms.Form):
         widget=forms.TextInput(attrs={'placeholder': 'لطفا بیوگرافی خود را وارد نمایید', 'class': 'form-control'}),
         label='بیوگرافی'
     )
+    skills = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'لطفا مهارت های خود را وارد نمایید', 'class': 'form-control'}),
+        label='مهارت ها'
+    )
     image = forms.ImageField(
-        widget=forms.FileInput(attrs={'placeholder': 'عکس پروفایل:', 'class': 'form-control'}),
-        label='عکس پروفایل'
+        label='عکس پروفایل',
     )
 
 
@@ -107,9 +111,28 @@ class RegisterForm(forms.Form):
         return password
 
 
+class ChangePasswordForm(forms.Form):
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'لطفا کلمه عبور خود را وارد نمایید'}),
+        label='کلمه ی عبور'
+    )
+
+    re_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'لطفا تکرار کلمه عبور خود را وارد نمایید'}),
+        label='تکرار کلمه ی عبور'
+    )
+
+
+class TicketForm(forms.ModelForm):
+    class Meta:
+        model = Ticket
+        fields = ('headline', 'body_text')
+
+
 class VideoForm(forms.Form):
     product_id = forms.IntegerField()
     title = forms.CharField(max_length=50)
+    number = forms.IntegerField()
     description = forms.CharField(max_length=50, widget=forms.Textarea)
     video = forms.FileField()
 
@@ -118,4 +141,22 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('title', 'description', 'price', 'teacher', 'skill', 'video', 'categories')
+
+
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ('title', 'body_text', 'category')
+
+
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model = Answer
+        fields = ('body_text',)
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactUs
+        fields = ('name', 'phone', 'email', 'body_text')
 

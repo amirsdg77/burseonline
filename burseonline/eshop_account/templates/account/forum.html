@@ -1,0 +1,170 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تالار گفت و گو</title>
+    <link rel="stylesheet" href="{% static 'Site/css/forum.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/css/course-archive.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <!-- main content page -->
+    <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="#" class="current"><span> تالار گفت و گو </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- main body -->
+        <section class="col-lg-8 col-md-8 col-sm-12 col-xs-12 forum-box">
+            <header>
+                <h2>تالار گفت و گو </h2>
+                <span>{{object_list.count}} پرسش ثبت شده</span>
+            </header>
+
+            <div class="question-search col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <input type="search" placeholder="دنبال چه سوالی میگردی؟"><i class="fa fa-search"></i>
+            </div>
+            <div class="question-option col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <select>
+                    <option value="">جدید ترین ها</option>
+                    <option value="">پر بازدید ترین ها</option>
+                    <option value="">محبوب ترین ها</option>
+                    <option value="">داغ ترین ها</option>
+                </select>
+            </div>
+
+            <div class="send-question col-lg-12">
+                {% if not user.is_authenticated %}
+                <p class="alert-question col-lg-12 col-md-12 col-sm-12 col-xs-12">برای ارسال سوال ابتدا <a
+                        href=/login> وارد </a> حساب کاربری خود شوید و یا در سایت <a href="/register">ثبت
+                        نام</a> کنید</p>
+                {% else %}
+                <a href="/user/question"><button class="button-st purple"> + ایجاد سوال جدید</button></a>
+                {% endif %}
+            </div>
+
+            <!-- item -->
+            {% for question in obj_list %}
+            <div class="question-box col-lg-12 col-lg-12 col-sm-12 col-xs-12">
+                <img class="col-lg-4 col-md-4 col-sm-4 col-xs-4" src="{% static 'Site/images/avatar-366.png' %}" alt="user name">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <h2><a href="{% url 'show-question' question.pk %}">{{question.title}}</a></h2>
+                    <span><a href="{% url 'show-question' question.pk %}"> </a></span>
+                    <span>{{question.pub_date}}</span>
+                    <span> {{question.visit}} بازدید</span>
+                    <span>  {{ question.answers.count}} </span>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- /item -->
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paging">
+                <ul class="pagination">
+                        <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-right"></i></a></li>
+                            {% endif %}
+                                {% for page in paginator.page_range %}
+                                {% if page == page_obj.number %}
+                                    <li class="page-item"><a class="page-link page-link-active" href="?page={{ page }}">{{ page }}</a></li>
+                                {% else %}
+                                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i></a></li>
+                            {% endif %}
+                              </ul>
+                      </ul>
+            </div>
+
+
+        </section>
+
+        <!-- lincks -->
+        <section class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+<!--            <div class="related-questions">-->
+<!--                <h2>داغترین ها</h2>-->
+<!--                &lt;!&ndash; item &ndash;&gt;-->
+<!--                <div href="#" class="questions-info">-->
+<!--                    <a href="#">-->
+<!--                        <p>سوال مرتبط با پرسش مورد نظر</p>-->
+<!--                    </a><br>-->
+<!--                    <span><i class="fas fa-eye"></i> 5 </span>-->
+<!--                    <span><i class="fas fa-comment"></i> 10 </span>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /item &ndash;&gt;-->
+
+
+<!--            </div>-->
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="aside-filter">
+                    <h2>فیلتر بر اساس دسته بندی</h2>
+
+                    <div class="aside-categories">
+                        <ul>
+                            <li>
+                                <a href="/forum">
+                                <label for="cat-0" class="aside-title"> همه دسته بندی ها </label>
+                                </a>
+                            </li>
+                            {% for category in categories %}
+                            <li>
+
+                                <label for="cat-1" class="aside-title">
+                                {{category}} </label>
+
+                                <ul>
+                                    {% for cat in category.productcategory_set.all reversed %}
+                                    <li>
+                                        <a href="{% url 'forum-category' cat.pk %}">
+                                         <label for="cat-9">
+                                            {{ cat }}
+                                        </label>
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

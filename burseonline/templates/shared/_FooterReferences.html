@@ -1,7 +1,88 @@
 {% load static %}
-<script src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-<script src="{% static 'js/price-range.js' %}"></script>
-<script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'Site/fontawesome-free-5.15.3-web/js/all.js' %}"></script>
+    <script src="{% static 'Site/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Site/js/Bootstrap.js' %}"></script>
+    <script src="{% static 'Site/OwlCarousel2-2.3.4/js/owl.autoplay.js' %}"></script>
+    <script src="{% static 'Site/js/wow.js' %}"></script>
+
+    <script src="{% static 'Site/js/customJquery.js' %}"></script>
+    <script src="{% static 'Site/js/customJavaScript.js' %}"></script>
+    <script>
+        // discount close btn
+        const close = document.querySelector(".closeBtn");
+        close.addEventListener("click", off);
+        function off() {
+            document.querySelector(".discount").style.visibility = "hidden";
+        }
+    </script>
+
+<!-- Ckeditor 5 -->
+    <script src="{% static 'Site/ckeditor5/build/ckeditor.js' %}"></script>
+	<!-- javaScript files -->
+	<script>ClassicEditor
+			.create( document.querySelector( '.editor' ), {
+
+				toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'fontColor',
+						'fontSize',
+						'highlight',
+						'alignment',
+						'|',
+						'outdent',
+						'indent',
+						'|',
+						'codeBlock',
+						'htmlEmbed',
+						'imageUpload',
+						'blockQuote',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo'
+					]
+				},
+				language: 'fa',
+				image: {
+					toolbar: [
+						'imageTextAlternative',
+						'imageStyle:full',
+						'imageStyle:side'
+					]
+				},
+				table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells'
+					]
+				},
+				licenseKey: '',
+
+
+			} )
+			.then( editor => {
+				window.editor = editor;
+
+
+
+
+
+
+
+
+			} )
+			.catch( error => {
+				console.error( 'Oops, something went wrong!' );
+				console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+				console.warn( 'Build id: bdsm5bfgqtoa-a903rxkkrad3' );
+				console.error( error );
+			} );
+	</script>

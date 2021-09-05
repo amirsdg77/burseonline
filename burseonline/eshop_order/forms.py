@@ -8,7 +8,6 @@ class UserNewOrderForm(forms.Form):
         widget=forms.HiddenInput(),
     )
 
-    count = forms.IntegerField(
-        widget=forms.NumberInput(),
-        initial=1
-    )
+
+class WalletForm(forms.Form):
+    price = forms.CharField(max_length=250)

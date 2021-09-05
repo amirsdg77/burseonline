@@ -3,17 +3,20 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from .views import ProductsList, SearchProductsView, ProductsListByCategory\
-    , products_categories_partial, upload_video, display_video, add_product_category, product_detail, add_comment
+    , products_categories_partial, upload_video, display_video, add_product_category, product_detail, add_comment,\
+    add_free_product, products_by_category
 
 urlpatterns = [
     path('products', ProductsList.as_view()),
     path('products/<int:pk>', product_detail, name='product-detail'),
     path('products/add_category', add_product_category),
     path('products/<category_name>', ProductsListByCategory.as_view()),
+    path('products/category/<int:pk>', products_by_category, name="product-category"),
     # path('products/<productId>/<name>', product_detail),
     path('products/search', SearchProductsView.as_view()),
     path('products_categories_partial', products_categories_partial, name='products_categories_partial'),
     path('products/add_comment/<int:pk>', add_comment, name='prod-comment'),
+    path('products/add_free_product/<int:pk>', add_free_product, name='add-free-product'),
     path('upload/', upload_video, name='upload'),
     path('videos/', display_video, name='videos')
 ]

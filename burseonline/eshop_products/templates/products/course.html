@@ -1,0 +1,383 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوره تست</title>
+    <link rel="stylesheet" href="{% static 'Site/css/course.css' %}">
+
+
+
+</head>
+
+<body>
+
+    <!-- main content page -->
+    <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="#"><span> دوره های آموزشی </span></a></li>
+                <li><a href="#" class="current"><span> طراحی سایت </span></a></li>
+                <li><a href="#" class="current"><span> javaScript </span></a></li>
+                <li><a href="#" class="current"><span> دوره تست </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <header class="intro">
+            <h1> {{ product.title }} </h1>
+        </header>
+        <div class="clearfix"></div>
+
+
+
+
+        <!-- information -->
+        <section class="col-lg-3 col-md-3 col-sm-12 col-xs-12 aside-course">
+
+            <!-- information of course -->
+            <div class="col-lg-12 col-md-12 course-information">
+                {% if product.price is 0 %}
+                <h2><i></i>قیمت این دوره : <a class="free-course">رایگان</a></h2>
+                {% else %}
+                <h2><i></i>قیمت این دوره : <a class="cash-course">{{ product.price }}</a></h2>
+                {% endif %}
+                <a><i></i>مدرس دوره : <small>{{ product.teacher }}</small></a><br>
+                <a><i></i>تعداد دانشجویان دوره : <small>{{product.profile_set.count}}</small></a><br>
+                <a><i></i>تعداد ویدیوها : <small>{{product.videos.count}}</small></a><br>
+                <a><i></i>مدت زمان دوره : <small>#</small></a><br>
+                <a><i></i>سطح دوره : <small>{{product.skill}}</small></a><br>
+                <a><i></i>وضعیت دوره : <small class="complete">اتمام دوره</small></a><br>
+                <a><i></i>تاریخ آخرین بروزرسانی : <small>#</small></a><br>
+                {% if product not in user.profile.bought_products.all %}
+                {% if product.price is not 0 %}
+                <form method="post" action="/add-user-order">
+                    {% csrf_token %}
+                    {{ new_order_form.product_id }}
+                    <button type="submit" class="button-st green col-lg-12">
+                        <i class="fa fa-shopping-cart"></i>
+                        افـزودن به سبـد خریـد
+                    </button>
+                </form>
+                {% else %}
+                <a href="{% url 'add-free-product' product.pk %}">
+                <button type="submit" class="button-st green col-lg-12">
+                        <i class="fa fa-shopping-cart"></i>
+                        افـزودن به حساب کاربری
+                    </button>
+                </a>
+                {% endif %}
+                {% endif %}
+            </div>
+
+        </section>
+        <!-- / information -->
+
+
+        <!-- left side -->
+
+
+        <section class="col-lg-9 col-md-9 main-body-course">
+
+            <!-- Course Introduction -->
+            <div class="col-lg-12 course-introduction ">
+                <div>
+                    <img class="head-image" src="{{ product.title_image.url }}" alt="{% static 'Site/images/1 (2).jpg' %}">
+                </div>
+                <h2>{{ product.title }}</h2>
+                <p>{{ product.description|safe }}</p>
+                <br>
+                <center>
+                    <h2>ویدیوی معرفی</h2>
+                    <br>
+                <video width="640px" height="480px" controls class="afterglow" id="myvideo">
+                    <source
+                            src="{{ product.video.url }}"
+                            type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                </center>
+            </div>
+
+
+
+
+
+            <!-- Course download box -->
+            <div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 course-download">
+                    <h2><i class="fas fa-list"></i>فـهـرسـت ویـدیـوها <a>مدت زمان دوره : 14:49:00</a></h2>
+                    <!-- col -->
+<!--                    <div class="download-box col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+
+<!--                        <p class="part-number ">1</p>-->
+<!--                        <div>-->
+<!--                            <a> معرفی دوره </a> <span>|</span>-->
+<!--                            <a> 00:10:26 </a> <span>|</span>-->
+<!--                            <a class="free-course"> رایگان </a>-->
+<!--                            <div class="download-icons">-->
+<!--                                <a href="#"><i class="fas fa-download"></i></a>-->
+<!--                                <a href="#"><i class="fas fa-play"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <!-- /col -->
+                    
+                    <!-- col -->
+                    {% for video in product.videos.all %}
+                     <div class="download-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <p class="part-number ">{{video.number}}</p>
+                        <div>
+                            <a> {{ video.title }} </a> <span>|</span>
+                            <a> {{ video.time }} </a> <span>|</span>
+                            {% if product.price is 0 %}
+                            <a class="free-course"> رایگان </a>
+                            {% else %}
+                            <a class="cash-course"> نقدی </a>
+                            {% endif %}
+                            <div class="download-icons">
+                                {% if product.price is 0 %}
+                                    {% if user.is_authenticated %}
+                                         <a href=""><i class="fas fa-download"></i></a>
+                                         <a href="{% url 'show-product-video' video.pk %}"><i class="fas fa-play"></i></a>
+                                    {% else %}
+                                        <a><i class="fas fa-download" onclick="loginAlertShow()"></i></a>
+                                        <a><i class="fas fa-play" onclick="loginAlertShow()"></i></a>
+                                        <br>
+                                        <div class="login-alert" style="display: none">
+                                            <p>
+                                                برای استفاده از این قسمت باید ابتدا <a href="/login">وارد</a> سایت شوید
+                                            <p>اگر در سایت حساب کاربری ندارید در صورت تمایل <a href="/register">ثبت نام </a> کنید</p>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                {% else %}
+                                    {% if user.is_authenticated %}
+                                         {% if product in user.profile.bought_products.all %}
+                                            <a href=""><i class="fas fa-download"></i></a>
+                                            <a href="{% url 'show-product-video' video.pk %}"><i class="fas fa-play"></i></a>
+                                        {% else %}
+                                            <a><i class="fas fa-download" onclick="loginAlertShow()"></i></a>
+                                            <a><i class="fas fa-play" onclick="loginAlertShow()"></i></a>
+                                            <br>
+                                            <div class="login-alert" style="display: none">
+                                                <p>
+                                                    برای استفاده از این قسمت باید ابتدا دوره را خریداری کنید
+                                                </p>
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <a><i class="fas fa-download" onclick="loginAlertShow()"></i></a>
+                                        <a><i class="fas fa-play" onclick="loginAlertShow()"></i></a>
+                                        <br>
+                                        <div class="login-alert" style="display: none">
+                                            <p>
+                                                برای استفاده از این قسمت باید ابتدا <a href="/login">وارد</a> سایت شوید
+                                            <p>اگر در سایت حساب کاربری ندارید در صورت تمایل <a href="/register">ثبت نام </a> کنید</p>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+<!--                            <div class="blog-post-area">-->
+<!--                                <p id="rcorners1">-->
+<!--                                   <a href="{% url 'show-product-video' video.pk %}">-->
+<!--                                      {{ video.title }}-->
+<!--                                   </a>-->
+<!--                                </p>-->
+<!--                            </div>-->
+                    {% endfor %}
+                    <!-- /col -->
+                   
+                </div>
+            </div>
+
+            <!-- /Course download box -->
+
+
+
+            <!-- comment box -->
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 course-comment">
+                <h2><i class="fas fa-comments"></i>نـظـرات کـاربـران در مـورد دوره</h2>
+                <!-- col -->
+                {% for comment in product.comment.all %}
+                <div class="comment-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <img src="{{ comment.user.all.0.profile.image.url }}" alt="acount">
+                    <div class="user-comment">
+                        <div>
+                            <a href="#">{{ comment.user.all.0 }}</a> <span> | </span>
+                            <a>{{ comment.pub_date.time }} - {{ comment.pub_date.date }}</a>
+<!--                            <button class="button-st green">ثبت پاسخ</button>-->
+<!--                            <button class="button-st yellow">گزارش</button>-->
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comment-text">
+                                {{ comment.body_text|safe }}
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="reply-comment">-->
+<!--                        <div>-->
+<!--                            <img src="Site/images/img_avatar1.png" alt="">-->
+<!--                            <a href="#">رضا قنبری</a> <span> | </span>-->
+<!--                            <a> ارسال در شنبه 1400/03/01</a>-->
+
+<!--                            <button class="button-st yellow">گزارش</button>-->
+<!--                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comment-text">-->
+<!--                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک-->
+<!--                                است.-->
+<!--                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک-->
+<!--                                است.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+                </div>
+                {% endfor %}
+                <!-- /col -->
+                
+
+
+                    <div class="leave-comment col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {% if not user.is_authenticated %}
+                    <div class="register-first">
+                        <p class="alert-question col-lg-12 col-md-12 col-sm-12 col-xs-12">برای ارسال سوال ابتدا <a
+                            href="/login"> وارد </a> حساب کاربری خود شوید و یا در سایت <a href="/register">ثبت
+                            نام</a> کنید</p>
+                    </div>
+                    {% else %}
+                        <form method="post" action="{% url 'prod-comment' product.pk%}" enctype="multipart/form-data">
+                    <label for="cm-ms">پیام</label>
+                            {% csrf_token %}
+                            {{form.media}}
+                            {{form.body_text}}
+                        <button type="submit" class="btnSubmit"  style="font-family: 'B Mehr';margin-top: 30px; margin-bottom: -5px">ارسال</button>
+                    </form>
+                    {% endif %}
+<!--                    <label for="#cm-sub">عنوان</label><br>-->
+<!--                    <input type="text" id="cm-sub"><br>-->
+<!--                    <label for="cm-ms">پیام</label>-->
+<!--                    <textarea id="cm-ms" cols="30" rows="10" class="editor"></textarea>-->
+<!--                    <button class="button-st purple">ارسال</button>-->
+                </div>
+
+
+        </section>
+
+        <!-- / left side -->
+
+
+
+        <!-- right side -->
+        <section class="col-lg-3 col-md-3 aside-course">
+
+
+
+            <!-- tags -->
+            <div class="col-lg-12 course-tag">
+                <h3><i class="fas fa-tag"></i>برچسب ها :</h3>
+                <a href="{% url 'forum-category' product.categories.all.0.pk %}">{{product.categories.all.0}}</a>
+            </div>
+
+            <!-- side button -->
+            <div class="col-lg-12  button-group">
+                <a href="{% url 'forum-category' product.categories.all.0.pk %}"><button class="button-st purple">پرسش و پاسخ در رابطه با این دوره</button></a>
+                <br>
+<!--                <button class="favorites-btn"><i class="fas fa-heart"></i> افزودن به علاقه مندی ها <i-->
+<!--                        class="fas fa-heart"></i></button>-->
+            </div>
+
+            <!-- related-article -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 related-articles">
+                <h2>مقالات مرتبط</h2>
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    {% for bl in blog|slice:":5" %}
+                    <img src="{% static 'Site/images/1 (5).png' %}" alt="" class="col-lg-5 col-md-12">
+                    <a href="{% url 'blog-page' bl.pk %}" class="col-lg-7 col-md-12">{{ bl.headline }}</a>
+                    {% endfor %}
+                </div>
+                
+            </div>
+
+        </section>
+        <!-- / right side -->
+
+
+    </div>
+    <!-- /main content page -->
+
+    <script src="{% static 'Site/ckeditor5/build/ckeditor.js' %}"></script>
+    <script>ClassicEditor
+            .create(document.querySelector('.editor'), {
+
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        '|',
+                        'outdent',
+                        'indent',
+                        '|',
+                        'imageUpload',
+                        'undo',
+                        'redo'
+                    ]
+                },
+                language: 'fa',
+                image: {
+                    toolbar: [
+                        'imageTextAlternative',
+                        'imageStyle:full',
+                        'imageStyle:side'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+                licenseKey: '',
+
+
+            })
+            .then(editor => {
+                window.editor = editor;
+
+
+
+
+
+
+
+
+            })
+            .catch(error => {
+                console.error('Oops, something went wrong!');
+                console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+                console.warn('Build id: d79o3t3u039i-5ovvpxebq8d4');
+                console.error(error);
+            });
+    </script>
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load static %}
+
+<div class="container status">
+        <div class="row owl-carousel play loop owl-theme">
+
+<!--            <div class="col-md-3 col-xs-6 item">-->
+<!--                <a  href="/about-us" style="background-image: url({% static 'Site/images/roadmap.jpg' %});" class="active-status"></a>-->
+<!--                <p>نقشه راه</p>-->
+<!--            </div>-->
+
+            <div class="col-md-3 col-xs-6 item">
+                <a href="/masters" style="background-image: url({% static 'Site/images/Professor.jpg' %});" class="active-status"></a>
+                <p>مجرب ترین اساتید</p>
+            </div>
+
+            <div class="col-md-3 col-xs-6 item">
+                <a href="/advisors" style="background-image: url({% static 'Site/images/Consulting.jpg' %});" class="active-status"></a>
+                <p>مشاوره پیش از خرید</p>
+            </div>
+
+            <div class="col-md-3 col-xs-6 item">
+                <a href="/work_with_us" style="background-image: url({% static 'Site/images/Cooperation.png' %});"></a>
+                <p>همکاری و کسب درآمد</p>
+            </div>
+            <div class="col-md-3 col-xs-6 item">
+                <a href="/blog" style="background-image: url({% static 'Site/images/articles.jpg' %});"></a>
+                <p>آخرین مقالات</p>
+            </div>
+            <div class="col-md-3 col-xs-6 item">
+                <a href="/forum" style="background-image: url({% static 'Site/images/Question.jpg' %});"></a>
+                <p>سوالات متداول</p>
+            </div>
+<!--            <div class="col-md-3 col-xs-6 item">-->
+<!--                <a href="#" style="background-image: url({% static 'Site/images/Buy.jpg' %});"></a>-->
+<!--                <p>خرید اقساطی دوره</p>-->
+<!--            </div>-->
+            <div class="col-md-3 col-xs-6 item">
+                <a href="{% url 'product-category' 0 %}" style="background-image: url({% static 'Site/images/discountIllustration.jpg' %});"></a>
+                <p>تخفیف های روزانه</p>
+            </div>
+        </div>
+    </div>

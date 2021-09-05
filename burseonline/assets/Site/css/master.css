@@ -1,0 +1,22 @@
+.text-master{
+    border-bottom: 2px solid gainsboro;
+}
+.advisers-box{
+    padding: 50px !important;
+    border: 1px solid gainsboro !important;
+    overflow: hidden;
+}
+.adviser-profile{
+    width: 150px;
+    height: 150px;
+}
+.advisers-box span:before {
+    width: 270px;
+    height: 270px;
+    background: url('../images/floral-alphabet-letter-m-by-Vexels.svg') no-repeat left bottom;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -50px;
+    opacity: 0.02;
+  }

@@ -1,0 +1,25 @@
+{% load static %}
+{% load render_partial %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <title>صفحه اصلی | فروشگاه کارزیبا</title>-->
+    {% include 'shared/_HeaderReferencesHome.html' %}
+    {% block header_ref %}{% endblock %}
+</head>
+<body>
+
+{% render_partial 'Home_header' %}
+{% render_partial 'main_menu' %}
+<!--{% render_partial 'fixed_menu' %}-->
+{% render_partial 'top_slider' %}
+
+{% block content %} {% endblock %}
+
+{% render_partial 'news_letter' %}
+{% render_partial 'footer' %}
+</body>

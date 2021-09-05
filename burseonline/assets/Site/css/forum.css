@@ -1,0 +1,284 @@
+.forum-box>header {
+    position: relative;
+    width: 100%;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #edf1f4;
+    margin-bottom: 50px;
+    border-bottom: 3px solid gainsboro;
+}
+
+.forum-box>header h2 {
+    line-height: 28px;
+    font-size: 18px;
+    color: #1e2f38;
+    word-spacing: -2px;
+}
+
+.forum-box>header span {
+    line-height: 28px;
+    font-size: 14px;
+    color: #686e71;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+
+ 
+.forum-box .question-search input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    background: #fff;
+}
+
+.forum-box .question-search .fa-search {
+    position: absolute;
+    left: 25px;
+    top: 13px;
+    color: #686e71;
+}
+
+.forum-box .question-option select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    margin-bottom: 50px;
+    background-color: #fff;
+}
+
+.question-box {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 0 10px gainsboro;
+    margin: 10px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.question-box img {
+    width: 130px;
+    height: 100px;
+    margin-left: 20px;
+    border-radius: 100%;
+}
+
+.question-box h2 a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #2f0c55;
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.question-box span,
+.answer span {
+    position: relative;
+    padding: 0 14px 0 0;
+    line-height: 23px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #686e71;
+    display: inline-table;
+    margin-left: 20px;
+}
+
+.question-box span a {
+    text-decoration: none;
+    color: #1e2f38;
+}
+
+.question-box span::before,
+.answer span::before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-right: 3px solid #b0b9be;
+    content: '';
+    width: 5px;
+    height: 100%;
+}
+
+.related-questions {
+    background-color: #f8f8f8;
+    width: 100%;
+    box-shadow: 0 0 10px gainsboro;
+}
+
+.related-questions h2 {
+    padding: 20px;
+    color: #2f0c55;
+    border-bottom: 1px solid gainsboro;
+    font-size: 18px;
+}
+
+.related-questions .questions-info p {
+    color: #686e71;
+    font-size: 14px;
+    padding: 10px 20px 5px 20px;
+    width: 100%;
+}
+
+.related-questions .questions-info span {
+    padding: 0 20px 10px 20px;
+    color: #9fd98c;
+    font-size: 14px;
+}
+
+.questions-info {
+    position: relative;
+    border-right: 3px solid #2f0c55;
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    transition: all 0.4s ease-in-out;
+}
+
+.questions-info::after {
+    content: '';
+    padding: 50px 200px;
+    background-color: #efe1ff65;
+    position: absolute;
+    right: -500px;
+    top: 0;
+    z-index: -1;
+    transition: all 0.4s ease-in-out;
+}
+
+.questions-info:hover::after {
+    right: 0px;
+}
+
+/* send new question */
+.send-question {
+    margin-bottom: 20px;
+}
+
+/* display should be "none" When the user logs in to the site */
+.send-question p {
+    width: 100%;
+    line-height: 40px;
+    border-radius: 5px;
+    background-color: #fcc30896;
+    text-align: center;
+    margin: 5px 0 20px 0;
+    display: block;
+}
+
+.send-question a {
+    color: #8c51ca;
+    text-decoration: none;
+}
+
+/* display should be "none" when the user -----not------ logs in to te site */
+.send-question button {
+    display: block;
+}
+
+@media screen and (max-width : 1199px) {
+
+    .forum-box span,
+    .forum-box p,
+    .forum-box a,
+    .related-questions span,
+    .related-questions p,
+    .related-questions a {
+        font-size: 13px !important;
+    }
+
+    .forum-box h2,
+    .related-questions h2 {
+        font-size: 17px !important;
+    }
+
+    .question-box img {
+        margin-left: 0px;
+        width: 120px;
+        height: 90px;
+    }
+
+    .question-box span {
+        padding-right: 10px !important;
+        margin-left: 10px !important;
+    }
+}
+
+/* ******************* 991 *********************** */
+@media screen and (max-width : 991px) {
+
+    .questions-info::after {
+        padding: 50px 400px;
+        right: -800px;
+    }
+
+    .questions-info:hover::after {
+        right: -100px;
+    }
+
+    .related-questions .questions-info span {
+        float: left !important;
+        padding: 10px 20px 10px 20px;
+    }
+
+    .question-box img {
+        margin-left: 0px;
+        width: 110px;
+        height: 80px;
+    }
+}
+
+
+/* ************************** 767 ******************** */
+@media screen and (max-width : 767px) {
+
+    .forum-box span,
+    .forum-box p,
+    .forum-box a,
+    .related-questions span,
+    .related-questions p,
+    .related-questions a {
+        font-size: 12px !important;
+    }
+
+    .forum-box h2,
+    .related-questions h2 {
+        font-size: 16px !important;
+    }
+
+    .question-box img {
+        margin-left: 0px;
+        width: 100px;
+        height: 70px;
+    }
+}
+
+
+/* ***************** 600 ********************* */
+@media screen and (max-width : 600px) {
+
+    .related-questions .questions-info span {
+        display: none !important;
+    }
+
+}
+
+/* ***************** 480 ********************* */
+@media screen and (max-width : 480px) {
+
+    .forum-box span,
+    .forum-box p,
+    .forum-box a,
+    .related-questions span,
+    .related-questions p,
+    .related-questions a {
+        font-size: 11px !important;
+    }
+
+    .forum-box h2,
+    .related-questions h2 {
+        font-size: 15px !important;
+    }
+
+}

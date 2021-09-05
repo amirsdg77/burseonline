@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Product, ProductGallery,Videos,Comment
+from .models import Product, ProductGallery,Videos
 
 
 class ProductAdmin(admin.ModelAdmin):

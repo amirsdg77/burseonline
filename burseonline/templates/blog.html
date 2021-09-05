@@ -2,86 +2,111 @@
 {% load static %}
 
 {% block content %}
-<style>
-        #rcorners1 {
-          border-radius: 20px;
-          background: whitesmoke;
-          padding: 20px;
-        }
-        div.polaroid {
-          {#width: 1000px;#}
-          padding-right: 30px;
-            padding-left: 30px;
-            padding-top: 30px;
-            padding-bottom: 30px;
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
-        }
-    </style>
-    <section>
 
-	<section>
-		<div class="container">
-			<div class="row">
 
-				<div class="col-sm-9">
-                <div class="polaroid">
-					<div class="blog-post-area">
-						<h2 class="title text-center">آخریـن اخبـار</h2>
-						{% for post in object_list reversed %}
-						<div class="single-blog-post">
-							<h3>{{ post.headline }}</h3>
-							<div class="post-meta">
-								<ul>
-									<li><i class="fa fa-user"></i>{{ post.authors.all.0 }}</li>
-									<li><i class="fa fa-clock-o"></i> {{ post.pub_date.time }}</li>
-									<li><i class="fa fa-calendar"></i>{{ post.pub_date.date }}</li>
-								</ul>
-								<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-								</span>
-							</div>
-							<a href="">
-								<img src="images/blog/blog-one.jpg" alt="">
-							</a>
-							<p style="max-width: 600px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ post.body_text }}</p>
-							<a  class="btn btn-primary" href="{% url 'blog-page' post.pk %}">ادامـه مطلب</a>
-						</div>
-                        {% endfor %}
-						<div class="pagination-area">
-							<ul class="pagination">
-								<li><a href="" class="active">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href=""><i class="fa fa-angle-double-right"></i></a></li>
-							</ul>
-						</div>
-					</div>
-                </div><br><br>
-				</div>
+<html class="no-js" dir="rtl" lang="fa-IR">
 
-                <div class="col-sm-3">
-                    <div class="polaroid">
-					<div class="left-sidebar">
-						<h2>تبلیغات</h2>
-						<video width="200" height="300" autoplay muted>
-                            <source src="">
-                        </video>
-                        <video width="200" height="300" autoplay muted>
-                            <source src="">
-                        </video>
-                        <video width="200" height="300" autoplay muted>
-                            <source src="">
-                        </video>
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>مقالات</title>
+        <link rel="stylesheet" href="{% static 'Site/css/course-archive.css' %}">
+        <link rel="stylesheet" href="{% static 'Site/css/blog.css' %}">
+</head>
 
-					</div>
-                    </div><br><br>
-				</div>
+<body>
+    <!-- main content page -->
+    <div class="course-archive-page">
+        <div class="container">
 
-			</div>
-		</div>
-	</section>
+            <section class="course-archive-content">
+                <!-- breadcrumb -->
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index.html"><span> منتور </span></a></li>
+                        <li><a href="#" class="current"><span> مقالات </span></a></li>
+                    </ul>
+                </div>
+                <!-- /breadcrumb -->
+                <header>
+                    <h1> مقالات منتور </h1> <span> {{ page_obj.count }} </span>
+                </header>
+
+                <div class="clearfix"></div>
+                <!-- start filter box -->
+                <form action="#" class="form-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="search-form col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="Search" value="{{ request.GET.q }}" placeholder="عنوان مورد نظر ...">
+                        <button><i class="zmdi zmdi-search"></i></button>
+                    </div>
+                    <div class="order-layer col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                        <div class="select-layer">
+<!--                            <select>-->
+<!--                                <option selected> مرتب سازی بر اساس عنوان </option>-->
+<!--                                <option> مرتب سازی بر اساس تاریخ انتشار </option>-->
+<!--                                <option> مرتب سازی بر اساس محبوبیت </option>-->
+<!--                            </select>-->
+
+                        </div>
+
+                    </div>
+
+                </form>
+                <!-- /end filter box -->
+
+                <!-- col -->
+                <section>
+                    {% for post in page_obj reversed %}
+
+                    <div class="article-box col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="article-inner">
+                            <img src="{{ post.title_image.url }}">
+                            <a href="{% url 'blog-page' post.pk %}">
+                            <h2>{{ post.headline }}</h2>
+                                </a>
+                            <p>{{ post.body_text|safe }}</p>
+                            <a href="#"><i class="fas fa-user"></i> {{ post.authors.all.0 }} </a>
+                            <span> <i class="fas fa-comment-alt"></i> {{ post.comments.count }} </span>
+                            <span> <i class="fas fa-eye"></i> 10 </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+                <!-- /col -->
+                
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paging">
+                    <ul class="pagination">
+                        <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-right"></i></a></li>
+                            {% endif %}
+                                {% for page in paginator.page_range %}
+                                {% if page == page_obj.number %}
+                                    <li class="page-item"><a class="page-link page-link-active" href="?page={{ page }}">{{ page }}</a></li>
+                                {% else %}
+                                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                                {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i></a></li>
+                            {% endif %}
+                              </ul>
+                      </ul>
+                </div>
+
+
+
+            </section>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
 {% endblock %}

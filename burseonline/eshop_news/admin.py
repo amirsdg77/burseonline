@@ -11,6 +11,4 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Blog)
-admin.site.register(Education)
-admin.site.register(Category)
 admin.site.register(Comment, CommentAdmin)

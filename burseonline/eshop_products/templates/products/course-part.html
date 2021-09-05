@@ -1,0 +1,237 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسمت نمونه دوره</title>
+    <link rel="stylesheet" href="{% static 'Site/css/course.css' %}">
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <!-- main content page -->
+    <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html"><span> منتور </span></a></li>
+                <li><a href="#"><span> دوره های آموزشی </span></a></li>
+                <li><a href="#" class="current"><span> طراحی سایت </span></a></li>
+                <li><a href="#" class="current"><span> javaScript </span></a></li>
+                <li><a href="#" class="current"><span> دوره تست </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <header class="intro">
+            <h1> آموزش مقدماتی تا پیشرفته جاوا اسکریپت </h1>
+        </header>
+        <div class="clearfix"></div>
+
+
+
+
+        <!-- information -->
+        <section class="col-lg-3 col-md-3 col-sm-12 col-xs-12 aside-course">
+
+            <!-- information of course -->
+            <div class="col-lg-12 col-md-12 course-information">
+                <h2><i></i>قیمت این دوره : <a class="cash-course">{{ videos.product_set.all.0.price }}</a></h2>
+
+                <a><i></i>مدرس دوره : <small>{{ videos.product_set.all.0.teacher }}</small></a><br>
+                <a><i></i>تعداد دانشجویان دوره : <small>{{ videos.product_set.all.0.teacher }}</small></a><br>
+                <a><i></i>تعداد ویدیوها : <small>25</small></a><br>
+                <a><i></i>مدت زمان دوره : <small>14:49:00</small></a><br>
+                <a><i></i>سطح دوره : <small>متوسط</small></a><br>
+                <a><i></i>وضعیت دوره : <small class="complete">اتمام دوره</small></a><br>
+                <a><i></i>تاریخ آخرین بروزرسانی : <small>13400/03/1</small></a><br>
+
+            </div>
+
+        </section>
+        <!-- / information -->
+
+
+        <!-- left side -->
+
+
+        <section class="col-lg-9 col-md-9 main-body-course">
+
+            <!-- Course Introduction -->
+            <div class="col-lg-12 course-introduction ">
+                <div class="course-image"></div>
+                <h2>دوره صفر تا صد جاوا اسکریپت</h2>
+                <p>{{ videos.product_set.all.0.description|safe }}</p>
+            </div>
+
+
+            <!-- Video display box -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 course-video">
+                <h2><i class="fas fa-video"></i>{{ videos.title }} <span>مـدت زمـان ایـن قسـمت : {{ videos.time }}</span></h2>
+
+                <video width="320px" height="240px" controls class="afterglow" id="myvideo">
+                    <source
+                            src="{{ videos.video.url }}"
+                            type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <p> </p>
+                <p>{{ videos.description|safe }} </p>
+
+
+            </div>
+
+
+            <!-- Course download box -->
+            <div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 course-download">
+                    <h2><i class="fas fa-list"></i>فـهـرسـت ویـدیـوها <a>مدت زمان دوره : 14:49:00</a></h2>
+                    {% for video in videos.product_set.all.0.videos.all %}
+                        {% if video.pk is not videos.pk %}
+                    <!-- col -->
+                            <div class="download-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <p class="part-number ">6</p>
+                        <div>
+                            <a> {{ video.title }} </a> <span>|</span>
+                            <a> 00:10:26 </a> <span>|</span>
+                            <a class="cash-course"> نقدی </a>
+                            <div class="download-icons">
+                                <a href="#"><i class="fas fa-download"></i></a>
+                                <a href="#"><i class="fas fa-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /col -->
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- /Course download box -->
+
+
+
+            <!-- comment box -->
+
+        </section>
+
+        <!-- / left side -->
+
+
+
+        <!-- right side -->
+        <section class="col-lg-3 col-md-3 aside-course">
+
+
+
+            <!-- tags -->
+            <div class="col-lg-12 course-tag">
+                <h3><i class="fas fa-tag"></i>برچسب ها :</h3>
+                <a href="#">برچسب</a>
+
+            </div>
+
+            <!-- side button -->
+            <div class="col-lg-12  button-group">
+                <button class="button-st purple">پرسش و پاسخ در رابطه با این دوره</button>
+                <button class="favorites-btn"><i class="fas fa-heart"></i> افزودن به علاقه مندی ها <i
+                        class="fas fa-heart"></i></button>
+            </div>
+
+            <!-- related-article -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 related-articles">
+                <h2>مقالات مرتبط</h2>
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                    <img src="Site/images/1 (5).png" alt="" class="col-lg-5 col-md-12">
+                    <a href="#" class="col-lg-7 col-md-12">10 موضوعی که برای تسلط بر جاوا اسکریپت باید یاد بگیرید</a>
+                </div>
+                
+            </div>
+
+        </section>
+        <!-- / right side -->
+
+
+    </div>
+    <!-- /main content page -->
+
+
+
+    <script src="{% static 'Site/ckeditor5/build/ckeditor.js' %}"></script>
+    <script>ClassicEditor
+            .create(document.querySelector('.editor'), {
+
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        '|',
+                        'outdent',
+                        'indent',
+                        '|',
+                        'imageUpload',
+                        'undo',
+                        'redo'
+                    ]
+                },
+                language: 'fa',
+                image: {
+                    toolbar: [
+                        'imageTextAlternative',
+                        'imageStyle:full',
+                        'imageStyle:side'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+                licenseKey: '',
+
+
+            })
+            .then(editor => {
+                window.editor = editor;
+
+
+
+
+
+
+
+
+            })
+            .catch(error => {
+                console.error('Oops, something went wrong!');
+                console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+                console.warn('Build id: d79o3t3u039i-5ovvpxebq8d4');
+                console.error(error);
+            });
+    </script>
+
+
+</body>
+
+</html>
+
+{% endblock %}

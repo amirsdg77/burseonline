@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
+from eshop_products.models import ProductCategory
 import datetime
 from django.utils import timezone
 import os
@@ -20,11 +22,15 @@ def upload_image_path(instance, filename):
 
 class Comment(models.Model):
     user = models.ManyToManyField(User)
-    body_text = models.TextField()
+    body_text = RichTextField(default=None, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return str(self.pk)
+
+    class Meta:
+        verbose_name = 'کامنت'
+        verbose_name_plural = 'کامنتها'
 
 
 class Category(models.Model):
@@ -42,16 +48,20 @@ class Category(models.Model):
 class Blog(models.Model):
     headline = models.CharField(max_length=255)
     title_image = models.ImageField(upload_to=upload_image_path, null=True)
-    body_text = models.TextField()
+    body_text = RichTextField(blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     authors = models.ManyToManyField(User)
-    number_of_pingbacks = models.IntegerField(default=0, null=True, blank=True)
+    visit = models.IntegerField(default=0, null=True, blank=True)
     rating = models.IntegerField(default=0, null=True, blank=True)
-    comments = models.ManyToManyField(Comment,null=True, blank=True)
-    category = models.ManyToManyField(Category)
+    comments = models.ManyToManyField(Comment, null=True, blank=True)
+    category = models.ManyToManyField(ProductCategory)
 
     def __str__(self):
         return self.headline
+
+    class Meta:
+        verbose_name = 'بلاگ'
+        verbose_name_plural = 'بلاگ ها'
 
 
 class Education(models.Model):
@@ -62,8 +72,8 @@ class Education(models.Model):
     authors = models.ManyToManyField(User)
     number_of_pingbacks = models.IntegerField(default=0, null=True, blank=True)
     rating = models.IntegerField(default=0, null=True, blank=True)
-    comments = models.ManyToManyField(Comment,null=True, blank=True)
-    category = models.ManyToManyField(Category)
+    comments = models.ManyToManyField(Comment, null=True, blank=True)
+    category = models.ManyToManyField(ProductCategory)
 
     def __str__(self):
         return str(self.headline)

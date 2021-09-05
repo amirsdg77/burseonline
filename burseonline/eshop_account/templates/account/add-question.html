@@ -1,0 +1,163 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<body xmlns="http://www.w3.org/1999/html">
+
+
+    <!-- main content page -->
+
+    <div class="container">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/"><span> منتور </span></a></li>
+                <li><a href="#" class="current"><span> ایجاد سوال جدید </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- main section -->
+        <section class="main-box col-lg-12">
+            <h2>ایجاد سوال جدید</h2>
+
+            <div class="filters">
+
+<!--                <div class="main-subject col-lg-12">-->
+<!--                    <label for="main-subject" class="col-lg-3"> انتخاب موضوع مورد نظر : </label>-->
+<!--                    <select id="main-subject" class="col-lg-3">-->
+<!--                        <optgroup label="برنامه نویسی موبایل"></optgroup>-->
+<!--                        <option value="">زامارین ( Xamarin ) </option>-->
+<!--                        <option value="">Kotlin</option>-->
+<!--                        <option value="">Android</option>-->
+
+<!--                        <optgroup label="برنامه نویسی وب"></optgroup>-->
+<!--                        <option value="">ASP.NET WebForms</option>-->
+<!--                        <option value="">ASP.NET MVC</option>-->
+<!--                        <option value="">php</option>-->
+
+<!--                        <optgroup label="طراحی سایت"></optgroup>-->
+<!--                        <option value="">Angular</option>-->
+<!--                        <option value="">BootStrap</option>-->
+<!--                        <option value="">Jquery</option>-->
+
+<!--                        <optgroup label="تحت ویندوز"></optgroup>-->
+<!--                        <option value="">CSharp</option>-->
+<!--                        <option value="">NodeJs</option>-->
+
+<!--                        <optgroup label="سئو"></optgroup>-->
+<!--                        <option value="">سئو</option>-->
+
+<!--                        <optgroup label="سیستم عامل"></optgroup>-->
+<!--                        <option value="">اینترنت</option>-->
+<!--                        <option value="">Docker</option>-->
+
+<!--                        <optgroup label="امنیت"></optgroup>-->
+<!--                        <option value="">امنیت</option>-->
+
+<!--                        <optgroup label="گرافیک"></optgroup>-->
+<!--                        <option value="">Photoshop</option>-->
+<!--                        <option value="">Premiere</option>-->
+
+<!--                    </select>-->
+<!--                </div>-->
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <div>
+                {{ question_form.category }}
+                </div><br>
+                {{ question_form.title }}
+                <div>
+                    {{ question_form.media }}
+                {{ question_form.body_text }}
+                </div>
+                <button type="submit" class="button-st purple">ثبت سوال</button>
+            </form>
+
+        </section>
+        <!-- / maib section -->
+
+        
+
+
+
+
+    </div>
+    <!-- / main content page -->
+
+
+    <!-- javaScript files -->
+	<script>ClassicEditor
+			.create( document.querySelector( '.editor' ), {
+
+				toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'fontColor',
+						'fontSize',
+						'highlight',
+						'alignment',
+						'|',
+						'outdent',
+						'indent',
+						'|',
+						'codeBlock',
+						'htmlEmbed',
+						'imageUpload',
+						'blockQuote',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo'
+					]
+				},
+				language: 'fa',
+				image: {
+					toolbar: [
+						'imageTextAlternative',
+						'imageStyle:full',
+						'imageStyle:side'
+					]
+				},
+				table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells'
+					]
+				},
+				licenseKey: '',
+
+
+			} )
+			.then( editor => {
+				window.editor = editor;
+
+
+
+
+
+
+
+
+			} )
+			.catch( error => {
+				console.error( 'Oops, something went wrong!' );
+				console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+				console.warn( 'Build id: bdsm5bfgqtoa-a903rxkkrad3' );
+				console.error( error );
+			} );
+	</script>
+</body>
+{% endblock %}

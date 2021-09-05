@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="main-menu">
+        <div class="container zero-padding">
+            <nav>
+
+
+                <ul>
+                    {% for cat in category %}
+                    <li>
+                        <a href="#"><i class="zmdi"></i> {{ cat }} </a>
+
+                        <ul>
+                            {% for c in cat.productcategory_set.all reversed %}
+                            <li><a href="{% url 'product-category' c.pk %}"><i class="zmdi zmdi-arrow-left wow animated infinite fadeInRight"></i>
+                                {{ c }} </a></li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>

@@ -1,0 +1,126 @@
+
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد</title>
+    <link rel="stylesheet" href="{% static 'Site/css/acount.css' %}">
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <!-- breadcrumb -->
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="/"><span> منتور </span></a></li>
+                    <li><a href="#" class="current"><span> داشبورد </span></a></li>
+                </ul>
+            </div>
+            <!-- /breadcrumb -->
+            <!-- fixed dashboard -->
+            <div class="dashboard col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="avatar">
+                    {% if user.profile.image %}
+                    <img src="{{ user.profile.image.url }}" alt="">
+                    {% endif %}
+                    <p class="user-name">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+
+                <ul>
+                    <li class="active-mode"><a href="/user"> <i class="fas fa-house-user"></i> داشبورد </a></li>
+                    <li><a href="/user/edit"> <i class="fas fa-user-cog"></i> ویرایش حساب کاربری</a></li>
+                    <li><a href="/user/change_password"> <i class="fas fa-key"></i> تغییر رمز عبور</a></li>
+                    <li><a href="/user/products"> <i class="fas fa-cart-arrow-down"></i> دوره های من</a></li>
+                    <li><a href="/user/wallet"> <i class="fas fa-wallet"></i> کیف پول</a></li>
+                    <li><a href="/user/factor"> <i class="fas fa-receipt"></i> فاکتور ها</a></li>
+                    <li><a href="/user/support"> <i class="far fa-comment-dots"></i> تیکت ها </a></li>
+                    <li><a href="/user/my-questions"> <i class="far fa-question-circle"></i> سوالات من</a></li>
+                    <li><a href="/user/consultation_request"> <i class="fas fa-user-clock"></i> درخواست های مشاوره</a></li>
+                    <li><a href="/logout"> <i class="fas fa-sign-out-alt"></i> خروج از حساب</a></li>
+                </ul>
+            </div>
+            <!-- profile -->
+            <div class="profile col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <h2>اطلاعات حساب کاربری</h2>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <i class="zmdi zmdi-account"><a>نام و نام خانوادگی : <small>{{ user.first_name }} {{ user.last_name }}</small></a></i><br>
+                    <i class="zmdi zmdi-account-circle"><a>نام کاربری : <small>{{ user.username }}</small></a></i><br>
+                    <i class="zmdi zmdi-phone-in-talk"><a>شماره تماس : <small>#</small></a></i><br>
+                    <i class="zmdi zmdi-email"><a>ایمیل : <small>{{ user.email }}</small></a></i><br>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <i class="zmdi zmdi-time"><a>تاریخ عضویت : <small>#</small></a></i><br>
+                    <i class="zmdi zmdi-lamp"><a>مهارت ها : <small>{{ user.profile.skills }}</small></a></i><br>
+                    <i class="zmdi zmdi-calendar"><a>تاریخ تولد : <small>#</small></a></i><br>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <a> <i class="zmdi zmdi-fire"></i> بیوگرافی : <small>{{ user.profile.bio }}</small></a><br>
+                </div>
+
+            </div>
+<!--            <div class="profile favorites col-lg-9 col-md-9 col-sm-12 col-xs-12">-->
+<!--                <h2>علاقه مندی ها</h2>-->
+<!--                <table class="table table-hover table-bordered" style="text-align: center;">-->
+<!--                    <tbody class="tb">-->
+<!--                        <tr class="tr">-->
+<!--                            <td><a href="#">دوره صفر تا صد جاوا اسکریپت</a></td>-->
+<!--                            <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#del-modal"></i></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="tr">-->
+<!--                            <td><a href="#">دوره صفر تا صد جاوا اسکریپت</a></td>-->
+<!--                            <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#del-modal"></i></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="tr">-->
+<!--                            <td><a href="#">دوره صفر تا صد جاوا اسکریپت</a></td>-->
+<!--                            <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#del-modal"></i></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="tr">-->
+<!--                            <td><a href="#">دوره صفر تا صد جاوا اسکریپت</a></td>-->
+<!--                            <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#del-modal"></i></td>-->
+<!--                        </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+
+        </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div class="modal" id="del-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <i class="fas fas fa-exclamation"></i>
+                    <p>آیا از حذف مطمئن هستید؟</p>
+                    
+                </div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleted()">yes</button> 
+                <button type="button"class="btn btn-danger" data-dismiss="modal">no</button>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+{% endblock %}

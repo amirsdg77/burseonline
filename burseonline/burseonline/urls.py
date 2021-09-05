@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 from burseonline import settings
-from .view import home_page, header, footer, about_page
+from .view import home_page, header, footer, about_page, contact_us, home_header, main_menu, fixed_menu,\
+    top_slider, news_letter, advisors, word_with_us, masters, master_page
 
 
 urlpatterns = [
@@ -31,11 +33,40 @@ urlpatterns = [
     path('', include('eshop_news.urls')),
 
     path('about-us', about_page),
+    path('contact_us', contact_us),
+    path('advisors', advisors),
+    path('work_with_us', word_with_us),
+    path('masters', masters),
+    path('masters/<int:pk>', master_page, name='master-page'),
 
     path('header', header, name="header"),
+    path('Home_header', home_header, name="Home_header"),
+    path('main_menu', main_menu, name="main_menu"),
+    path('fixed_menu', fixed_menu, name="fixed_menu"),
+    path('top_slider', top_slider, name="top_slider"),
+    path('news_letter', news_letter, name="news_letter"),
     path('footer', footer, name="footer"),
 
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    # path('accounts/', include('django.contrib.auth.urls')),
+
+    path('password_change/done/',
+         auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'),
+         name='password_change_done'),
+
+    path('password_change/', auth_views.PasswordChangeView.as_view(template_name='registration/password_change.html'),
+         name='password_change'),
+
+    path('password_reset/done/',
+         auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_done.html'),
+         name='password_reset_done'),
+
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+
+    path('reset/done/',
+         auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
+         name='password_reset_complete'),
 ]
 
 

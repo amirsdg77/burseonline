@@ -4,9 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 # Create your views here.
-from eshop_order.forms import UserNewOrderForm
+from eshop_order.forms import UserNewOrderForm, WalletForm
 from eshop_order.models import Order, OrderDetail
 from eshop_products.models import Product
+from eshop_account.models import Wallet, Factor
 
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
@@ -23,15 +24,15 @@ def add_user_order(request):
             order = Order.objects.create(owner_id=request.user.id, is_paid=False)
 
         product_id = new_order_form.cleaned_data.get('product_id')
-        count = new_order_form.cleaned_data.get('count')
+        count = 1
         if count < 0:
             count = 1
         product = Product.objects.get_by_id(product_id=product_id)
-        order.orderdetail_set.create(product_id=product.id, price=product.price, count=count)
+        order.orderdetail_set.create(product_id=product.id, price=product.price * (100 - product.discount_price) / 100, count=count)
         # todo: redirect user to user panel
         # return redirect('/user/orders')
 
-        return redirect(f'/products/{product.id}/{product.title.replace(" ", "-")}')
+        return redirect(f'/products/{product.id}')
 
     return redirect('/')
 
@@ -39,6 +40,7 @@ def add_user_order(request):
 @login_required(login_url='/login')
 def user_open_order(request, *args, **kwargs):
     context = {
+        'user': request.user,
         'order': None,
         'details': None,
         'total': 0
@@ -102,6 +104,8 @@ def verify(request, *args, **kwargs):
             for product in user_order:
                 current_user.profile.bought_products.add(product)
 
+            current_user.profile.add(Factor(title=order_id, price=user_order.orderdetail.price, description=""))
+
             current_user.save()
             user_order.save()
             return HttpResponse('Transaction success.\nRefID: ' + str(result.RefID))
@@ -111,3 +115,24 @@ def verify(request, *args, **kwargs):
             return HttpResponse('Transaction failed.\nStatus: ' + str(result.Status))
     else:
         return HttpResponse('Transaction failed or canceled by user')
+
+
+def wallet(request):
+    form = WalletForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            total_price = int(form.cleaned_data.get('price'))
+            result = client.service.PaymentRequest(
+                MERCHANT, total_price, description, email, mobile, f"{CallbackURL}/{0}"
+            )
+            if result.Status == 100:
+                return redirect('https://www.zarinpal.com/pg/StartPay/' + str(result.Authority))
+            else:
+                return HttpResponse('Error code: ' + str(result.Status))
+
+    context = {
+        'user': request.user,
+        'form': form
+    }
+
+    return render(request, 'account/dashboard/wallet.html', context)

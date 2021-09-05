@@ -1,27 +1,124 @@
 {% extends 'shared/_MainLayout.html' %}
+{% load static %}
 
 {% block content %}
 
-    <div class="container">
-        <section id="form"><!--form-->
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="login-form"><!--login form-->
-                        <h2>ورود به حساب کاربـری :</h2>
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ login_form }}
-                            <span>
-								<a href="forget-password.html">رمـز عبـور خود را فراموش کرده ام</a>
-							</span>
-                            <button type="submit" class="btn btn-default">ورود</button>
-                        </form>
-                    </div><!--/login form-->
-                </div>
-            </div>
-        </section>
-    </div>
-    <!--/form-->
+<html class="no-js" dir="rtl" lang="fa-IR">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود</title>
+    <link rel="stylesheet" href="{% static 'Site/css/client.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+    <!-- main content page -->
+    <div class="client-page">
+        <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html" ><span> منتور </span></a></li>
+                <li><a href="#"class="current"><span>  ورود- ثبت نام </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+            <div class="client-form">
+                <div class="inner">
+
+                    <div class="side-box">
+                        <div class="sign-up-box">
+                            <h2>هنوز ثبت نام نکردی؟</h2>
+                            <p>با ثبت نام در سایت ، از مزایای کاربران سایت بهره مند شوید</p>
+                            <a href="/register">
+                            <button class="sign-up-button" onclick="signUpBtn()">ثبت نام</button>
+                            </a>
+                        </div>
+                        <div class="sign-in-box">
+                            <h2>حساب کاربری داری؟</h2>
+                            <p>با ورود به حساب کاربری خود ، از مزایای کاربران سایت بهره مند شوید</p>
+                            <button class="sign-in-button" onclick="signInBtn()">ورود</button>
+                        </div>
+                    </div>
+
+                    <form method="post" class="col-lg-6 sign-in main-body">
+                        {% csrf_token %}
+                        <h1> ورود به سایت </h1>
+                        <p>
+                            با ورود به حساب کاربری خود ، از مزایای کاربران سایت بهره مند شوید
+                        </p>
+
+                        <img src="{% static 'Site/images/Security On-bro (1).png' %}">
+
+                        <div class="row">
+
+                            <div class="col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-account"></i>
+                                    {{ login_form.user_name }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-lock"></i>
+                                    {{ login_form.password }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-5 pull-right">
+                                <div class="checkbox-remember">
+                                    <input type="checkbox" id="chk-remember" data-val="true"
+                                        data-val-required="The RememberMe field is required." name="RememberMe"
+                                        value="true">
+                                    <label for="chk-remember"> مرا بخاطر بسپار </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-xs-12">
+                                <button class="button-st green pull-left" type="submit" style="margin-top: -5px;"> ورود به سایت
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="other-ways">
+                            <div class="inside">
+                                <a class="google-account" href="#"><i class="zmdi zmdi-google-old"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="other-link">
+                            <a href="{% url 'password_reset' %}"><i class="zmdi zmdi-lock"></i> رمز عبور خود رافراموش کرده ام ! </a>
+                            <a class="sign-up-button mobile-btn" onclick="signUpMobile()"><i class="fas fa-user-plus"></i> ثبت نام در سایت </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- /main content page -->
+
+
+
+</body>
+
+</html>
 
 {% endblock %}

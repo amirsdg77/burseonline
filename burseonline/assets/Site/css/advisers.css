@@ -1,0 +1,113 @@
+.intro {
+    padding: 25px 0 30px;
+    position: relative;
+    width: auto;
+    display: table;
+    float: right;
+}
+
+.intro h1 {
+    width: auto;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e2f38;
+    display: inline-table;
+    line-height: 35px;
+}
+
+.intro span {
+    width: auto;
+    white-space: nowrap;
+    display: inline-table;
+    font-size: 15px;
+    color: #686e71;
+    padding-right: 15px
+}
+
+.breadcrumb {
+    padding: 25px 0 30px;
+    width: auto;
+    display: table;
+    float: left;
+    position: relative;
+    top: 3px
+}
+
+/* ********************* advisers box ******************* */
+.advisers-box{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.adviser-profile {
+    background: url(../images/img_avatar1.png);
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    border-radius: 100%;
+    margin-left: 50px;
+}
+.advisers-box h2{
+    font-size: 18px;
+    color: #2f0c55;
+    margin: 20px 0;
+}
+
+.advisers-box a{
+    position: absolute;
+    left: -120px;
+    top: 50px;
+    color: #6b3b9e;
+    font-size: 18px;
+}
+
+
+/* ************* 1199 ********************* */
+@media screen and (max-width : 1199px) {
+    .advisers-box p{
+        font-size: 15px;
+    }
+    .advisers-box h2{
+        font-size: 17px;
+    }
+    .advisers-box a{
+        font-size: 17px;
+    }
+
+}
+
+/* ******************* 991 *********************** */
+@media screen and (max-width : 991px) {
+    .adviser-profile{
+        margin-left: 0;
+    }
+    .advisers-box p{
+        font-size: 14px;
+    }
+    .advisers-box h2{
+        font-size: 16px;
+    }
+    .advisers-box a{
+        font-size: 16px;
+        left: -80px;
+    }
+}
+
+/* ************************** 767 ******************** */
+@media screen and (max-width : 767px) {
+    .advisers-box a{
+        font-size: 16px;
+        left: 10px;
+        top: -50px;
+    }
+}
+
+
+/* ***************** 480 ********************* */
+@media screen and (max-width : 480px) {
+
+}

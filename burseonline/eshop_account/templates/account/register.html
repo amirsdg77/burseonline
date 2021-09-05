@@ -1,47 +1,229 @@
 {% extends 'shared/_MainLayout.html' %}
+{% load static %}
 
 {% block content %}
 
-    <div class="container">
-        <section id="form"><!--form-->
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="signup-form"><!--sign up form-->
-                        <h2>ثبت نام کاربـر جدیـد</h2>
-                        <form method="post">
-                            {% csrf_token %}
+<html class="no-js" dir="rtl" lang="fa-IR">
 
-                            <label for="{{ register_form.user_name.id_for_label }}">{{ register_form.user_name.label }}</label>
-                            {{ register_form.user_name }}
-                            {% for error in register_form.user_name.errors %}
-                                <p style="color: red;">{{ error }}</p>
-                            {% endfor %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <link rel="stylesheet" href="{% static 'Site/css/client.css' %}">
 
-                            <label for="{{ register_form.email.id_for_label }}">{{ register_form.email.label }}</label>
-                            {{ register_form.email }}
-                            {% for error in register_form.email.errors %}
-                                <p style="color: red;">{{ error }}</p>
-                            {% endfor %}
 
-                            <label for="{{ register_form.password.id_for_label }}">{{ register_form.password.label }}</label>
-                            {{ register_form.password }}
-                            {% for error in register_form.password.errors %}
-                                <p style="color: red;">{{ error }}</p>
-                            {% endfor %}
+</head>
 
-                            <label for="{{ register_form.re_password.id_for_label }}">{{ register_form.re_password.label }}</label>
-                            {{ register_form.re_password }}
-                            {% for error in register_form.re_password.errors %}
-                                <p style="color: red;">{{ error }}</p>
-                            {% endfor %}
-                            <button type="submit" class="btn btn-default">ثبت نام</button>
-                        </form>
-                    </div><!--/sign up form-->
+<body>
+
+
+
+
+    <!-- main content page -->
+    <div class="client-page">
+        <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/" ><span> منتور </span></a></li>
+                <li><a href="#"class="current"><span>  ورود- ثبت نام </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+            <div class="client-form">
+                <div class="inner">
+
+                    <div class="side-box">
+                        <div class="sign-up-box">
+                            <h2>هنوز ثبت نام نکردی؟</h2>
+                            <p>با ثبت نام در سایت ، از مزایای کاربران سایت بهره مند شوید</p>
+                            <button class="sign-up-button" onclick="signUpBtn()">ثبت نام</button>
+                        </div>
+                        <div class="sign-in-box">
+                            <h2>حساب کاربری داری؟</h2>
+                            <p>با ورود به حساب کاربری خود ، از مزایای کاربران سایت بهره مند شوید</p>
+                            <a href="/login">
+                            <button class="sign-in-button" onclick="signInBtn()">ورود</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form method="post" action="#" class="col-lg-6 sign-in main-body">
+                        <h1> ورود به سایت </h1>
+                        <p>
+                            با ورود به حساب کاربری خود ، از مزایای کاربران سایت بهره مند شوید
+                        </p>
+
+                        <img src="{% static 'Site/images/Security On-bro (1).png' %}">
+
+                        <div class="row">
+
+                            <div class="col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-account"></i>
+                                    <input type="text" placeholder=" ایمیل">
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-lock"></i>
+                                    <input type="password" placeholder="رمز عبور" name="Password">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-5 pull-right">
+                                <div class="checkbox-remember">
+                                    <input type="checkbox" id="chk-remember" data-val="true"
+                                        data-val-required="The RememberMe field is required." name="RememberMe"
+                                        value="true">
+                                    <label for="chk-remember"> مرا بخاطر بسپار </label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-xs-12">
+                                <button class="button-st green pull-left" style="margin-top: -5px;"> ورود به سایت
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="other-ways">
+                            <div class="inside">
+                                <a class="google-account" href="#"><i class="zmdi zmdi-google-old"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="other-link">
+                            <a href="#"><i class="zmdi zmdi-lock"></i> رمز عبور خود رافراموش کرده ام ! </a>
+                            <a class="sign-up-button mobile-btn" onclick="signUpMobile()"><i class="fas fa-user-plus"></i> ثبت نام در سایت </a>
+
+                        </div>
+
+                    </form>
+                    <form method="post" class="col-lg-6 sign-up main-body">
+                        {% csrf_token %}
+                        <input type="hidden" value="" />
+                        <h1> ثبت نام در سایت </h1>
+                        <p>
+                            با ثبت نام در سایت ، از مزایای کاربران سایت بهره مند شوید
+                        </p>
+
+                        <img src="{% static 'Site/images/In progress-pana.png' %}">
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-account"></i>
+                                    {{ register_form.user_name }}
+                                    {% for error in register_form.user_name.errors %}
+                                        <p style="color: red;">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+<!--                            <div class="col-md-6 col-sm-12 col-xs-12">-->
+<!--                                <div class="input-element">-->
+<!--                                    <i class="zmdi zmdi-phone"></i>-->
+<!--                                    <input type="text" placeholder="موبایل" name="Mobile" value="">-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-email"></i>
+                                    {{ register_form.email }}
+                                    {% for error in register_form.email.errors %}
+                                        <p style="color: red;">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-lock"></i>
+                                    {{ register_form.password }}
+                                    {% for error in register_form.password.errors %}
+                                        <p style="color: red;">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                <div class="input-element">
+                                    <i class="zmdi zmdi-lock"></i>
+                                    {{ register_form.re_password }}
+                                    {% for error in register_form.re_password.errors %}
+                                        <p style="color: red;">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="select-element">
+                                    <label> چگونه با ما آشنا شدید ؟ </label>
+                                    <select>
+                                        <option value="TelegramChanel"> از طریق تلگرام </option>
+                                        <option value="Friend"> معرفی دوستان </option>
+                                        <option value="Baner"> تبلیغات </option>
+                                        <option value="Serach"> موتورهای جستجوگر </option>
+                                        <option value="Accidentally"> بصورت تصادفی </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="input-element">
+                                    <div class="validation-summary-valid">
+                                        <ul>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <button type="submit" class="button-st green pull-left"> ثبت نام در سایت </button>
+                                <div class="other-link">
+                                    <a class="sign-up-button mobile-btn" onclick="signInMobile()"> <i class="fas fa-sign-in-alt"></i> ورود به حساب  </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
                 </div>
+
             </div>
-        </section>
+
+        </div>
     </div>
-    <!--/form-->
 
+    <!-- /main content page -->
+ <script>
+    (function () {
+        const signInBox = document.querySelector(".sign-in-box");
+    const signUpBox = document.querySelector(".sign-up-box");
+    const signInButton = document.querySelector(".sign-in-button");
+    const signUpButton = document.querySelector(".sign-up-button");
+    const signIn = document.querySelector(".sign-in");
+    const signUp = document.querySelector(".sign-up")
 
+    signIn.style.left = "50%";
+    signUp.style.left = "50%";
+    signUp.style.zIndex = "5";
+    signUp.style.opacity = "1";
+    signInBox.style.right = "50%";
+    signUpBox.style.right = "50%";
+    signUpBox.style.zIndex = "1";
+    signUpBox.style.borderRadius = "50px 0 0 50px"
+    signInBox.style.borderRadius = "50px 0 0 50px"
+    })();
+</script>
+
+</body>
+
+</html>
 {% endblock %}

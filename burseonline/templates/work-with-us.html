@@ -1,0 +1,55 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<html class="no-js" dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>همکاری با منتور</title>
+    <link rel="stylesheet" href="{% static 'Site/css/work-with-us.css' %}">
+
+
+
+</head>
+
+<body>
+
+
+
+    <!-- main content page -->
+
+    <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html"><span> منتور </span></a></li>
+                <li><a href="#" class="current"><span> همکاری با منتور </span></a></li>
+            </ul>
+        </div>
+        <!-- /breadcrumb -->
+
+        <!-- work with us -->
+        <section class="work-mentor col-lg-12">
+            <h2><i class="fas fa-briefcase"></i>همکاری با منتور</h2>
+            <div>
+                <p>شرایط و قوانین همکاری با ما </p>
+                {{ text.body_text|safe }}
+            </div>
+  
+        </section>
+
+
+
+    </div>
+
+    <!-- /main content page -->
+
+</body>
+
+</html>
+
+{% endblock %}

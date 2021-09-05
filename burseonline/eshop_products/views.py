@@ -9,12 +9,13 @@ from django.http.response import HttpResponse
 from eshop_order.forms import UserNewOrderForm
 from .models import Product, ProductGallery, Videos
 from django.http import Http404
-from eshop_products_category.models import ProductCategory
+from eshop_products_category.models import ProductCategory, MotherCategory
 
 from eshop_account.forms import VideoForm
 from eshop_setting.models import SiteSetting
 from eshop_products_category.forms import CategoryForm
 from eshop_news.forms import CommentForm
+from eshop_news.models import Blog
 
 # Create your views here.
 
@@ -25,6 +26,27 @@ class ProductsList(ListView):
 
     def get_queryset(self):
         return Product.objects.get_active_products()
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductsList, self).get_context_data(**kwargs)
+        context.update({
+            'categories': MotherCategory.objects.all()
+        })
+        return context
+
+
+def products_by_category(request, pk):
+    if pk == 0:
+        product_list = [i for i in Product.objects.all() if i.discount_price != 0]
+    else:
+        product_list = [i for i in Product.objects.all() if i.categories.all()[0].pk == pk]
+
+    context = {
+        'page_obj': product_list,
+        'categories': MotherCategory.objects.all(),
+    }
+
+    return render(request, "products/products_list.html", context)
 
 
 def product_detail(request, pk):
@@ -45,14 +67,18 @@ def product_detail(request, pk):
 
     form = CommentForm(request.POST or None)
 
+    blogs = [i for i in Blog.objects.all() if i.category.all()[0].pk == product.categories.all()[0].pk]
+
     context = {
+        'user': request.user,
         'product': product,
         'galleries': grouped_galleries,
         'related_products': grouped_related_products,
         'new_order_form': new_order_form,
-        'form': form
+        'form': form,
+        'blog': blogs
     }
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/course.html', context)
 
 
 def add_comment(request, pk):
@@ -64,7 +90,7 @@ def add_comment(request, pk):
         comment.save()
         product.comment.add(comment)
         product.save()
-    return redirect('/')
+    return redirect('/products/' + str(pk))
 
 
 class ProductsListByCategory(ListView):
@@ -174,6 +200,12 @@ def upload_video(request):
 def display_video(request, pk):
     print("hi")
 
+
+def add_free_product(request, pk):
+    product = Product.objects.get_by_id(pk)
+    request.user.profile.bought_products.add(product)
+
+    return redirect('/user/products')
 
 
 
